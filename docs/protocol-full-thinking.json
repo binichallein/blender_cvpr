@@ -1,0 +1,1416 @@
+{
+  "frozen": true,
+  "frozen_at_utc": "2026-10-14T17:12:40.939799+00:00",
+  "name": "calibrated_relative_photometric_success_v1",
+  "official_binary_score": false,
+  "definition": "PL residual above the category noise floor, divided by start residual, <= category threshold. N-CLIP is reported separately.",
+  "threshold_selection": "Geometric midpoint between largest positive and smallest negative relative PL; fail closed if controls overlap.",
+  "calibration_limitations": "Only two tasks per category; near/half parameter edits are operational controls, not human correctness labels. These tasks are excluded from subset selection but remain part of a conditional full run.",
+  "category_rules": {
+    "blendshape": {
+      "noise_floor": {
+        "pl": 1.7892849979439518e-09,
+        "nclip": 4.172325134277344e-07
+      },
+      "rule": {
+        "pl": 0.15590809731812624
+      },
+      "max_positive_relative_pl": 0.05537895959893316,
+      "min_negative_relative_pl": 0.43892725658621057
+    },
+    "geometry": {
+      "noise_floor": {
+        "pl": 2.542153524724237e-10,
+        "nclip": 7.947285970052083e-08
+      },
+      "rule": {
+        "pl": 0.1856794138594553
+      },
+      "max_positive_relative_pl": 0.09938329379730193,
+      "min_negative_relative_pl": 0.34690784953765397
+    },
+    "lighting": {
+      "noise_floor": {
+        "pl": 7.528687728797223e-09,
+        "nclip": 2.682209014892578e-07
+      },
+      "rule": {
+        "pl": 0.012520717183937505
+      },
+      "max_positive_relative_pl": 0.0013832620134859117,
+      "min_negative_relative_pl": 0.11333236745588156
+    },
+    "material": {
+      "noise_floor": {
+        "pl": 4.302106171305553e-10,
+        "nclip": 0.0
+      },
+      "rule": {
+        "pl": 0.009744746465401697
+      },
+      "max_positive_relative_pl": 0.004427232753510326,
+      "min_negative_relative_pl": 0.021449083199808185
+    },
+    "placement": {
+      "noise_floor": {
+        "pl": 7.022699992365045e-08,
+        "nclip": 5.066394805908203e-07
+      },
+      "rule": {
+        "pl": 0.30822738969123537
+      },
+      "max_positive_relative_pl": 0.17043279870580963,
+      "min_negative_relative_pl": 0.5574286432968973
+    }
+  },
+  "calibration_ids": [
+    "blendshape62",
+    "blendshape1",
+    "geometry30",
+    "geometry38",
+    "lighting50",
+    "lighting48",
+    "material23",
+    "material6",
+    "placement24",
+    "placement33"
+  ],
+  "archive_sha256": "119e94735c7b9f68aa75e4870d18581f3fe3a736fbb8b0d07589e972230e2bf2",
+  "controls": [
+    {
+      "task": "blendshape1",
+      "category": "blendshape",
+      "scores": {
+        "start": {
+          "pl": 0.007190309930592775,
+          "nclip": 0.021005451679229736,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.008598542772233486,
+              "nclip": 0.0326918363571167
+            },
+            {
+              "view": "render2.png",
+              "pl": 0.0057820770889520645,
+              "nclip": 0.009319067001342773
+            }
+          ]
+        },
+        "repeat": {
+          "pl": 1.7892849979439518e-09,
+          "nclip": 4.172325134277344e-07,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 1.4861819552791644e-09,
+              "nclip": 5.960464477539062e-07
+            },
+            {
+              "view": "render2.png",
+              "pl": 2.092388040608739e-09,
+              "nclip": 2.384185791015625e-07
+            }
+          ]
+        },
+        "near": {
+          "pl": 0.0003981935733463615,
+          "nclip": 0.0005204677581787109,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.0005919710965827107,
+              "nclip": 0.0008393526077270508
+            },
+            {
+              "view": "render2.png",
+              "pl": 0.0002044160501100123,
+              "nclip": 0.0002015829086303711
+            }
+          ]
+        },
+        "half": {
+          "pl": 0.007190323667600751,
+          "nclip": 0.021001338958740234,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.00859855953603983,
+              "nclip": 0.032689690589904785
+            },
+            {
+              "view": "render2.png",
+              "pl": 0.005782087799161673,
+              "nclip": 0.009312987327575684
+            }
+          ]
+        },
+        "alternate_seed": {
+          "pl": 5.1835095746355364e-05,
+          "nclip": 0.0004468262195587158,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 1.3405949175648857e-05,
+              "nclip": 0.0002655982971191406
+            },
+            {
+              "view": "render2.png",
+              "pl": 9.026424231706187e-05,
+              "nclip": 0.000628054141998291
+            }
+          ]
+        },
+        "release_goal": {
+          "pl": 5.1675453050847864e-05,
+          "nclip": 0.0001932680606842041,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 1.0954218851111364e-05,
+              "nclip": 8.380413055419922e-05
+            },
+            {
+              "view": "render2.png",
+              "pl": 9.239668725058436e-05,
+              "nclip": 0.000302731990814209
+            }
+          ]
+        }
+      },
+      "relative": {
+        "repeat": {
+          "pl": 0.0,
+          "nclip": 0.0
+        },
+        "near": {
+          "pl": 0.05537895959893316,
+          "nclip": 0.024758375283054204
+        },
+        "half": {
+          "pl": 1.000001910489468,
+          "nclip": 0.9998042031066441
+        },
+        "start": {
+          "pl": 1.0,
+          "nclip": 1.0
+        }
+      }
+    },
+    {
+      "task": "blendshape62",
+      "category": "blendshape",
+      "scores": {
+        "start": {
+          "pl": 0.002211304963566363,
+          "nclip": 0.020369380712509155,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.0018635811284184456,
+              "nclip": 0.015676558017730713
+            },
+            {
+              "view": "render2.png",
+              "pl": 0.00255902879871428,
+              "nclip": 0.025062203407287598
+            }
+          ]
+        },
+        "repeat": {
+          "pl": 5.279857384632436e-10,
+          "nclip": 1.4901161193847656e-07,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 4.888756621745927e-10,
+              "nclip": 0.0
+            },
+            {
+              "view": "render2.png",
+              "pl": 5.670958147518945e-10,
+              "nclip": 2.980232238769531e-07
+            }
+          ]
+        },
+        "near": {
+          "pl": 0.00011052730042138137,
+          "nclip": 0.00023004412651062012,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.00012071669334545732,
+              "nclip": 0.0002027750015258789
+            },
+            {
+              "view": "render2.png",
+              "pl": 0.00010033790749730542,
+              "nclip": 0.00025731325149536133
+            }
+          ]
+        },
+        "half": {
+          "pl": 0.0009706030250526965,
+          "nclip": 0.009442239999771118,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.0007928959093987942,
+              "nclip": 0.007929384708404541
+            },
+            {
+              "view": "render2.png",
+              "pl": 0.0011483101407065988,
+              "nclip": 0.010955095291137695
+            }
+          ]
+        },
+        "alternate_seed": {
+          "pl": 6.6034041083185e-05,
+          "nclip": 0.00026801228523254395,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 8.46984694362618e-05,
+              "nclip": 0.00027751922607421875
+            },
+            {
+              "view": "render2.png",
+              "pl": 4.73696127301082e-05,
+              "nclip": 0.00025850534439086914
+            }
+          ]
+        },
+        "release_goal": {
+          "pl": 6.995624062255956e-05,
+          "nclip": 0.00027954578399658203,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 9.120847244048491e-05,
+              "nclip": 0.00028204917907714844
+            },
+            {
+              "view": "render2.png",
+              "pl": 4.8704008804634213e-05,
+              "nclip": 0.0002770423889160156
+            }
+          ]
+        }
+      },
+      "relative": {
+        "repeat": {
+          "pl": 0.0,
+          "nclip": 0.0
+        },
+        "near": {
+          "pl": 0.0499820704921216,
+          "nclip": 0.011273371579398627
+        },
+        "half": {
+          "pl": 0.43892725658621057,
+          "nclip": 0.4635396777322746
+        },
+        "start": {
+          "pl": 1.0,
+          "nclip": 1.0
+        }
+      }
+    },
+    {
+      "task": "geometry30",
+      "category": "geometry",
+      "scores": {
+        "start": {
+          "pl": 0.06411138673623402,
+          "nclip": 0.1434982419013977,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.0503128319978714,
+              "nclip": 0.1289365291595459
+            },
+            {
+              "view": "render2.png",
+              "pl": 0.04314735531806946,
+              "nclip": 0.11997270584106445
+            },
+            {
+              "view": "render3.png",
+              "pl": 0.09887397289276123,
+              "nclip": 0.18158549070358276
+            }
+          ]
+        },
+        "repeat": {
+          "pl": 7.822010631800917e-11,
+          "nclip": 7.947285970052083e-08,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 1.1733015947701375e-10,
+              "nclip": 1.1920928955078125e-07
+            },
+            {
+              "view": "render2.png",
+              "pl": 5.866507973850688e-11,
+              "nclip": 0.0
+            },
+            {
+              "view": "render3.png",
+              "pl": 5.866507973850688e-11,
+              "nclip": 1.1920928955078125e-07
+            }
+          ]
+        },
+        "near": {
+          "pl": 9.125678916236761e-11,
+          "nclip": 0.0,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 1.1733015947701375e-10,
+              "nclip": 0.0
+            },
+            {
+              "view": "render2.png",
+              "pl": 7.822010400504453e-11,
+              "nclip": 0.0
+            },
+            {
+              "view": "render3.png",
+              "pl": 7.822010400504453e-11,
+              "nclip": 0.0
+            }
+          ]
+        },
+        "half": {
+          "pl": 0.066963875045379,
+          "nclip": 0.11665000518163045,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.05754669010639191,
+              "nclip": 0.09101855754852295
+            },
+            {
+              "view": "render2.png",
+              "pl": 0.048635441809892654,
+              "nclip": 0.10771048069000244
+            },
+            {
+              "view": "render3.png",
+              "pl": 0.09470949321985245,
+              "nclip": 0.15122097730636597
+            }
+          ]
+        },
+        "alternate_seed": {
+          "pl": 1.1919918203299554e-05,
+          "nclip": 2.187490463256836e-05,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 9.39998517424101e-06,
+              "nclip": 2.2172927856445312e-05
+            },
+            {
+              "view": "render2.png",
+              "pl": 9.228898306901101e-06,
+              "nclip": 2.7418136596679688e-05
+            },
+            {
+              "view": "render3.png",
+              "pl": 1.7130871128756553e-05,
+              "nclip": 1.6033649444580078e-05
+            }
+          ]
+        },
+        "release_goal": {
+          "pl": 1.1847258368410015e-05,
+          "nclip": 2.2490819295247395e-05,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 9.29067209654022e-06,
+              "nclip": 2.205371856689453e-05
+            },
+            {
+              "view": "render2.png",
+              "pl": 9.235470315616112e-06,
+              "nclip": 1.704692840576172e-05
+            },
+            {
+              "view": "render3.png",
+              "pl": 1.7015632693073712e-05,
+              "nclip": 2.8371810913085938e-05
+            }
+          ]
+        }
+      },
+      "relative": {
+        "repeat": {
+          "pl": 0.0,
+          "nclip": 0.0
+        },
+        "near": {
+          "pl": 0.0,
+          "nclip": 0.0
+        },
+        "half": {
+          "pl": 1.0444926941323445,
+          "nclip": 0.8129018778680344
+        },
+        "start": {
+          "pl": 1.0,
+          "nclip": 1.0
+        }
+      }
+    },
+    {
+      "task": "geometry38",
+      "category": "geometry",
+      "scores": {
+        "start": {
+          "pl": 0.05141320452094078,
+          "nclip": 0.11366122961044312,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.05940399691462517,
+              "nclip": 0.12830984592437744
+            },
+            {
+              "view": "render2.png",
+              "pl": 0.06381487101316452,
+              "nclip": 0.09257781505584717
+            },
+            {
+              "view": "render3.png",
+              "pl": 0.031020745635032654,
+              "nclip": 0.12009602785110474
+            }
+          ]
+        },
+        "repeat": {
+          "pl": 2.542153524724237e-10,
+          "nclip": 7.947285970052083e-08,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 2.5421534322056516e-10,
+              "nclip": 0.0
+            },
+            {
+              "view": "render2.png",
+              "pl": 2.7377039524267843e-10,
+              "nclip": 2.384185791015625e-07
+            },
+            {
+              "view": "render3.png",
+              "pl": 2.346603189540275e-10,
+              "nclip": 0.0
+            }
+          ]
+        },
+        "near": {
+          "pl": 0.005109613838916023,
+          "nclip": 0.006743947664896647,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.007400559261441231,
+              "nclip": 0.0035529136657714844
+            },
+            {
+              "view": "render2.png",
+              "pl": 0.0042957342229783535,
+              "nclip": 0.008313894271850586
+            },
+            {
+              "view": "render3.png",
+              "pl": 0.0036325480323284864,
+              "nclip": 0.008365035057067871
+            }
+          ]
+        },
+        "half": {
+          "pl": 0.01783564438422521,
+          "nclip": 0.04182507594426473,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.025878461077809334,
+              "nclip": 0.04285871982574463
+            },
+            {
+              "view": "render2.png",
+              "pl": 0.014728629030287266,
+              "nclip": 0.03219050168991089
+            },
+            {
+              "view": "render3.png",
+              "pl": 0.012899843044579029,
+              "nclip": 0.05042600631713867
+            }
+          ]
+        },
+        "alternate_seed": {
+          "pl": 0.00014818066604978716,
+          "nclip": 0.0002708037694295247,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.00012623867951333523,
+              "nclip": 0.00015211105346679688
+            },
+            {
+              "view": "render2.png",
+              "pl": 0.00020454781770240515,
+              "nclip": 0.0005285739898681641
+            },
+            {
+              "view": "render3.png",
+              "pl": 0.00011375550093362108,
+              "nclip": 0.00013172626495361328
+            }
+          ]
+        },
+        "release_goal": {
+          "pl": 0.00014976164917849624,
+          "nclip": 0.00019925832748413086,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.00012541806790977716,
+              "nclip": 0.00011163949966430664
+            },
+            {
+              "view": "render2.png",
+              "pl": 0.00020496135402936488,
+              "nclip": 0.0002675056457519531
+            },
+            {
+              "view": "render3.png",
+              "pl": 0.0001189055255963467,
+              "nclip": 0.0002186298370361328
+            }
+          ]
+        }
+      },
+      "relative": {
+        "repeat": {
+          "pl": 0.0,
+          "nclip": 0.0
+        },
+        "near": {
+          "pl": 0.09938329379730193,
+          "nclip": 0.05933309828269111
+        },
+        "half": {
+          "pl": 0.34690784953765397,
+          "nclip": 0.3679797047696343
+        },
+        "start": {
+          "pl": 1.0,
+          "nclip": 1.0
+        }
+      }
+    },
+    {
+      "task": "lighting48",
+      "category": "lighting",
+      "scores": {
+        "start": {
+          "pl": 0.07034438103437424,
+          "nclip": 0.13097819685935974,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.06977814435958862,
+              "nclip": 0.1126435399055481
+            },
+            {
+              "view": "render2.png",
+              "pl": 0.07091061770915985,
+              "nclip": 0.1493128538131714
+            }
+          ]
+        },
+        "repeat": {
+          "pl": 1.1244143949262764e-09,
+          "nclip": 5.960464477539063e-08,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 5.67095925774197e-10,
+              "nclip": 0.0
+            },
+            {
+              "view": "render2.png",
+              "pl": 1.6817328640783558e-09,
+              "nclip": 1.1920928955078125e-07
+            }
+          ]
+        },
+        "near": {
+          "pl": 5.909052742936183e-05,
+          "nclip": 0.00017380714416503906,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 6.090648821555078e-05,
+              "nclip": 0.00020313262939453125
+            },
+            {
+              "view": "render2.png",
+              "pl": 5.7274566643172875e-05,
+              "nclip": 0.00014448165893554688
+            }
+          ]
+        },
+        "half": {
+          "pl": 0.007972301915287971,
+          "nclip": 0.01137155294418335,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.008150454610586166,
+              "nclip": 0.011627256870269775
+            },
+            {
+              "view": "render2.png",
+              "pl": 0.007794149219989777,
+              "nclip": 0.011115849018096924
+            }
+          ]
+        },
+        "alternate_seed": {
+          "pl": 0.00014694347191834822,
+          "nclip": 0.0018576383590698242,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.00015206234820652753,
+              "nclip": 0.0018610954284667969
+            },
+            {
+              "view": "render2.png",
+              "pl": 0.00014182459563016891,
+              "nclip": 0.0018541812896728516
+            }
+          ]
+        },
+        "release_goal": {
+          "pl": 0.00014609679783461615,
+          "nclip": 0.002896338701248169,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.00015175261069089174,
+              "nclip": 0.004077494144439697
+            },
+            {
+              "view": "render2.png",
+              "pl": 0.00014044098497834057,
+              "nclip": 0.0017151832580566406
+            }
+          ]
+        }
+      },
+      "relative": {
+        "repeat": {
+          "pl": 0.0,
+          "nclip": 0.0
+        },
+        "near": {
+          "pl": 0.0008399107959481205,
+          "nclip": 0.0013249478371472323
+        },
+        "half": {
+          "pl": 0.11333236745588156,
+          "nclip": 0.08681832764870111
+        },
+        "start": {
+          "pl": 1.0,
+          "nclip": 1.0
+        }
+      }
+    },
+    {
+      "task": "lighting50",
+      "category": "lighting",
+      "scores": {
+        "start": {
+          "pl": 0.03153194300830364,
+          "nclip": 0.08402451872825623,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.031478151679039,
+              "nclip": 0.08106911182403564
+            },
+            {
+              "view": "render2.png",
+              "pl": 0.03158573433756828,
+              "nclip": 0.0869799256324768
+            }
+          ]
+        },
+        "repeat": {
+          "pl": 7.528687728797223e-09,
+          "nclip": 2.682209014892578e-07,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 1.5839575207010625e-09,
+              "nclip": 1.7881393432617188e-07
+            },
+            {
+              "view": "render2.png",
+              "pl": 1.3473417936893384e-08,
+              "nclip": 3.5762786865234375e-07
+            }
+          ]
+        },
+        "near": {
+          "pl": 4.362445724837016e-05,
+          "nclip": 0.00031504034996032715,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 4.442466888576746e-05,
+              "nclip": 0.00033473968505859375
+            },
+            {
+              "view": "render2.png",
+              "pl": 4.2824245610972866e-05,
+              "nclip": 0.00029534101486206055
+            }
+          ]
+        },
+        "half": {
+          "pl": 0.004854114260524511,
+          "nclip": 0.009587317705154419,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.004934700671583414,
+              "nclip": 0.010176002979278564
+            },
+            {
+              "view": "render2.png",
+              "pl": 0.004773527849465609,
+              "nclip": 0.008998632431030273
+            }
+          ]
+        },
+        "alternate_seed": {
+          "pl": 0.0001469393027946353,
+          "nclip": 0.0018635988235473633,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.00015206240641418844,
+              "nclip": 0.0018622875213623047
+            },
+            {
+              "view": "render2.png",
+              "pl": 0.00014181619917508215,
+              "nclip": 0.0018649101257324219
+            }
+          ]
+        },
+        "release_goal": {
+          "pl": 0.00014610170910600573,
+          "nclip": 0.0029013454914093018,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.00015175087901297957,
+              "nclip": 0.004065096378326416
+            },
+            {
+              "view": "render2.png",
+              "pl": 0.0001404525391990319,
+              "nclip": 0.0017375946044921875
+            }
+          ]
+        }
+      },
+      "relative": {
+        "repeat": {
+          "pl": 0.0,
+          "nclip": 0.0
+        },
+        "near": {
+          "pl": 0.0013832620134859117,
+          "nclip": 0.003746205734156302
+        },
+        "half": {
+          "pl": 0.15394255563458073,
+          "nclip": 0.11409860161042155
+        },
+        "start": {
+          "pl": 1.0,
+          "nclip": 1.0
+        }
+      }
+    },
+    {
+      "task": "material6",
+      "category": "material",
+      "scores": {
+        "start": {
+          "pl": 0.008341423235833645,
+          "nclip": 0.08987045288085938,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.008341423235833645,
+              "nclip": 0.08987045288085938
+            }
+          ]
+        },
+        "repeat": {
+          "pl": 1.368851837435514e-10,
+          "nclip": 0.0,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 1.368851837435514e-10,
+              "nclip": 0.0
+            }
+          ]
+        },
+        "near": {
+          "pl": 3.6929850466549397e-05,
+          "nclip": 0.0030951499938964844,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 3.6929850466549397e-05,
+              "nclip": 0.0030951499938964844
+            }
+          ]
+        },
+        "half": {
+          "pl": 0.0024165429640561342,
+          "nclip": 0.06671774387359619,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.0024165429640561342,
+              "nclip": 0.06671774387359619
+            }
+          ]
+        },
+        "alternate_seed": {
+          "pl": 9.570876136422157e-05,
+          "nclip": 0.0003280043601989746,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 9.570876136422157e-05,
+              "nclip": 0.0003280043601989746
+            }
+          ]
+        },
+        "release_goal": {
+          "pl": 9.521995525574312e-05,
+          "nclip": 0.00013709068298339844,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 9.521995525574312e-05,
+              "nclip": 0.00013709068298339844
+            }
+          ]
+        }
+      },
+      "relative": {
+        "repeat": {
+          "pl": 0.0,
+          "nclip": 0.0
+        },
+        "near": {
+          "pl": 0.004427232753510326,
+          "nclip": 0.03444012903773505
+        },
+        "half": {
+          "pl": 0.28970387788238045,
+          "nclip": 0.7423768517339445
+        },
+        "start": {
+          "pl": 1.0,
+          "nclip": 1.0
+        }
+      }
+    },
+    {
+      "task": "material23",
+      "category": "material",
+      "scores": {
+        "start": {
+          "pl": 0.01591585762798786,
+          "nclip": 0.052284181118011475,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.01591585762798786,
+              "nclip": 0.052284181118011475
+            }
+          ]
+        },
+        "repeat": {
+          "pl": 4.302106171305553e-10,
+          "nclip": 0.0,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 4.302106171305553e-10,
+              "nclip": 0.0
+            }
+          ]
+        },
+        "near": {
+          "pl": 9.157737622444984e-06,
+          "nclip": 0.00015115737915039062,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 9.157737622444984e-06,
+              "nclip": 0.00015115737915039062
+            }
+          ]
+        },
+        "half": {
+          "pl": 0.0003413809754420072,
+          "nclip": 0.0011841654777526855,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.0003413809754420072,
+              "nclip": 0.0011841654777526855
+            }
+          ]
+        },
+        "alternate_seed": {
+          "pl": 0.00013549877621699125,
+          "nclip": 0.00044596195220947266,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.00013549877621699125,
+              "nclip": 0.00044596195220947266
+            }
+          ]
+        },
+        "release_goal": {
+          "pl": 0.00013610179303213954,
+          "nclip": 0.0013577938079833984,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.00013610179303213954,
+              "nclip": 0.0013577938079833984
+            }
+          ]
+        }
+      },
+      "relative": {
+        "repeat": {
+          "pl": 0.0,
+          "nclip": 0.0
+        },
+        "near": {
+          "pl": 0.0005753574751290639,
+          "nclip": 0.002891072900409607
+        },
+        "half": {
+          "pl": 0.021449083199808185,
+          "nclip": 0.022648637741497498
+        },
+        "start": {
+          "pl": 1.0,
+          "nclip": 1.0
+        }
+      }
+    },
+    {
+      "task": "placement24",
+      "category": "placement",
+      "scores": {
+        "start": {
+          "pl": 0.0027367812872398645,
+          "nclip": 0.011129885911941528,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.0030072983354330063,
+              "nclip": 0.007946491241455078
+            },
+            {
+              "view": "render2.png",
+              "pl": 0.0014732355484738946,
+              "nclip": 0.0165252685546875
+            },
+            {
+              "view": "render3.png",
+              "pl": 0.00505027873441577,
+              "nclip": 0.009309530258178711
+            },
+            {
+              "view": "render4.png",
+              "pl": 0.0014163125306367874,
+              "nclip": 0.010738253593444824
+            }
+          ]
+        },
+        "repeat": {
+          "pl": 7.022699992365045e-08,
+          "nclip": 4.172325134277344e-07,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 2.6682837983571517e-07,
+              "nclip": 1.0728836059570312e-06
+            },
+            {
+              "view": "render2.png",
+              "pl": 7.039812621734143e-10,
+              "nclip": 1.1920928955078125e-07
+            },
+            {
+              "view": "render3.png",
+              "pl": 1.0285944540555647e-08,
+              "nclip": 3.5762786865234375e-07
+            },
+            {
+              "view": "render4.png",
+              "pl": 3.0896940561575548e-09,
+              "nclip": 1.1920928955078125e-07
+            }
+          ]
+        },
+        "near": {
+          "pl": 0.00046649555224576034,
+          "nclip": 0.0014577358961105347,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.0009249257273040712,
+              "nclip": 0.0018588900566101074
+            },
+            {
+              "view": "render2.png",
+              "pl": 0.0002488727041054517,
+              "nclip": 0.0016837120056152344
+            },
+            {
+              "view": "render3.png",
+              "pl": 0.0005308132967911661,
+              "nclip": 0.0015957951545715332
+            },
+            {
+              "view": "render4.png",
+              "pl": 0.0001613704807823524,
+              "nclip": 0.0006925463676452637
+            }
+          ]
+        },
+        "half": {
+          "pl": 0.0015255913604050875,
+          "nclip": 0.01370266079902649,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.0027397421654313803,
+              "nclip": 0.020656824111938477
+            },
+            {
+              "view": "render2.png",
+              "pl": 0.0006531327380798757,
+              "nclip": 0.018855810165405273
+            },
+            {
+              "view": "render3.png",
+              "pl": 0.002050068462267518,
+              "nclip": 0.0077686309814453125
+            },
+            {
+              "view": "render4.png",
+              "pl": 0.0006594220758415759,
+              "nclip": 0.0075293779373168945
+            }
+          ]
+        },
+        "alternate_seed": {
+          "pl": 0.001372182392515242,
+          "nclip": 0.002263978123664856,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.0014841491356492043,
+              "nclip": 0.0026255249977111816
+            },
+            {
+              "view": "render2.png",
+              "pl": 0.0013929326087236404,
+              "nclip": 0.003706991672515869
+            },
+            {
+              "view": "render3.png",
+              "pl": 0.001309626386500895,
+              "nclip": 0.001534104347229004
+            },
+            {
+              "view": "render4.png",
+              "pl": 0.0013020214391872287,
+              "nclip": 0.0011892914772033691
+            }
+          ]
+        },
+        "release_goal": {
+          "pl": 0.0013794384431093931,
+          "nclip": 0.0021748095750808716,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.001482751569710672,
+              "nclip": 0.002213716506958008
+            },
+            {
+              "view": "render2.png",
+              "pl": 0.0013986440608277917,
+              "nclip": 0.003175973892211914
+            },
+            {
+              "view": "render3.png",
+              "pl": 0.0013181784888729453,
+              "nclip": 0.0019995570182800293
+            },
+            {
+              "view": "render4.png",
+              "pl": 0.0013181796530261636,
+              "nclip": 0.0013099908828735352
+            }
+          ]
+        }
+      },
+      "relative": {
+        "repeat": {
+          "pl": 0.0,
+          "nclip": 0.0
+        },
+        "near": {
+          "pl": 0.17043279870580963,
+          "nclip": 0.13093535775492715
+        },
+        "half": {
+          "pl": 0.5574286432968973,
+          "nclip": 1.2311696658097686
+        },
+        "start": {
+          "pl": 1.0,
+          "nclip": 1.0
+        }
+      }
+    },
+    {
+      "task": "placement33",
+      "category": "placement",
+      "scores": {
+        "start": {
+          "pl": 0.02503834292292595,
+          "nclip": 0.04430219531059265,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.024094976484775543,
+              "nclip": 0.04043149948120117
+            },
+            {
+              "view": "render2.png",
+              "pl": 0.025981709361076355,
+              "nclip": 0.04817289113998413
+            }
+          ]
+        },
+        "repeat": {
+          "pl": 4.302107559084334e-10,
+          "nclip": 5.066394805908203e-07,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 4.497659189528491e-10,
+              "nclip": 5.960464477539063e-08
+            },
+            {
+              "view": "render2.png",
+              "pl": 4.1065559286401765e-10,
+              "nclip": 9.5367431640625e-07
+            }
+          ]
+        },
+        "near": {
+          "pl": 0.0030893891816958785,
+          "nclip": 0.01035967469215393,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.0029642495792359114,
+              "nclip": 0.008300542831420898
+            },
+            {
+              "view": "render2.png",
+              "pl": 0.0032145287841558456,
+              "nclip": 0.012418806552886963
+            }
+          ]
+        },
+        "half": {
+          "pl": 0.015475967433303595,
+          "nclip": 0.032797932624816895,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 0.01705268584191799,
+              "nclip": 0.02168208360671997
+            },
+            {
+              "view": "render2.png",
+              "pl": 0.013899249024689198,
+              "nclip": 0.04391378164291382
+            }
+          ]
+        },
+        "alternate_seed": {
+          "pl": 2.0438976207515225e-05,
+          "nclip": 0.0003809928894042969,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 1.8710195945459418e-05,
+              "nclip": 0.00016134977340698242
+            },
+            {
+              "view": "render2.png",
+              "pl": 2.216775646957103e-05,
+              "nclip": 0.0006006360054016113
+            }
+          ]
+        },
+        "release_goal": {
+          "pl": 2.0298688468756154e-05,
+          "nclip": 0.00029724836349487305,
+          "per_view": [
+            {
+              "view": "render1.png",
+              "pl": 1.8797391021507792e-05,
+              "nclip": 0.0002167224884033203
+            },
+            {
+              "view": "render2.png",
+              "pl": 2.1799985916004516e-05,
+              "nclip": 0.0003777742385864258
+            }
+          ]
+        }
+      },
+      "relative": {
+        "repeat": {
+          "pl": 0.0,
+          "nclip": 0.0
+        },
+        "near": {
+          "pl": 0.12338386885604204,
+          "nclip": 0.23383235184504997
+        },
+        "half": {
+          "pl": 0.6180896499630245,
+          "nclip": 0.7403199961251731
+        },
+        "start": {
+          "pl": 1.0,
+          "nclip": 1.0
+        }
+      }
+    }
+  ],
+  "render_settings": {
+    "samples": 512,
+    "seed": 20261015,
+    "resolution": [
+      512,
+      512
+    ],
+    "engine": "CYCLES",
+    "device": "CUDA",
+    "timeout_seconds": 600
+  },
+  "noise_policy": "Same-seed rerenders define the floor; alternate-seed renders are diagnostics only because formal evaluation fixes seed 20261015.",
+  "input_views": "all matched released current/target image pairs",
+  "max_new_tokens": 32768,
+  "generation": "greedy BF16 one-shot; no retries or repairs",
+  "experiment": "full_thinking_comparison_v2",
+  "parent_protocol_sha256": "38842a28676e90c5635729e5dd9ae7a517a4324aadf251ecc27f537bc3cf3468",
+  "experiment_frozen_at_utc": "2026-10-14T18:15:10.800335+00:00",
+  "scope": "all released tasks; no screening gate",
+  "context_capacity": 49152,
+  "sampling": {
+    "temperature": 0.6,
+    "top_p": 0.95,
+    "top_k": 20,
+    "presence_penalty": 0.0,
+    "repetition_penalty": 1.0,
+    "seed": 20261015
+  },
+  "variants": [
+    {
+      "id": "qwen3-vl-8b-nothink",
+      "model": "Qwen/Qwen3-VL-8B-Instruct",
+      "thinking": false,
+      "family": "qwen3-vl",
+      "tensor_parallel_size": 1
+    },
+    {
+      "id": "qwen3-vl-8b-think",
+      "model": "Qwen/Qwen3-VL-8B-Thinking",
+      "thinking": true,
+      "family": "qwen3-vl",
+      "tensor_parallel_size": 1
+    },
+    {
+      "id": "qwen3-vl-32b-nothink",
+      "model": "Qwen/Qwen3-VL-32B-Instruct",
+      "thinking": false,
+      "family": "qwen3-vl",
+      "tensor_parallel_size": 2
+    },
+    {
+      "id": "qwen3-vl-32b-think",
+      "model": "Qwen/Qwen3-VL-32B-Thinking",
+      "thinking": true,
+      "family": "qwen3-vl",
+      "tensor_parallel_size": 2
+    },
+    {
+      "id": "qwen3.6-27b-nothink",
+      "model": "Qwen/Qwen3.6-27B",
+      "thinking": false,
+      "family": "qwen3.6",
+      "tensor_parallel_size": 1
+    },
+    {
+      "id": "qwen3.6-27b-think",
+      "model": "Qwen/Qwen3.6-27B",
+      "thinking": true,
+      "family": "qwen3.6",
+      "tensor_parallel_size": 1
+    }
+  ],
+  "thinking_budget": "Reasoning and final answer share the total output budget.",
+  "comparison": "Qwen3-VL uses separate Instruct/Thinking checkpoints; Qwen3.6 toggles enable_thinking on the same checkpoint.",
+  "previous_screen_reuse": false
+}
