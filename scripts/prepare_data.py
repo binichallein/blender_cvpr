@@ -6,6 +6,7 @@ import json
 import random
 import re
 import zipfile
+from data_quality import audit_manifest
 from pathlib import Path
 
 CATEGORIES = ['blendshape', 'geometry', 'lighting', 'material', 'placement']
@@ -74,6 +75,10 @@ def main():
                 'archive_sha256': digest.hexdigest(), 'all_tasks': tasks,
                 'subset_ids': [t['id'] for t in selected],
                 'calibration_ids': [t['id'] for t in calibration]}
+    manifest['calibration_original_ids'] = manifest['calibration_ids'].copy()
+    manifest['calibration_ids'] = ['blendshape1' if t=='blendshape6' else t for t in manifest['calibration_ids']]
+    manifest['calibration_audit'] = {'blendshape6': 'Reference/start difference below independently rerendered noise; use first non-subset unused task blendshape1. Screening subset unchanged.'}
+    manifest = audit_manifest(manifest)
     (args.out / 'manifest.json').write_text(json.dumps(manifest, indent=2))
     print(json.dumps({k: manifest[k] for k in ['archive_sha256','subset_ids','calibration_ids']}, indent=2), flush=True)
 

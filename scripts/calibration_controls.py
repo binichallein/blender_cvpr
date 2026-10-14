@@ -50,7 +50,7 @@ def control(task, fraction):
                     ('position = 0.0000','position = '+str(0.2864*(1-fraction)))]
     }
     if task['id']=='geometry30':
-        replacements['geometry30']=[('9.3000',str(4.65+fraction*4.65))]
+        replacements['geometry30']=[('9.3000',str(9.30001 if fraction==0.95 else 4.65+fraction*4.65))]
     for old,new in replacements[task['id']]:
         assert old in goal,(task['id'],old)
         goal=goal.replace(old,new)
@@ -67,5 +67,5 @@ def create(manifest, output):
     (output/'design.json').write_text(json.dumps({
       'positive':'reference and 95% goal controls',
       'negative':'unchanged start and 50% goal controls',
-      'note':'geometry30 uses wave scale 4.65 to 9.3; geometry38 uses Value 6.9 to 1.4; material6 perturbs goal colors/ramp positions',
+      'note':'geometry30 near uses scale 9.30001 after visual audit found 2.5% scale changes alter discrete topology; wrong scale 6.975. geometry38 uses Value 6.9 to 1.4; material6 perturbs goal colors/ramp positions',
       'ids':manifest['calibration_ids']},indent=2))

@@ -35,7 +35,8 @@ def main():
             if a.mode=='calibration':
                 for kind in ['near','half']:
                     jobs.put((t,kind,out/'controls'/t['id']/(kind+'.py'),20261015))
-                jobs.put((t,'repeat',Path(t['directory'])/'goal.py',20261016))
+                jobs.put((t,'repeat',Path(t['directory'])/'goal.py',20261015))
+                jobs.put((t,'alternate_seed',Path(t['directory'])/'goal.py',20261016))
     results=[]
     def worker(gpu):
         while True:

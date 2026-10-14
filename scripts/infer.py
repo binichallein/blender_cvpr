@@ -52,6 +52,7 @@ def main():
     protocol_path=Path(a.protocol)
     protocol=json.loads(protocol_path.read_text())
     assert protocol['frozen'], 'Freeze success criteria before benchmark inference'
+    assert a.max_new_tokens==protocol['max_new_tokens'], 'Output budget must match frozen protocol'
     protocol_sha=hashlib.sha256(protocol_path.read_bytes()).hexdigest()
     m=json.loads(Path(a.manifest).read_text())
     ids=m['subset_ids'] if a.split=='subset' else [t['id'] for t in m['all_tasks']]
@@ -97,7 +98,7 @@ def main():
             del inputs,output,generated
         except Exception as e:
             row['error']=repr(e)
-            if isinstance(e,torch.cuda.OutOfMemoryError):
+            if not isinstance(e,(SyntaxError,ValueError)) or not (dest/'response.txt').exists():
                 # An infrastructure failure should stop rather than silently score all later tasks wrong.
                 torch.cuda.empty_cache()
                 raise

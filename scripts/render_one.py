@@ -47,6 +47,7 @@ def render(task, script, output, blender, infinigen, gpu, samples=512, seed=2026
     if rc != 0 or not meta.exists() or not all((output/v).exists() for v in views):
         result = {'ok': False, 'returncode': rc, 'seconds': time.monotonic()-start,
                   **expected, 'command': command, 'script': str(script)}
+        meta.unlink(missing_ok=True)
         (output/'failure.json').write_text(json.dumps(result, indent=2))
         return result
     result = {**json.loads(meta.read_text()), **expected}
