@@ -1,0 +1,60 @@
+{
+  "qwen3-vl-8b": {
+    "subset_generation_timing": {
+      "completed_in_this_invocation": 50,
+      "generation_wall_seconds": 407.1107170805335
+    },
+    "output_tokens": 52657,
+    "truncated_tasks": [
+      "geometry10",
+      "lighting17"
+    ],
+    "generation_or_parse_failed_tasks": [
+      "geometry10",
+      "lighting17"
+    ],
+    "execution_failures": [
+      {
+        "task": "blendshape70",
+        "errors": [
+          "KeyError: 'bpy_prop_collection[key]: key \"belt size\" not found'"
+        ]
+      },
+      {
+        "task": "geometry33",
+        "errors": [
+          "KeyError: 'bpy_prop_collection[key]: key \"Geometry\" not found'"
+        ]
+      }
+    ]
+  },
+  "qwen3-vl-32b": {
+    "subset_generation_timing": {
+      "completed_in_this_invocation": 50,
+      "generation_wall_seconds": 579.6655345931649
+    },
+    "output_tokens": 38811,
+    "truncated_tasks": [],
+    "generation_or_parse_failed_tasks": [],
+    "execution_failures": [
+      {
+        "task": "geometry3",
+        "errors": [
+          "AttributeError: type object 'Nodes' has no attribute 'EdgeSplit'"
+        ]
+      },
+      {
+        "task": "geometry10",
+        "errors": [
+          "AttributeError: type object 'Nodes' has no attribute 'Scale'"
+        ]
+      },
+      {
+        "task": "material10",
+        "errors": [
+          "ValueError: bpy_struct: item.attr = val: sequence expected at dimension 1, not 'float'"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,5086 @@
+{
+  "qwen3-vl-8b": {
+    "subset": {
+      "split": "subset",
+      "protocol_sha256": "38842a28676e90c5635729e5dd9ae7a517a4324aadf251ecc27f537bc3cf3468",
+      "summary": {
+        "tasks": 50,
+        "scorable_tasks": 50,
+        "invalid_data": [],
+        "successes": 2,
+        "success_rate": 0.04,
+        "rendered_tasks": 46,
+        "failures": {
+          "execution": 2,
+          "generation_or_parse": 2
+        },
+        "valid_only_mean": {
+          "pl": 0.03332910259939428,
+          "nclip": 0.05301439978074336
+        },
+        "start_mean": {
+          "pl": 0.048352074866984666,
+          "nclip": 0.06165301601092021
+        }
+      },
+      "by_category": {
+        "blendshape": {
+          "tasks": 10,
+          "scorable_tasks": 10,
+          "invalid_data": [],
+          "successes": 1,
+          "success_rate": 0.1,
+          "rendered_tasks": 9,
+          "failures": {
+            "execution": 1
+          },
+          "valid_only_mean": {
+            "pl": 0.005110776452865038,
+            "nclip": 0.017047139781492728
+          },
+          "start_mean": {
+            "pl": 0.013691653854524094,
+            "nclip": 0.033777390420436856
+          }
+        },
+        "geometry": {
+          "tasks": 10,
+          "scorable_tasks": 10,
+          "invalid_data": [],
+          "successes": 0,
+          "success_rate": 0.0,
+          "rendered_tasks": 8,
+          "failures": {
+            "generation_or_parse": 1,
+            "execution": 1
+          },
+          "valid_only_mean": {
+            "pl": 0.0654106803704053,
+            "nclip": 0.1091331640879313
+          },
+          "start_mean": {
+            "pl": 0.10542167079014084,
+            "nclip": 0.11599070529143014
+          }
+        },
+        "lighting": {
+          "tasks": 10,
+          "scorable_tasks": 10,
+          "invalid_data": [],
+          "successes": 0,
+          "success_rate": 0.0,
+          "rendered_tasks": 9,
+          "failures": {
+            "generation_or_parse": 1
+          },
+          "valid_only_mean": {
+            "pl": 0.040772168556469736,
+            "nclip": 0.029204022001337118
+          },
+          "start_mean": {
+            "pl": 0.039723195804981515,
+            "nclip": 0.03972724775473277
+          }
+        },
+        "material": {
+          "tasks": 10,
+          "scorable_tasks": 10,
+          "invalid_data": [],
+          "successes": 0,
+          "success_rate": 0.0,
+          "rendered_tasks": 10,
+          "failures": {},
+          "valid_only_mean": {
+            "pl": 0.0548558568872977,
+            "nclip": 0.0890236258506775
+          },
+          "start_mean": {
+            "pl": 0.07526146824820898,
+            "nclip": 0.08053699135780334
+          }
+        },
+        "placement": {
+          "tasks": 10,
+          "scorable_tasks": 10,
+          "invalid_data": [],
+          "successes": 1,
+          "success_rate": 0.1,
+          "rendered_tasks": 10,
+          "failures": {},
+          "valid_only_mean": {
+            "pl": 0.004834820265190454,
+            "nclip": 0.02591003626585007
+          },
+          "start_mean": {
+            "pl": 0.007662385637067929,
+            "nclip": 0.03823274523019791
+          }
+        }
+      },
+      "rows": [
+        {
+          "task": "blendshape7",
+          "category": "blendshape",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.008467202074825764,
+            "nclip": 0.005747169256210327,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0056257713586091995,
+                "nclip": 0.006219387054443359
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.011308632791042328,
+                "nclip": 0.005274951457977295
+              }
+            ]
+          },
+          "generation_seconds": 13.774192288517952,
+          "input_tokens": 1559,
+          "output_tokens": 348,
+          "metrics": {
+            "pl": 0.007195967482402921,
+            "nclip": 0.020929545164108276,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.00860984344035387,
+                "nclip": 0.03257042169570923
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.005782091524451971,
+                "nclip": 0.009288668632507324
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.8498636444689162,
+            "nclip": 3.641905522509581
+          },
+          "render_seconds": 4.44809839874506
+        },
+        {
+          "task": "blendshape11",
+          "category": "blendshape",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.006523025222122669,
+            "nclip": 0.03819805383682251,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.005087909288704395,
+                "nclip": 0.0350874662399292
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.007958141155540943,
+                "nclip": 0.04130864143371582
+              }
+            ]
+          },
+          "generation_seconds": 39.43424043059349,
+          "input_tokens": 3514,
+          "output_tokens": 1015,
+          "metrics": {
+            "pl": 0.003436872619204223,
+            "nclip": 0.009313583374023438,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0026768154930323362,
+                "nclip": 0.0077675580978393555
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.00419692974537611,
+                "nclip": 0.01085960865020752
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.5268831034114658,
+            "nclip": 0.24381524537723337
+          },
+          "render_seconds": 3.556413933634758
+        },
+        {
+          "task": "blendshape23",
+          "category": "blendshape",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.011435842141509056,
+            "nclip": 0.0329073965549469,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.00810769572854042,
+                "nclip": 0.02736830711364746
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.014763988554477692,
+                "nclip": 0.03844648599624634
+              }
+            ]
+          },
+          "generation_seconds": 12.60026627779007,
+          "input_tokens": 1605,
+          "output_tokens": 394,
+          "metrics": {
+            "pl": 0.008856502827256918,
+            "nclip": 0.02043616771697998,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.006970442831516266,
+                "nclip": 0.025106191635131836
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.01074256282299757,
+                "nclip": 0.015766143798828125
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.7744512659491172,
+            "nclip": 0.6210156904476193
+          },
+          "render_seconds": 8.275422841310501
+        },
+        {
+          "task": "blendshape36",
+          "category": "blendshape",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.008239277987740934,
+            "nclip": 0.00972596804300944,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.009652848355472088,
+                "nclip": 0.008880436420440674
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0017083511920645833,
+                "nclip": 0.004856288433074951
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.01335663441568613,
+                "nclip": 0.015441179275512695
+              }
+            ]
+          },
+          "generation_seconds": 7.985006108880043,
+          "input_tokens": 1865,
+          "output_tokens": 126,
+          "metrics": {
+            "pl": 0.008239280432462692,
+            "nclip": 0.009726425011952719,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.009652852080762386,
+                "nclip": 0.008877396583557129
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0017083510756492615,
+                "nclip": 0.004856228828430176
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.013356638140976429,
+                "nclip": 0.01544564962387085
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.0000002967155972,
+            "nclip": 1.0000469864331782
+          },
+          "render_seconds": 5.241847574710846
+        },
+        {
+          "task": "blendshape44",
+          "category": "blendshape",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.003534567542374134,
+            "nclip": 0.06644147634506226,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0038341209292411804,
+                "nclip": 0.08418148756027222
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0032350141555070877,
+                "nclip": 0.048701465129852295
+              }
+            ]
+          },
+          "generation_seconds": 4.259548172354698,
+          "input_tokens": 1343,
+          "output_tokens": 132,
+          "metrics": {
+            "pl": 0.003244104445911944,
+            "nclip": 0.05542591214179993,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0038867052644491196,
+                "nclip": 0.05446970462799072
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0026015036273747683,
+                "nclip": 0.05638211965560913
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.9178221267468765,
+            "nclip": 0.8342054694732913
+          },
+          "render_seconds": 5.746363125741482
+        },
+        {
+          "task": "blendshape53",
+          "category": "blendshape",
+          "success": true,
+          "start_metrics": {
+            "pl": 0.06890175770968199,
+            "nclip": 0.11116309463977814,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.05244135484099388,
+                "nclip": 0.10059034824371338
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.068660669028759,
+                "nclip": 0.1167249083518982
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.06326630711555481,
+                "nclip": 0.09810298681259155
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.09123869985342026,
+                "nclip": 0.12923413515090942
+              }
+            ]
+          },
+          "generation_seconds": 22.135013103485107,
+          "input_tokens": 2627,
+          "output_tokens": 358,
+          "metrics": {
+            "pl": 0.006277390581090003,
+            "nclip": 0.006988361477851868,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.01299497950822115,
+                "nclip": 0.01547539234161377
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.002675252966582775,
+                "nclip": 0.003527402877807617
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.0031190563458949327,
+                "nclip": 0.00322645902633667
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.006320273503661156,
+                "nclip": 0.005724191665649414
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.09110636888640902,
+            "nclip": 0.0628623240130933
+          },
+          "render_seconds": 29.82135183364153
+        },
+        {
+          "task": "blendshape56",
+          "category": "blendshape",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.0027391420056422553,
+            "nclip": 0.007293184598286946,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0026620030403137207,
+                "nclip": 0.007686793804168701
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0034442550968378782,
+                "nclip": 0.00977236032485962
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.0021111678797751665,
+                "nclip": 0.0044203996658325195
+              }
+            ]
+          },
+          "generation_seconds": 14.435779884457588,
+          "input_tokens": 1942,
+          "output_tokens": 203,
+          "metrics": {
+            "pl": 0.0015603834763169289,
+            "nclip": 0.01718755563100179,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0014583648880943656,
+                "nclip": 0.021309375762939453
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.00217522238381207,
+                "nclip": 0.020363450050354004
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.001047563157044351,
+                "nclip": 0.009889841079711914
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.5696611212941336,
+            "nclip": 2.3567375094331395
+          },
+          "render_seconds": 7.393074303865433
+        },
+        {
+          "task": "blendshape64",
+          "category": "blendshape",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.0029335588915273547,
+            "nclip": 0.023791790008544922,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0025468505918979645,
+                "nclip": 0.02556663751602173
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.003320267191156745,
+                "nclip": 0.022016942501068115
+              }
+            ]
+          },
+          "generation_seconds": 12.131219826638699,
+          "input_tokens": 1609,
+          "output_tokens": 376,
+          "metrics": {
+            "pl": 0.0017716840957291424,
+            "nclip": 0.0032512545585632324,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0014689675299450755,
+                "nclip": 0.002891361713409424
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0020744006615132093,
+                "nclip": 0.003611147403717041
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.6039365332585152,
+            "nclip": 0.13663933378929885
+          },
+          "render_seconds": 10.541625268757343
+        },
+        {
+          "task": "blendshape70",
+          "category": "blendshape",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.018727357499301434,
+            "nclip": 0.032340437173843384,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.016500553116202354,
+                "nclip": 0.043494343757629395
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.020954161882400513,
+                "nclip": 0.021186530590057373
+              }
+            ]
+          },
+          "generation_seconds": 13.704710721969604,
+          "input_tokens": 1370,
+          "output_tokens": 185,
+          "failure": "execution"
+        },
+        {
+          "task": "blendshape71",
+          "category": "blendshape",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.00541480747051537,
+            "nclip": 0.01016533374786377,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.006311508361250162,
+                "nclip": 0.013497471809387207
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.004518106579780579,
+                "nclip": 0.006833195686340332
+              }
+            ]
+          },
+          "generation_seconds": 10.383313737809658,
+          "input_tokens": 1337,
+          "output_tokens": 126,
+          "metrics": {
+            "pl": 0.005414802115410566,
+            "nclip": 0.01016545295715332,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.006311500910669565,
+                "nclip": 0.013497412204742432
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0045181033201515675,
+                "nclip": 0.006833493709564209
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.9999990110254884,
+            "nclip": 1.0000117275227367
+          },
+          "render_seconds": 3.8791246190667152
+        },
+        {
+          "task": "geometry3",
+          "category": "geometry",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.2833267500003179,
+            "nclip": 0.21096465984980264,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.22356970608234406,
+                "nclip": 0.23354530334472656
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.26515403389930725,
+                "nclip": 0.17136412858963013
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.36125651001930237,
+                "nclip": 0.22798454761505127
+              }
+            ]
+          },
+          "generation_seconds": 36.50427687168121,
+          "input_tokens": 2787,
+          "output_tokens": 1049,
+          "metrics": {
+            "pl": 0.2833267500003179,
+            "nclip": 0.21095548073450723,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.22356970608234406,
+                "nclip": 0.23353397846221924
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.26515403389930725,
+                "nclip": 0.17136412858963013
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.36125651001930237,
+                "nclip": 0.22796833515167236
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.0,
+            "nclip": 0.9999564897800427
+          },
+          "render_seconds": 8.676023304462433
+        },
+        {
+          "task": "geometry10",
+          "category": "geometry",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.4751060704390208,
+            "nclip": 0.16042731205622354,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.6106449365615845,
+                "nclip": 0.1896052360534668
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.4267537295818329,
+                "nclip": 0.164650559425354
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.387919545173645,
+                "nclip": 0.12702614068984985
+              }
+            ]
+          },
+          "generation_seconds": 238.22894930839539,
+          "input_tokens": 2358,
+          "output_tokens": 8192,
+          "failure": "generation_or_parse",
+          "detail": "ValueError('Generation reached token budget')"
+        },
+        {
+          "task": "geometry11",
+          "category": "geometry",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.03518856472025315,
+            "nclip": 0.09938869873682658,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.007053077220916748,
+                "nclip": 0.0999535322189331
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.08880820125341415,
+                "nclip": 0.14177680015563965
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.009704415686428547,
+                "nclip": 0.05643576383590698
+              }
+            ]
+          },
+          "generation_seconds": 46.63489294797182,
+          "input_tokens": 3056,
+          "output_tokens": 1319,
+          "metrics": {
+            "pl": 0.03518856347848972,
+            "nclip": 0.0993963082631429,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0070530716329813,
+                "nclip": 0.09998178482055664
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.08880820125341415,
+                "nclip": 0.1417628526687622
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.009704417549073696,
+                "nclip": 0.05644428730010986
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.9999999647111655,
+            "nclip": 1.0000765633567774
+          },
+          "render_seconds": 22.916611820459366
+        },
+        {
+          "task": "geometry22",
+          "category": "geometry",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.03739176752666632,
+            "nclip": 0.06881221135457356,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.04380245879292488,
+                "nclip": 0.08092808723449707
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.05207196995615959,
+                "nclip": 0.0745474100112915
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.016300873830914497,
+                "nclip": 0.05096113681793213
+              }
+            ]
+          },
+          "generation_seconds": 41.76861663162708,
+          "input_tokens": 2332,
+          "output_tokens": 595,
+          "metrics": {
+            "pl": 0.03739176752666632,
+            "nclip": 0.06881197293599446,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.043802451342344284,
+                "nclip": 0.08092808723449707
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.052071984857320786,
+                "nclip": 0.0745466947555542
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.0163008663803339,
+                "nclip": 0.05096113681793213
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.0,
+            "nclip": 0.9999965352246387
+          },
+          "render_seconds": 6.663805082440376
+        },
+        {
+          "task": "geometry27",
+          "category": "geometry",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.0755888173977534,
+            "nclip": 0.22561546166737875,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.06676698476076126,
+                "nclip": 0.24200236797332764
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0563352108001709,
+                "nclip": 0.22473639249801636
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.10366425663232803,
+                "nclip": 0.21010762453079224
+              }
+            ]
+          },
+          "generation_seconds": 60.70322861522436,
+          "input_tokens": 2866,
+          "output_tokens": 1128,
+          "metrics": {
+            "pl": 0.07558885961771011,
+            "nclip": 0.22563336292902628,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.06676702946424484,
+                "nclip": 0.24205321073532104
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.056335270404815674,
+                "nclip": 0.22477149963378906
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.10366427898406982,
+                "nclip": 0.21007537841796875
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.000000558547657,
+            "nclip": 1.0000793441540794
+          },
+          "render_seconds": 7.585360445082188
+        },
+        {
+          "task": "geometry33",
+          "category": "geometry",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.04750244691967964,
+            "nclip": 0.10314381122589111,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.05476142093539238,
+                "nclip": 0.11243903636932373
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.04303614795207977,
+                "nclip": 0.09899616241455078
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.04470977187156677,
+                "nclip": 0.09799623489379883
+              }
+            ]
+          },
+          "generation_seconds": 64.9728280454874,
+          "input_tokens": 2702,
+          "output_tokens": 965,
+          "failure": "execution"
+        },
+        {
+          "task": "geometry37",
+          "category": "geometry",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.03493629271785418,
+            "nclip": 0.059706409772237144,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.04110340401530266,
+                "nclip": 0.04584002494812012
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.04074092209339142,
+                "nclip": 0.0832209587097168
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.02296455204486847,
+                "nclip": 0.05005824565887451
+              }
+            ]
+          },
+          "generation_seconds": 53.84315913170576,
+          "input_tokens": 2365,
+          "output_tokens": 628,
+          "metrics": {
+            "pl": 0.0349362933387359,
+            "nclip": 0.059689859549204506,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.04110340401530266,
+                "nclip": 0.04584097862243652
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.04074092209339142,
+                "nclip": 0.08316349983215332
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.02296455390751362,
+                "nclip": 0.05006510019302368
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.0000000177718262,
+            "nclip": 0.9997228062259118
+          },
+          "render_seconds": 25.594193816184998
+        },
+        {
+          "task": "geometry42",
+          "category": "geometry",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.015502365926901499,
+            "nclip": 0.08500413099924724,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.02083183079957962,
+                "nclip": 0.0729793906211853
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.015393675304949284,
+                "nclip": 0.08239740133285522
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.010281591676175594,
+                "nclip": 0.09963560104370117
+              }
+            ]
+          },
+          "generation_seconds": 73.0241339430213,
+          "input_tokens": 2970,
+          "output_tokens": 1233,
+          "metrics": {
+            "pl": 0.007179575817038615,
+            "nclip": 0.06173412005106608,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.009627959690988064,
+                "nclip": 0.05701184272766113
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.007435696665197611,
+                "nclip": 0.042931556701660156
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.004475071094930172,
+                "nclip": 0.08525896072387695
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.4631277389794169,
+            "nclip": 0.7262482136988785
+          },
+          "render_seconds": 6.347978889942169
+        },
+        {
+          "task": "geometry49",
+          "category": "geometry",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.04474638029932976,
+            "nclip": 0.11439654231071472,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0743975043296814,
+                "nclip": 0.14931094646453857
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.015095256268978119,
+                "nclip": 0.07948213815689087
+              }
+            ]
+          },
+          "generation_seconds": 45.59361079335213,
+          "input_tokens": 1697,
+          "output_tokens": 488,
+          "metrics": {
+            "pl": 0.044746382627636194,
+            "nclip": 0.11439669132232666,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0743975043296814,
+                "nclip": 0.14931082725524902
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.015095260925590992,
+                "nclip": 0.0794825553894043
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.0000000520334031,
+            "nclip": 1.0000013025893304
+          },
+          "render_seconds": 6.563139997422695
+        },
+        {
+          "task": "geometry54",
+          "category": "geometry",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.0049272519536316395,
+            "nclip": 0.03244781494140625,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.004698257893323898,
+                "nclip": 0.026104986667633057
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.005156246013939381,
+                "nclip": 0.03879064321517944
+              }
+            ]
+          },
+          "generation_seconds": 93.37880267202854,
+          "input_tokens": 3547,
+          "output_tokens": 2338,
+          "metrics": {
+            "pl": 0.0049272505566477776,
+            "nclip": 0.03244751691818237,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.004698256030678749,
+                "nclip": 0.026104092597961426
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.005156245082616806,
+                "nclip": 0.03879094123840332
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.9999997164780801,
+            "nclip": 0.9999908152843465
+          },
+          "render_seconds": 8.152342230081558
+        },
+        {
+          "task": "lighting1",
+          "category": "lighting",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.26667355994383496,
+            "nclip": 0.11538938681284587,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.2903556227684021,
+                "nclip": 0.15832757949829102
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.2805938422679901,
+                "nclip": 0.09933531284332275
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.2290712147951126,
+                "nclip": 0.08850526809692383
+              }
+            ]
+          },
+          "generation_seconds": 38.666017174720764,
+          "input_tokens": 1899,
+          "output_tokens": 177,
+          "metrics": {
+            "pl": 0.2540280024210612,
+            "nclip": 0.09789290030797322,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.2753414213657379,
+                "nclip": 0.13994073867797852
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.267884224653244,
+                "nclip": 0.07359164953231812
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.21885836124420166,
+                "nclip": 0.08014631271362305
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.9525803837379133,
+            "nclip": 0.8483697014209265
+          },
+          "render_seconds": 65.82288075983524
+        },
+        {
+          "task": "lighting6",
+          "category": "lighting",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.0015132268502687414,
+            "nclip": 0.007596234480539958,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0013839732855558395,
+                "nclip": 0.01018977165222168
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0014258334413170815,
+                "nclip": 0.004511058330535889
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.0017298738239333034,
+                "nclip": 0.008087873458862305
+              }
+            ]
+          },
+          "generation_seconds": 32.246338561177254,
+          "input_tokens": 6718,
+          "output_tokens": 374,
+          "metrics": {
+            "pl": 0.0015132261129717033,
+            "nclip": 0.007597784201304118,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0013839732855558395,
+                "nclip": 0.01019585132598877
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0014258321607485414,
+                "nclip": 0.004511415958404541
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.0017298728926107287,
+                "nclip": 0.008086085319519043
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.9999995127626065,
+            "nclip": 1.0002040189109838
+          },
+          "render_seconds": 13.859197065234184
+        },
+        {
+          "task": "lighting8",
+          "category": "lighting",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.009060515246043602,
+            "nclip": 0.0604050358136495,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.01016643363982439,
+                "nclip": 0.044695377349853516
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.009214217774569988,
+                "nclip": 0.07158458232879639
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.007800894323736429,
+                "nclip": 0.06493514776229858
+              }
+            ]
+          },
+          "generation_seconds": 40.94038338959217,
+          "input_tokens": 6715,
+          "output_tokens": 373,
+          "metrics": {
+            "pl": 0.0014326685341075063,
+            "nclip": 0.011109689871470133,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0015935208648443222,
+                "nclip": 0.004240810871124268
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0013977255439385772,
+                "nclip": 0.01184237003326416
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.0013067591935396194,
+                "nclip": 0.017245888710021973
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.15812149275867188,
+            "nclip": 0.18391630484316943
+          },
+          "render_seconds": 14.066155217587948
+        },
+        {
+          "task": "lighting17",
+          "category": "lighting",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.01944132832189401,
+            "nclip": 0.03407520055770874,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.01993829570710659,
+                "nclip": 0.03988456726074219
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.020317289978265762,
+                "nclip": 0.03067415952682495
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.018068399280309677,
+                "nclip": 0.03166687488555908
+              }
+            ]
+          },
+          "generation_seconds": 262.5763037353754,
+          "input_tokens": 2057,
+          "output_tokens": 8192,
+          "failure": "generation_or_parse",
+          "detail": "ValueError('Generation reached token budget')"
+        },
+        {
+          "task": "lighting24",
+          "category": "lighting",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.004299031163100153,
+            "nclip": 0.05090045928955078,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.003493585390970111,
+                "nclip": 0.06861746311187744
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.01062446366995573,
+                "nclip": 0.054531216621398926
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.0006457071285694838,
+                "nclip": 0.03642129898071289
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.0024323684629052877,
+                "nclip": 0.04403185844421387
+              }
+            ]
+          },
+          "generation_seconds": 32.85880270600319,
+          "input_tokens": 2499,
+          "output_tokens": 214,
+          "metrics": {
+            "pl": 0.02769691520370543,
+            "nclip": 0.021761447191238403,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.016816025599837303,
+                "nclip": 0.02057826519012451
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.06784803420305252,
+                "nclip": 0.031382203102111816
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.00869468692690134,
+                "nclip": 0.009008288383483887
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.017428914085030556,
+                "nclip": 0.0260770320892334
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 6.442604188846991,
+            "nclip": 0.4275264692226307
+          },
+          "render_seconds": 87.69360549002886
+        },
+        {
+          "task": "lighting32",
+          "category": "lighting",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.002461746335029602,
+            "nclip": 0.0044717490673065186,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0024748228024691343,
+                "nclip": 0.004701733589172363
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0024486698675900698,
+                "nclip": 0.004241764545440674
+              }
+            ]
+          },
+          "generation_seconds": 30.35913196951151,
+          "input_tokens": 1299,
+          "output_tokens": 91,
+          "metrics": {
+            "pl": 0.0024617468006908894,
+            "nclip": 0.00447961688041687,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0024748260620981455,
+                "nclip": 0.004704833030700684
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0024486675392836332,
+                "nclip": 0.004254400730133057
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.0000001891595023,
+            "nclip": 1.0017595542462576
+          },
+          "render_seconds": 11.276348851621151
+        },
+        {
+          "task": "lighting34",
+          "category": "lighting",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.014469110406935215,
+            "nclip": 0.021889090538024902,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.01497576106339693,
+                "nclip": 0.014986515045166016
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0139624597504735,
+                "nclip": 0.02879166603088379
+              }
+            ]
+          },
+          "generation_seconds": 21.96649169921875,
+          "input_tokens": 1299,
+          "output_tokens": 91,
+          "metrics": {
+            "pl": 0.01446911133825779,
+            "nclip": 0.02189016342163086,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.014975751750171185,
+                "nclip": 0.014984369277954102
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.013962470926344395,
+                "nclip": 0.028795957565307617
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.0000000643662972,
+            "nclip": 1.0000490151361463
+          },
+          "render_seconds": 10.648823514580727
+        },
+        {
+          "task": "lighting37",
+          "category": "lighting",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.02810071874409914,
+            "nclip": 0.026180028915405273,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.02681809663772583,
+                "nclip": 0.020786523818969727
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.02938334085047245,
+                "nclip": 0.03157353401184082
+              }
+            ]
+          },
+          "generation_seconds": 20.36159836500883,
+          "input_tokens": 1287,
+          "output_tokens": 79,
+          "metrics": {
+            "pl": 0.014135134872049093,
+            "nclip": 0.021759390830993652,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.013457163237035275,
+                "nclip": 0.02886950969696045
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.014813106507062912,
+                "nclip": 0.014649271965026855
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.5030167113923141,
+            "nclip": 0.8311429147119861
+          },
+          "render_seconds": 9.46321675926447
+        },
+        {
+          "task": "lighting38",
+          "category": "lighting",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.03885623998939991,
+            "nclip": 0.038345396518707275,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.03688567131757736,
+                "nclip": 0.033656954765319824
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.04082680866122246,
+                "nclip": 0.04303383827209473
+              }
+            ]
+          },
+          "generation_seconds": 15.370376944541931,
+          "input_tokens": 1285,
+          "output_tokens": 77,
+          "metrics": {
+            "pl": 0.03885623253881931,
+            "nclip": 0.03835606575012207,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.036885712295770645,
+                "nclip": 0.03366374969482422
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.04082675278186798,
+                "nclip": 0.04304838180541992
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.9999998082526245,
+            "nclip": 1.0002782421623924
+          },
+          "render_seconds": 8.476922877132893
+        },
+        {
+          "task": "lighting42",
+          "category": "lighting",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.012356481049209833,
+            "nclip": 0.03801989555358887,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.012754839845001698,
+                "nclip": 0.04048299789428711
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.011958122253417969,
+                "nclip": 0.035556793212890625
+              }
+            ]
+          },
+          "generation_seconds": 24.170716002583504,
+          "input_tokens": 1743,
+          "output_tokens": 535,
+          "metrics": {
+            "pl": 0.012356479186564684,
+            "nclip": 0.037989139556884766,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.012754824012517929,
+                "nclip": 0.040445566177368164
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.011958134360611439,
+                "nclip": 0.03553271293640137
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.9999998492575454,
+            "nclip": 0.9991910494956994
+          },
+          "render_seconds": 19.63775034993887
+        },
+        {
+          "task": "material10",
+          "category": "material",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.005430104210972786,
+            "nclip": 0.06231510639190674,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.005430104210972786,
+                "nclip": 0.06231510639190674
+              }
+            ]
+          },
+          "generation_seconds": 55.96214482188225,
+          "input_tokens": 1893,
+          "output_tokens": 1212,
+          "metrics": {
+            "pl": 0.005430106073617935,
+            "nclip": 0.06231510639190674,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.005430106073617935,
+                "nclip": 0.06231510639190674
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.0000003430220166,
+            "nclip": 1.0
+          },
+          "render_seconds": 5.720070615410805
+        },
+        {
+          "task": "material13",
+          "category": "material",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.024946073070168495,
+            "nclip": 0.07021021842956543,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.024946073070168495,
+                "nclip": 0.07021021842956543
+              }
+            ]
+          },
+          "generation_seconds": 51.87581031769514,
+          "input_tokens": 1838,
+          "output_tokens": 1157,
+          "metrics": {
+            "pl": 0.024946071207523346,
+            "nclip": 0.07021105289459229,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.024946071207523346,
+                "nclip": 0.07021105289459229
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.9999999253331305,
+            "nclip": 1.0000118852361597
+          },
+          "render_seconds": 4.495892181992531
+        },
+        {
+          "task": "material19",
+          "category": "material",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.22516639530658722,
+            "nclip": 0.12876027822494507,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.22516639530658722,
+                "nclip": 0.12876027822494507
+              }
+            ]
+          },
+          "generation_seconds": 96.69918584823608,
+          "input_tokens": 2343,
+          "output_tokens": 1653,
+          "metrics": {
+            "pl": 0.021110286936163902,
+            "nclip": 0.2136433720588684,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.021110286936163902,
+                "nclip": 0.2136433720588684
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.09375416130610206,
+            "nclip": 1.659233538511248
+          },
+          "render_seconds": 4.434029512107372
+        },
+        {
+          "task": "material24",
+          "category": "material",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.0132581302896142,
+            "nclip": 0.06587815284729004,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0132581302896142,
+                "nclip": 0.06587815284729004
+              }
+            ]
+          },
+          "generation_seconds": 78.95740697532892,
+          "input_tokens": 1732,
+          "output_tokens": 1051,
+          "metrics": {
+            "pl": 0.0132581302896142,
+            "nclip": 0.06587415933609009,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0132581302896142,
+                "nclip": 0.06587415933609009
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.0,
+            "nclip": 0.9999393803404111
+          },
+          "render_seconds": 4.7894463166594505
+        },
+        {
+          "task": "material27",
+          "category": "material",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.048528581857681274,
+            "nclip": 0.0976414680480957,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.048528581857681274,
+                "nclip": 0.0976414680480957
+              }
+            ]
+          },
+          "generation_seconds": 89.74380153417587,
+          "input_tokens": 1567,
+          "output_tokens": 886,
+          "metrics": {
+            "pl": 0.048528581857681274,
+            "nclip": 0.09763890504837036,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.048528581857681274,
+                "nclip": 0.09763890504837036
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.0,
+            "nclip": 0.9999737509095615
+          },
+          "render_seconds": 6.568558968603611
+        },
+        {
+          "task": "material28",
+          "category": "material",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.0694449245929718,
+            "nclip": 0.09939068555831909,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0694449245929718,
+                "nclip": 0.09939068555831909
+              }
+            ]
+          },
+          "generation_seconds": 114.11646189540625,
+          "input_tokens": 1875,
+          "output_tokens": 1193,
+          "metrics": {
+            "pl": 0.0694449245929718,
+            "nclip": 0.09939318895339966,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0694449245929718,
+                "nclip": 0.09939318895339966
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.0,
+            "nclip": 1.0000251874214017
+          },
+          "render_seconds": 4.377038322389126
+        },
+        {
+          "task": "material31",
+          "category": "material",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.0007647356833331287,
+            "nclip": 0.10576200485229492,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0007647356833331287,
+                "nclip": 0.10576200485229492
+              }
+            ]
+          },
+          "generation_seconds": 120.59222556650639,
+          "input_tokens": 2925,
+          "output_tokens": 2244,
+          "metrics": {
+            "pl": 0.0007647345191799104,
+            "nclip": 0.10575741529464722,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0007647345191799104,
+                "nclip": 0.10575741529464722
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.9999984777042598,
+            "nclip": 0.9999566048539443
+          },
+          "render_seconds": 4.419634461402893
+        },
+        {
+          "task": "material32",
+          "category": "material",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.0009968543890863657,
+            "nclip": 0.04545360803604126,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0009968543890863657,
+                "nclip": 0.04545360803604126
+              }
+            ]
+          },
+          "generation_seconds": 129.67784280329943,
+          "input_tokens": 2915,
+          "output_tokens": 2234,
+          "metrics": {
+            "pl": 0.0009968540398404002,
+            "nclip": 0.04543912410736084,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0009968540398404002,
+                "nclip": 0.04543912410736084
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.9999996496518248,
+            "nclip": 0.9996813469973839
+          },
+          "render_seconds": 4.390345178544521
+        },
+        {
+          "task": "material41",
+          "category": "material",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.3164440095424652,
+            "nclip": 0.10372328758239746,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.3164440095424652,
+                "nclip": 0.10372328758239746
+              }
+            ]
+          },
+          "generation_seconds": 83.0375814139843,
+          "input_tokens": 1857,
+          "output_tokens": 1176,
+          "metrics": {
+            "pl": 0.3164440095424652,
+            "nclip": 0.10372275114059448,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.3164440095424652,
+                "nclip": 0.10372275114059448
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.0,
+            "nclip": 0.9999948281450051
+          },
+          "render_seconds": 3.7786378264427185
+        },
+        {
+          "task": "material43",
+          "category": "material",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.047634873539209366,
+            "nclip": 0.026235103607177734,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.047634873539209366,
+                "nclip": 0.026235103607177734
+              }
+            ]
+          },
+          "generation_seconds": 113.9006819576025,
+          "input_tokens": 2272,
+          "output_tokens": 1591,
+          "metrics": {
+            "pl": 0.04763486981391907,
+            "nclip": 0.026241183280944824,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.04763486981391907,
+                "nclip": 0.026241183280944824
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.999999921794894,
+            "nclip": 1.0002317381268289
+          },
+          "render_seconds": 5.08841036260128
+        },
+        {
+          "task": "placement2",
+          "category": "placement",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.00263252948934678,
+            "nclip": 0.054659485816955566,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0016322415322065353,
+                "nclip": 0.04256021976470947
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0060629043728113174,
+                "nclip": 0.088992178440094
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.002051054500043392,
+                "nclip": 0.03776729106903076
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.0007839175523258746,
+                "nclip": 0.04931825399398804
+              }
+            ]
+          },
+          "generation_seconds": 79.66792020201683,
+          "input_tokens": 2868,
+          "output_tokens": 534,
+          "metrics": {
+            "pl": 0.0031833744433242828,
+            "nclip": 0.06430768966674805,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.001332604675553739,
+                "nclip": 0.06680631637573242
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.008096360601484776,
+                "nclip": 0.09503698348999023
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.001956678694114089,
+                "nclip": 0.08793914318084717
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.0013478538021445274,
+                "nclip": 0.007448315620422363
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.209251083903354,
+            "nclip": 1.1765163564153887
+          },
+          "render_seconds": 7.273069314658642
+        },
+        {
+          "task": "placement5",
+          "category": "placement",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.0014286638715930167,
+            "nclip": 0.018389031291007996,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0016629047458991408,
+                "nclip": 0.04173409938812256
+              },
+              {
+                "view": "render2.png",
+                "pl": 8.57257327879779e-06,
+                "nclip": 0.00039136409759521484
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.0009792714845389128,
+                "nclip": 0.006970047950744629
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.0030639066826552153,
+                "nclip": 0.02446061372756958
+              }
+            ]
+          },
+          "generation_seconds": 82.3748731687665,
+          "input_tokens": 2903,
+          "output_tokens": 636,
+          "metrics": {
+            "pl": 0.0014286624452779506,
+            "nclip": 0.018390893936157227,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0016629045130684972,
+                "nclip": 0.04172855615615845
+              },
+              {
+                "view": "render2.png",
+                "pl": 8.572455953981262e-06,
+                "nclip": 0.00039142370223999023
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.000979266595095396,
+                "nclip": 0.006985306739807129
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.003063906216993928,
+                "nclip": 0.02445828914642334
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.9999990015949801,
+            "nclip": 1.0001012938876026
+          },
+          "render_seconds": 7.298460081219673
+        },
+        {
+          "task": "placement6",
+          "category": "placement",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.0024466533213853836,
+            "nclip": 0.02111312747001648,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0014401922235265374,
+                "nclip": 0.02547430992126465
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0012732503237202764,
+                "nclip": 0.022417545318603516
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.003437904641032219,
+                "nclip": 0.011724472045898438
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.0036352660972625017,
+                "nclip": 0.024836182594299316
+              }
+            ]
+          },
+          "generation_seconds": 75.38113378733397,
+          "input_tokens": 2705,
+          "output_tokens": 708,
+          "metrics": {
+            "pl": 0.002562204434070736,
+            "nclip": 0.017833009362220764,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0014371373690664768,
+                "nclip": 0.02476346492767334
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0021663838997483253,
+                "nclip": 0.02181220054626465
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.004410986788570881,
+                "nclip": 0.01118612289428711
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.0022343096788972616,
+                "nclip": 0.013570249080657959
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.0472295884617715,
+            "nclip": 0.8446370948389519
+          },
+          "render_seconds": 55.62465879321098
+        },
+        {
+          "task": "placement9",
+          "category": "placement",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.014291712082922459,
+            "nclip": 0.08115360140800476,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.017149703577160835,
+                "nclip": 0.07873231172561646
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.015637138858437538,
+                "nclip": 0.0563698410987854
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.015959182754158974,
+                "nclip": 0.11311054229736328
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.008420823141932487,
+                "nclip": 0.0764017105102539
+              }
+            ]
+          },
+          "generation_seconds": 51.45846448838711,
+          "input_tokens": 2709,
+          "output_tokens": 544,
+          "metrics": {
+            "pl": 0.007837717421352863,
+            "nclip": 0.05431748926639557,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.007608822081238031,
+                "nclip": 0.07188248634338379
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.009200738742947578,
+                "nclip": 0.055284082889556885
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.009552276693284512,
+                "nclip": 0.047916948795318604
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.004989032167941332,
+                "nclip": 0.042186439037323
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.5484077528226734,
+            "nclip": 0.6693149877012727
+          },
+          "render_seconds": 54.47167199105024
+        },
+        {
+          "task": "placement11",
+          "category": "placement",
+          "success": true,
+          "start_metrics": {
+            "pl": 0.022172369790496305,
+            "nclip": 0.10995972156524658,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.004919298458844423,
+                "nclip": 0.0333101749420166
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0054684593342244625,
+                "nclip": 0.1542450189590454
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.07699226588010788,
+                "nclip": 0.19998544454574585
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.001309455488808453,
+                "nclip": 0.05229824781417847
+              }
+            ]
+          },
+          "generation_seconds": 44.57415506243706,
+          "input_tokens": 2595,
+          "output_tokens": 274,
+          "metrics": {
+            "pl": 1.368852233646356e-08,
+            "nclip": 2.3990869522094727e-06,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 1.392318171866691e-08,
+                "nclip": 1.430511474609375e-06
+              },
+              {
+                "view": "render2.png",
+                "pl": 1.7971073518197045e-08,
+                "nclip": 1.6689300537109375e-06
+              },
+              {
+                "view": "render3.png",
+                "pl": 2.241006846759319e-08,
+                "nclip": 6.4373016357421875e-06
+              },
+              {
+                "view": "render4.png",
+                "pl": 4.4976564139709296e-10,
+                "nclip": 5.960464477539063e-08
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.0,
+            "nclip": 1.721044910057109e-05
+          },
+          "render_seconds": 30.173262119293213
+        },
+        {
+          "task": "placement20",
+          "category": "placement",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.001225169247481972,
+            "nclip": 0.017272531986236572,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0006778044626116753,
+                "nclip": 0.012416422367095947
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0003080149763263762,
+                "nclip": 0.024882376194000244
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.004411287605762482,
+                "nclip": 0.03542613983154297
+              },
+              {
+                "view": "render4.png",
+                "pl": 4.8426445573568344e-05,
+                "nclip": 0.002820909023284912
+              },
+              {
+                "view": "render5.png",
+                "pl": 0.0006803127471357584,
+                "nclip": 0.010816812515258789
+              }
+            ]
+          },
+          "generation_seconds": 89.59413200616837,
+          "input_tokens": 4844,
+          "output_tokens": 2088,
+          "metrics": {
+            "pl": 0.0009185129078105092,
+            "nclip": 0.023018598556518555,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0005653093103319407,
+                "nclip": 0.01238030195236206
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.00038204589509405196,
+                "nclip": 0.030737221240997314
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.0027706969995051622,
+                "nclip": 0.043331682682037354
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.00013358049909584224,
+                "nclip": 0.01679098606109619
+              },
+              {
+                "view": "render5.png",
+                "pl": 0.0007409318350255489,
+                "nclip": 0.011852800846099854
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.7496885275846514,
+            "nclip": 1.3326805313750425
+          },
+          "render_seconds": 9.217282362282276
+        },
+        {
+          "task": "placement22",
+          "category": "placement",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.014255753951147199,
+            "nclip": 0.028910577297210693,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.016199076548218727,
+                "nclip": 0.027412772178649902
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.015602782368659973,
+                "nclip": 0.029336273670196533
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.016755208373069763,
+                "nclip": 0.0292360782623291
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.008465948514640331,
+                "nclip": 0.029657185077667236
+              }
+            ]
+          },
+          "generation_seconds": 39.40205525606871,
+          "input_tokens": 2705,
+          "output_tokens": 438,
+          "metrics": {
+            "pl": 0.01425575534813106,
+            "nclip": 0.028906330466270447,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.016199083998799324,
+                "nclip": 0.02739882469177246
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.01560277957469225,
+                "nclip": 0.02931612730026245
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.016755210235714912,
+                "nclip": 0.029237329959869385
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.008465947583317757,
+                "nclip": 0.02967303991317749
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.000000097994869,
+            "nclip": 0.9998531020214193
+          },
+          "render_seconds": 73.9760262966156
+        },
+        {
+          "task": "placement28",
+          "category": "placement",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.0025603597896406427,
+            "nclip": 0.00545915961265564,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 8.919060928747058e-05,
+                "nclip": 0.0011882185935974121
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.002863050438463688,
+                "nclip": 0.006266891956329346
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.0012475502444431186,
+                "nclip": 0.0044463276863098145
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.006041647866368294,
+                "nclip": 0.009935200214385986
+              }
+            ]
+          },
+          "generation_seconds": 34.39860112220049,
+          "input_tokens": 2763,
+          "output_tokens": 655,
+          "metrics": {
+            "pl": 0.0025603628400858724,
+            "nclip": 0.005457982420921326,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 8.919047104427591e-05,
+                "nclip": 0.0011883378028869629
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0028630609158426523,
+                "nclip": 0.006269574165344238
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.0012475535040721297,
+                "nclip": 0.004444897174835205
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.006041646469384432,
+                "nclip": 0.009929120540618896
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.000001191445403,
+            "nclip": 0.9997843439141306
+          },
+          "render_seconds": 58.77887377142906
+        },
+        {
+          "task": "placement32",
+          "category": "placement",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.012272679945454001,
+            "nclip": 0.024908244609832764,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.00749810179695487,
+                "nclip": 0.01876389980316162
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.017047258093953133,
+                "nclip": 0.031052589416503906
+              }
+            ]
+          },
+          "generation_seconds": 24.106286592781544,
+          "input_tokens": 1657,
+          "output_tokens": 522,
+          "metrics": {
+            "pl": 0.012263649143278599,
+            "nclip": 0.026364058256149292,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.007739216089248657,
+                "nclip": 0.020539045333862305
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.01678808219730854,
+                "nclip": 0.03218907117843628
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.9992641498114436,
+            "nclip": 1.0584482480123
+          },
+          "render_seconds": 6.52622676640749
+        },
+        {
+          "task": "placement45",
+          "category": "placement",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.0033379648812115192,
+            "nclip": 0.02050197124481201,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0028709296602755785,
+                "nclip": 0.02183842658996582
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.00380500010214746,
+                "nclip": 0.019165515899658203
+              }
+            ]
+          },
+          "generation_seconds": 28.028713397681713,
+          "input_tokens": 1509,
+          "output_tokens": 460,
+          "metrics": {
+            "pl": 0.0033379499800503254,
+            "nclip": 0.020501911640167236,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.002870916621759534,
+                "nclip": 0.021826505661010742
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.003804983338341117,
+                "nclip": 0.01917731761932373
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.9999955357604905,
+            "nclip": 0.9999970926640646
+          },
+          "render_seconds": 6.422743052244186
+        }
+      ],
+      "expand_to_full": false
+    }
+  },
+  "qwen3-vl-32b": {
+    "subset": {
+      "split": "subset",
+      "protocol_sha256": "38842a28676e90c5635729e5dd9ae7a517a4324aadf251ecc27f537bc3cf3468",
+      "summary": {
+        "tasks": 50,
+        "scorable_tasks": 50,
+        "invalid_data": [],
+        "successes": 2,
+        "success_rate": 0.04,
+        "rendered_tasks": 47,
+        "failures": {
+          "execution": 3
+        },
+        "valid_only_mean": {
+          "pl": 0.024682431567977108,
+          "nclip": 0.045906103312546485
+        },
+        "start_mean": {
+          "pl": 0.048352074866984666,
+          "nclip": 0.06165301601092021
+        }
+      },
+      "by_category": {
+        "blendshape": {
+          "tasks": 10,
+          "scorable_tasks": 10,
+          "invalid_data": [],
+          "successes": 0,
+          "success_rate": 0.0,
+          "rendered_tasks": 10,
+          "failures": {},
+          "valid_only_mean": {
+            "pl": 0.007835149355620765,
+            "nclip": 0.018605120480060577
+          },
+          "start_mean": {
+            "pl": 0.013691653854524094,
+            "nclip": 0.033777390420436856
+          }
+        },
+        "geometry": {
+          "tasks": 10,
+          "scorable_tasks": 10,
+          "invalid_data": [],
+          "successes": 1,
+          "success_rate": 0.1,
+          "rendered_tasks": 8,
+          "failures": {
+            "execution": 2
+          },
+          "valid_only_mean": {
+            "pl": 0.032655521305059665,
+            "nclip": 0.08052482331792513
+          },
+          "start_mean": {
+            "pl": 0.10542167079014084,
+            "nclip": 0.11599070529143014
+          }
+        },
+        "lighting": {
+          "tasks": 10,
+          "scorable_tasks": 10,
+          "invalid_data": [],
+          "successes": 0,
+          "success_rate": 0.0,
+          "rendered_tasks": 10,
+          "failures": {},
+          "valid_only_mean": {
+            "pl": 0.013087403021442392,
+            "nclip": 0.019928814967473348
+          },
+          "start_mean": {
+            "pl": 0.039723195804981515,
+            "nclip": 0.03972724775473277
+          }
+        },
+        "material": {
+          "tasks": 10,
+          "scorable_tasks": 10,
+          "invalid_data": [],
+          "successes": 0,
+          "success_rate": 0.0,
+          "rendered_tasks": 9,
+          "failures": {
+            "execution": 1
+          },
+          "valid_only_mean": {
+            "pl": 0.06369180845407148,
+            "nclip": 0.08778115113576253
+          },
+          "start_mean": {
+            "pl": 0.07526146824820898,
+            "nclip": 0.08053699135780334
+          }
+        },
+        "placement": {
+          "tasks": 10,
+          "scorable_tasks": 10,
+          "invalid_data": [],
+          "successes": 1,
+          "success_rate": 0.1,
+          "rendered_tasks": 10,
+          "failures": {},
+          "valid_only_mean": {
+            "pl": 0.011637831339717195,
+            "nclip": 0.033801855444908144
+          },
+          "start_mean": {
+            "pl": 0.007662385637067929,
+            "nclip": 0.03823274523019791
+          }
+        }
+      },
+      "rows": [
+        {
+          "task": "blendshape7",
+          "category": "blendshape",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.008467202074825764,
+            "nclip": 0.005747169256210327,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0056257713586091995,
+                "nclip": 0.006219387054443359
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.011308632791042328,
+                "nclip": 0.005274951457977295
+              }
+            ]
+          },
+          "generation_seconds": 22.493287071585655,
+          "input_tokens": 1559,
+          "output_tokens": 348,
+          "metrics": {
+            "pl": 0.008467207895591855,
+            "nclip": 0.005749106407165527,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.005625780206173658,
+                "nclip": 0.006219387054443359
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.011308635585010052,
+                "nclip": 0.005278825759887695
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.000000687448731,
+            "nclip": 1.0003370862266567
+          },
+          "render_seconds": 4.3831891641020775
+        },
+        {
+          "task": "blendshape11",
+          "category": "blendshape",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.006523025222122669,
+            "nclip": 0.03819805383682251,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.005087909288704395,
+                "nclip": 0.0350874662399292
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.007958141155540943,
+                "nclip": 0.04130864143371582
+              }
+            ]
+          },
+          "generation_seconds": 75.0520671159029,
+          "input_tokens": 3514,
+          "output_tokens": 1017,
+          "metrics": {
+            "pl": 0.005186258582398295,
+            "nclip": 0.0070885419845581055,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.004359172657132149,
+                "nclip": 0.006254434585571289
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.006013344507664442,
+                "nclip": 0.007922649383544922
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.7950694714670298,
+            "nclip": 0.18556448466879924
+          },
+          "render_seconds": 3.5787519365549088
+        },
+        {
+          "task": "blendshape23",
+          "category": "blendshape",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.011435842141509056,
+            "nclip": 0.0329073965549469,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.00810769572854042,
+                "nclip": 0.02736830711364746
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.014763988554477692,
+                "nclip": 0.03844648599624634
+              }
+            ]
+          },
+          "generation_seconds": 23.93189460784197,
+          "input_tokens": 1605,
+          "output_tokens": 394,
+          "metrics": {
+            "pl": 0.009217498358339071,
+            "nclip": 0.016269922256469727,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.006873216480016708,
+                "nclip": 0.01437598466873169
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.011561780236661434,
+                "nclip": 0.018163859844207764
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.8060182973139741,
+            "nclip": 0.4944089478569973
+          },
+          "render_seconds": 8.551615074276924
+        },
+        {
+          "task": "blendshape36",
+          "category": "blendshape",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.008239277987740934,
+            "nclip": 0.00972596804300944,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.009652848355472088,
+                "nclip": 0.008880436420440674
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0017083511920645833,
+                "nclip": 0.004856288433074951
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.01335663441568613,
+                "nclip": 0.015441179275512695
+              }
+            ]
+          },
+          "generation_seconds": 15.422987282276154,
+          "input_tokens": 1865,
+          "output_tokens": 126,
+          "metrics": {
+            "pl": 0.008239281984666983,
+            "nclip": 0.00972674290339152,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.009652860462665558,
+                "nclip": 0.008875846862792969
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0017083510756492615,
+                "nclip": 0.00485837459564209
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.01335663441568613,
+                "nclip": 0.015446007251739502
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.0000004851064526,
+            "nclip": 1.000079672647563
+          },
+          "render_seconds": 5.448451176285744
+        },
+        {
+          "task": "blendshape44",
+          "category": "blendshape",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.003534567542374134,
+            "nclip": 0.06644147634506226,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0038341209292411804,
+                "nclip": 0.08418148756027222
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0032350141555070877,
+                "nclip": 0.048701465129852295
+              }
+            ]
+          },
+          "generation_seconds": 8.87155756354332,
+          "input_tokens": 1343,
+          "output_tokens": 141,
+          "metrics": {
+            "pl": 0.0031906128861010075,
+            "nclip": 0.04417741298675537,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.002963549690321088,
+                "nclip": 0.05350148677825928
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.003417676081880927,
+                "nclip": 0.034853339195251465
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.9026882847001736,
+            "nclip": 0.664905050345565
+          },
+          "render_seconds": 6.024466514587402
+        },
+        {
+          "task": "blendshape53",
+          "category": "blendshape",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.06890175770968199,
+            "nclip": 0.11116309463977814,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.05244135484099388,
+                "nclip": 0.10059034824371338
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.068660669028759,
+                "nclip": 0.1167249083518982
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.06326630711555481,
+                "nclip": 0.09810298681259155
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.09123869985342026,
+                "nclip": 0.12923413515090942
+              }
+            ]
+          },
+          "generation_seconds": 42.437175668776035,
+          "input_tokens": 2627,
+          "output_tokens": 359,
+          "metrics": {
+            "pl": 0.016454339202027768,
+            "nclip": 0.0427313894033432,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.019478153437376022,
+                "nclip": 0.07528036832809448
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0029948849696666002,
+                "nclip": 0.009204506874084473
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.0059710401110351086,
+                "nclip": 0.026183128356933594
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.03737327829003334,
+                "nclip": 0.060257554054260254
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.2388086804602289,
+            "nclip": 0.38440035061657496
+          },
+          "render_seconds": 31.48788984119892
+        },
+        {
+          "task": "blendshape56",
+          "category": "blendshape",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.0027391420056422553,
+            "nclip": 0.007293184598286946,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0026620030403137207,
+                "nclip": 0.007686793804168701
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0034442550968378782,
+                "nclip": 0.00977236032485962
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.0021111678797751665,
+                "nclip": 0.0044203996658325195
+              }
+            ]
+          },
+          "generation_seconds": 27.916287682950497,
+          "input_tokens": 1942,
+          "output_tokens": 203,
+          "metrics": {
+            "pl": 0.0012423565494827926,
+            "nclip": 0.01419748862584432,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0011801106156781316,
+                "nclip": 0.020029664039611816
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0016884614014998078,
+                "nclip": 0.014649748802185059
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.0008584976312704384,
+                "nclip": 0.007913053035736084
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.4535564673830331,
+            "nclip": 1.9467330687059505
+          },
+          "render_seconds": 7.155482180416584
+        },
+        {
+          "task": "blendshape64",
+          "category": "blendshape",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.0029335588915273547,
+            "nclip": 0.023791790008544922,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0025468505918979645,
+                "nclip": 0.02556663751602173
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.003320267191156745,
+                "nclip": 0.022016942501068115
+              }
+            ]
+          },
+          "generation_seconds": 22.25949016213417,
+          "input_tokens": 1609,
+          "output_tokens": 376,
+          "metrics": {
+            "pl": 0.0017716775764711201,
+            "nclip": 0.003249555826187134,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0014689586823806167,
+                "nclip": 0.002890467643737793
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0020743964705616236,
+                "nclip": 0.0036086440086364746
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.6039343109537176,
+            "nclip": 0.13656793259727473
+          },
+          "render_seconds": 9.638301700353622
+        },
+        {
+          "task": "blendshape70",
+          "category": "blendshape",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.018727357499301434,
+            "nclip": 0.032340437173843384,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.016500553116202354,
+                "nclip": 0.043494343757629395
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.020954161882400513,
+                "nclip": 0.021186530590057373
+              }
+            ]
+          },
+          "generation_seconds": 23.59744966030121,
+          "input_tokens": 1370,
+          "output_tokens": 159,
+          "metrics": {
+            "pl": 0.018727358430624008,
+            "nclip": 0.032377392053604126,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.01650056429207325,
+                "nclip": 0.0435565710067749
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.020954152569174767,
+                "nclip": 0.02119821310043335
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.0000000497305968,
+            "nclip": 1.0011426981129816
+          },
+          "render_seconds": 10.829223692417145
+        },
+        {
+          "task": "blendshape71",
+          "category": "blendshape",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.00541480747051537,
+            "nclip": 0.01016533374786377,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.006311508361250162,
+                "nclip": 0.013497471809387207
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.004518106579780579,
+                "nclip": 0.006833195686340332
+              }
+            ]
+          },
+          "generation_seconds": 19.610370822250843,
+          "input_tokens": 1337,
+          "output_tokens": 122,
+          "metrics": {
+            "pl": 0.0058549020905047655,
+            "nclip": 0.010483652353286743,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.006377849727869034,
+                "nclip": 0.015353083610534668
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.005331954453140497,
+                "nclip": 0.005614221096038818
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.0812761613061976,
+            "nclip": 1.031315417587766
+          },
+          "render_seconds": 3.75514754652977
+        },
+        {
+          "task": "geometry3",
+          "category": "geometry",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.2833267500003179,
+            "nclip": 0.21096465984980264,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.22356970608234406,
+                "nclip": 0.23354530334472656
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.26515403389930725,
+                "nclip": 0.17136412858963013
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.36125651001930237,
+                "nclip": 0.22798454761505127
+              }
+            ]
+          },
+          "generation_seconds": 78.2758422717452,
+          "input_tokens": 2787,
+          "output_tokens": 1239,
+          "failure": "execution"
+        },
+        {
+          "task": "geometry10",
+          "category": "geometry",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.4751060704390208,
+            "nclip": 0.16042731205622354,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.6106449365615845,
+                "nclip": 0.1896052360534668
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.4267537295818329,
+                "nclip": 0.164650559425354
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.387919545173645,
+                "nclip": 0.12702614068984985
+              }
+            ]
+          },
+          "generation_seconds": 47.563168197870255,
+          "input_tokens": 2358,
+          "output_tokens": 671,
+          "failure": "execution"
+        },
+        {
+          "task": "geometry11",
+          "category": "geometry",
+          "success": true,
+          "start_metrics": {
+            "pl": 0.03518856472025315,
+            "nclip": 0.09938869873682658,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.007053077220916748,
+                "nclip": 0.0999535322189331
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.08880820125341415,
+                "nclip": 0.14177680015563965
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.009704415686428547,
+                "nclip": 0.05643576383590698
+              }
+            ]
+          },
+          "generation_seconds": 77.79577324539423,
+          "input_tokens": 3056,
+          "output_tokens": 1107,
+          "metrics": {
+            "pl": 0.0005522015611253058,
+            "nclip": 0.005416750907897949,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.00019669086032081395,
+                "nclip": 0.0030309557914733887
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0011129920603707433,
+                "nclip": 0.008497059345245361
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.00034692176268436015,
+                "nclip": 0.004722237586975098
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.015692635243557886,
+            "nclip": 0.05449991634003965
+          },
+          "render_seconds": 11.672253668308258
+        },
+        {
+          "task": "geometry22",
+          "category": "geometry",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.03739176752666632,
+            "nclip": 0.06881221135457356,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.04380245879292488,
+                "nclip": 0.08092808723449707
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.05207196995615959,
+                "nclip": 0.0745474100112915
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.016300873830914497,
+                "nclip": 0.05096113681793213
+              }
+            ]
+          },
+          "generation_seconds": 79.6610612347722,
+          "input_tokens": 2332,
+          "output_tokens": 677,
+          "metrics": {
+            "pl": 0.0370195098221302,
+            "nclip": 0.06597950061162312,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.043257731944322586,
+                "nclip": 0.08105611801147461
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.051538918167352676,
+                "nclip": 0.07192689180374146
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.016261879354715347,
+                "nclip": 0.04495549201965332
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.9900443939484405,
+            "nclip": 0.9588341377386798
+          },
+          "render_seconds": 6.134959876537323
+        },
+        {
+          "task": "geometry27",
+          "category": "geometry",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.0755888173977534,
+            "nclip": 0.22561546166737875,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.06676698476076126,
+                "nclip": 0.24200236797332764
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0563352108001709,
+                "nclip": 0.22473639249801636
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.10366425663232803,
+                "nclip": 0.21010762453079224
+              }
+            ]
+          },
+          "generation_seconds": 105.31907563656569,
+          "input_tokens": 2866,
+          "output_tokens": 1129,
+          "metrics": {
+            "pl": 0.0755888360242049,
+            "nclip": 0.2256039579709371,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.06676696985960007,
+                "nclip": 0.24200212955474854
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.056335266679525375,
+                "nclip": 0.22473561763763428
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.10366427153348923,
+                "nclip": 0.21007412672042847
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.000000246418084,
+            "nclip": 0.9999490119143041
+          },
+          "render_seconds": 7.325628496706486
+        },
+        {
+          "task": "geometry33",
+          "category": "geometry",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.04750244691967964,
+            "nclip": 0.10314381122589111,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.05476142093539238,
+                "nclip": 0.11243903636932373
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.04303614795207977,
+                "nclip": 0.09899616241455078
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.04470977187156677,
+                "nclip": 0.09799623489379883
+              }
+            ]
+          },
+          "generation_seconds": 117.04007282853127,
+          "input_tokens": 2702,
+          "output_tokens": 965,
+          "metrics": {
+            "pl": 0.05491185933351517,
+            "nclip": 0.08991144100824992,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0634259358048439,
+                "nclip": 0.07712525129318237
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.051342710852622986,
+                "nclip": 0.09238415956497192
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.04996693134307861,
+                "nclip": 0.10022491216659546
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.1559795954514989,
+            "nclip": 0.8717094098425202
+          },
+          "render_seconds": 8.433701142668724
+        },
+        {
+          "task": "geometry37",
+          "category": "geometry",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.03493629271785418,
+            "nclip": 0.059706409772237144,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.04110340401530266,
+                "nclip": 0.04584002494812012
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.04074092209339142,
+                "nclip": 0.0832209587097168
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.02296455204486847,
+                "nclip": 0.05005824565887451
+              }
+            ]
+          },
+          "generation_seconds": 93.21310298144817,
+          "input_tokens": 2365,
+          "output_tokens": 625,
+          "metrics": {
+            "pl": 0.03493629085520903,
+            "nclip": 0.05968411763509115,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.04110339283943176,
+                "nclip": 0.045806944370269775
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.04074092209339142,
+                "nclip": 0.08318972587585449
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.022964557632803917,
+                "nclip": 0.05005568265914917
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.9999999466845215,
+            "nclip": 0.9996266369573508
+          },
+          "render_seconds": 26.749115638434887
+        },
+        {
+          "task": "geometry42",
+          "category": "geometry",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.015502365926901499,
+            "nclip": 0.08500413099924724,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.02083183079957962,
+                "nclip": 0.0729793906211853
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.015393675304949284,
+                "nclip": 0.08239740133285522
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.010281591676175594,
+                "nclip": 0.09963560104370117
+              }
+            ]
+          },
+          "generation_seconds": 109.73105672746897,
+          "input_tokens": 2970,
+          "output_tokens": 1260,
+          "metrics": {
+            "pl": 0.008561841988315185,
+            "nclip": 0.050759474436442055,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.010669793002307415,
+                "nclip": 0.031107306480407715
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.010401447303593159,
+                "nclip": 0.05119967460632324
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.004614285659044981,
+                "nclip": 0.06997144222259521
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.5522925929418032,
+            "nclip": 0.5971408897824744
+          },
+          "render_seconds": 6.5142910704016685
+        },
+        {
+          "task": "geometry49",
+          "category": "geometry",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.04474638029932976,
+            "nclip": 0.11439654231071472,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0743975043296814,
+                "nclip": 0.14931094646453857
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.015095256268978119,
+                "nclip": 0.07948213815689087
+              }
+            ]
+          },
+          "generation_seconds": 89.63906598836184,
+          "input_tokens": 1697,
+          "output_tokens": 488,
+          "metrics": {
+            "pl": 0.04474638029932976,
+            "nclip": 0.11439642310142517,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0743975043296814,
+                "nclip": 0.14931070804595947
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.015095256268978119,
+                "nclip": 0.07948213815689087
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.0,
+            "nclip": 0.9999989579285357
+          },
+          "render_seconds": 7.473155632615089
+        },
+        {
+          "task": "geometry54",
+          "category": "geometry",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.0049272519536316395,
+            "nclip": 0.03244781494140625,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.004698257893323898,
+                "nclip": 0.026104986667633057
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.005156246013939381,
+                "nclip": 0.03879064321517944
+              }
+            ]
+          },
+          "generation_seconds": 168.89989764243364,
+          "input_tokens": 3547,
+          "output_tokens": 2338,
+          "metrics": {
+            "pl": 0.0049272505566477776,
+            "nclip": 0.03244692087173462,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.004698256030678749,
+                "nclip": 0.02609837055206299
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.005156245082616806,
+                "nclip": 0.03879547119140625
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.9999997164780801,
+            "nclip": 0.9999724458530397
+          },
+          "render_seconds": 8.010305739939213
+        },
+        {
+          "task": "lighting1",
+          "category": "lighting",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.26667355994383496,
+            "nclip": 0.11538938681284587,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.2903556227684021,
+                "nclip": 0.15832757949829102
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.2805938422679901,
+                "nclip": 0.09933531284332275
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.2290712147951126,
+                "nclip": 0.08850526809692383
+              }
+            ]
+          },
+          "generation_seconds": 59.37858439236879,
+          "input_tokens": 1899,
+          "output_tokens": 167,
+          "metrics": {
+            "pl": 0.01459114191432794,
+            "nclip": 0.009882668654123941,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.01509708259254694,
+                "nclip": 0.011633872985839844
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.01433080155402422,
+                "nclip": 0.0062177181243896484
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.014345541596412659,
+                "nclip": 0.011796414852142334
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.05471534111086235,
+            "nclip": 0.0856441279196353
+          },
+          "render_seconds": 67.7652997598052
+        },
+        {
+          "task": "lighting6",
+          "category": "lighting",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.0015132268502687414,
+            "nclip": 0.007596234480539958,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0013839732855558395,
+                "nclip": 0.01018977165222168
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0014258334413170815,
+                "nclip": 0.004511058330535889
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.0017298738239333034,
+                "nclip": 0.008087873458862305
+              }
+            ]
+          },
+          "generation_seconds": 77.98462320119143,
+          "input_tokens": 6718,
+          "output_tokens": 391,
+          "metrics": {
+            "pl": 0.0008232718100771308,
+            "nclip": 0.006260613600413005,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0008209397201426327,
+                "nclip": 0.007915198802947998
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0006784144788980484,
+                "nclip": 0.00431978702545166
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.0009704612311907113,
+                "nclip": 0.0065468549728393555
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.5440482219915451,
+            "nclip": 0.8241670862568415
+          },
+          "render_seconds": 13.731874167919159
+        },
+        {
+          "task": "lighting8",
+          "category": "lighting",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.009060515246043602,
+            "nclip": 0.0604050358136495,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.01016643363982439,
+                "nclip": 0.044695377349853516
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.009214217774569988,
+                "nclip": 0.07158458232879639
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.007800894323736429,
+                "nclip": 0.06493514776229858
+              }
+            ]
+          },
+          "generation_seconds": 50.55918648093939,
+          "input_tokens": 6715,
+          "output_tokens": 364,
+          "metrics": {
+            "pl": 0.01737467758357525,
+            "nclip": 0.045834481716156006,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.018185138702392578,
+                "nclip": 0.03751862049102783
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.018528969958424568,
+                "nclip": 0.050064802169799805
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.0154099240899086,
+                "nclip": 0.04992002248764038
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.9176265389196057,
+            "nclip": 0.7587847006426893
+          },
+          "render_seconds": 13.193493597209454
+        },
+        {
+          "task": "lighting17",
+          "category": "lighting",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.01944132832189401,
+            "nclip": 0.03407520055770874,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.01993829570710659,
+                "nclip": 0.03988456726074219
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.020317289978265762,
+                "nclip": 0.03067415952682495
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.018068399280309677,
+                "nclip": 0.03166687488555908
+              }
+            ]
+          },
+          "generation_seconds": 61.060431607067585,
+          "input_tokens": 2057,
+          "output_tokens": 335,
+          "metrics": {
+            "pl": 0.019441332047184307,
+            "nclip": 0.0340728759765625,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.01993829943239689,
+                "nclip": 0.03987741470336914
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.02031729184091091,
+                "nclip": 0.030665159225463867
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.018068404868245125,
+                "nclip": 0.03167605400085449
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.0000001916171406,
+            "nclip": 0.9999317803151224
+          },
+          "render_seconds": 5.7827683836221695
+        },
+        {
+          "task": "lighting24",
+          "category": "lighting",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.004299031163100153,
+            "nclip": 0.05090045928955078,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.003493585390970111,
+                "nclip": 0.06861746311187744
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.01062446366995573,
+                "nclip": 0.054531216621398926
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.0006457071285694838,
+                "nclip": 0.03642129898071289
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.0024323684629052877,
+                "nclip": 0.04403185844421387
+              }
+            ]
+          },
+          "generation_seconds": 49.77548237890005,
+          "input_tokens": 2499,
+          "output_tokens": 279,
+          "metrics": {
+            "pl": 0.0038958776276558638,
+            "nclip": 0.0318053662776947,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0033176701981574297,
+                "nclip": 0.011234521865844727
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.005738602951169014,
+                "nclip": 0.016464591026306152
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.004132350441068411,
+                "nclip": 0.0782020092010498
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.0023948869202286005,
+                "nclip": 0.021320343017578125
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.9062220704680096,
+            "nclip": 0.6248522331457961
+          },
+          "render_seconds": 88.49568659067154
+        },
+        {
+          "task": "lighting32",
+          "category": "lighting",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.002461746335029602,
+            "nclip": 0.0044717490673065186,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0024748228024691343,
+                "nclip": 0.004701733589172363
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0024486698675900698,
+                "nclip": 0.004241764545440674
+              }
+            ]
+          },
+          "generation_seconds": 30.654597006738186,
+          "input_tokens": 1299,
+          "output_tokens": 91,
+          "metrics": {
+            "pl": 0.002461746451444924,
+            "nclip": 0.004475504159927368,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0024748260620981455,
+                "nclip": 0.004702508449554443
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0024486668407917023,
+                "nclip": 0.004248499870300293
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.0000000472898756,
+            "nclip": 1.0008397872538957
+          },
+          "render_seconds": 11.718311555683613
+        },
+        {
+          "task": "lighting34",
+          "category": "lighting",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.014469110406935215,
+            "nclip": 0.021889090538024902,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.01497576106339693,
+                "nclip": 0.014986515045166016
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0139624597504735,
+                "nclip": 0.02879166603088379
+              }
+            ]
+          },
+          "generation_seconds": 31.864980839192867,
+          "input_tokens": 1299,
+          "output_tokens": 91,
+          "metrics": {
+            "pl": 0.01446910947561264,
+            "nclip": 0.021891087293624878,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.014975759200751781,
+                "nclip": 0.014985859394073486
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0139624597504735,
+                "nclip": 0.02879631519317627
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.9999999356337029,
+            "nclip": 1.0000912226144947
+          },
+          "render_seconds": 10.697534367442131
+        },
+        {
+          "task": "lighting37",
+          "category": "lighting",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.02810071874409914,
+            "nclip": 0.026180028915405273,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.02681809663772583,
+                "nclip": 0.020786523818969727
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.02938334085047245,
+                "nclip": 0.03157353401184082
+              }
+            ]
+          },
+          "generation_seconds": 22.401258997619152,
+          "input_tokens": 1287,
+          "output_tokens": 91,
+          "metrics": {
+            "pl": 0.002988431602716446,
+            "nclip": 0.003461480140686035,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0027444567531347275,
+                "nclip": 0.0030514001846313477
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0032324064522981644,
+                "nclip": 0.0038715600967407227
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.10634691951817081,
+            "nclip": 0.1322094560058831
+          },
+          "render_seconds": 10.232124611735344
+        },
+        {
+          "task": "lighting38",
+          "category": "lighting",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.03885623998939991,
+            "nclip": 0.038345396518707275,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.03688567131757736,
+                "nclip": 0.033656954765319824
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.04082680866122246,
+                "nclip": 0.04303383827209473
+              }
+            ]
+          },
+          "generation_seconds": 18.613701075315475,
+          "input_tokens": 1285,
+          "output_tokens": 89,
+          "metrics": {
+            "pl": 0.01845779176801443,
+            "nclip": 0.01750922203063965,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.01742749661207199,
+                "nclip": 0.014117538928985596
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.01948808692395687,
+                "nclip": 0.0209009051322937
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.47502763573358536,
+            "nclip": 0.4566148188045069
+          },
+          "render_seconds": 9.575924701988697
+        },
+        {
+          "task": "lighting42",
+          "category": "lighting",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.012356481049209833,
+            "nclip": 0.03801989555358887,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.012754839845001698,
+                "nclip": 0.04048299789428711
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.011958122253417969,
+                "nclip": 0.035556793212890625
+              }
+            ]
+          },
+          "generation_seconds": 42.68251295387745,
+          "input_tokens": 1743,
+          "output_tokens": 521,
+          "metrics": {
+            "pl": 0.036370649933815,
+            "nclip": 0.024094849824905396,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.039445940405130386,
+                "nclip": 0.027588367462158203
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.03329535946249962,
+                "nclip": 0.020601332187652588
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 2.9434484154982825,
+            "nclip": 0.6337406043769552
+          },
+          "render_seconds": 21.011686012148857
+        },
+        {
+          "task": "material10",
+          "category": "material",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.005430104210972786,
+            "nclip": 0.06231510639190674,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.005430104210972786,
+                "nclip": 0.06231510639190674
+              }
+            ]
+          },
+          "generation_seconds": 98.83224310725927,
+          "input_tokens": 1893,
+          "output_tokens": 1687,
+          "failure": "execution"
+        },
+        {
+          "task": "material13",
+          "category": "material",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.024946073070168495,
+            "nclip": 0.07021021842956543,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.024946073070168495,
+                "nclip": 0.07021021842956543
+              }
+            ]
+          },
+          "generation_seconds": 67.49823711067438,
+          "input_tokens": 1838,
+          "output_tokens": 1157,
+          "metrics": {
+            "pl": 0.024946069344878197,
+            "nclip": 0.0702049732208252,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.024946069344878197,
+                "nclip": 0.0702049732208252
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.9999998506662611,
+            "nclip": 0.9999252928012823
+          },
+          "render_seconds": 4.675580732524395
+        },
+        {
+          "task": "material19",
+          "category": "material",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.22516639530658722,
+            "nclip": 0.12876027822494507,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.22516639530658722,
+                "nclip": 0.12876027822494507
+              }
+            ]
+          },
+          "generation_seconds": 117.51297156512737,
+          "input_tokens": 2343,
+          "output_tokens": 1645,
+          "metrics": {
+            "pl": 0.04073400795459747,
+            "nclip": 0.15164291858673096,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.04073400795459747,
+                "nclip": 0.15164291858673096
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.18090624734099908,
+            "nclip": 1.1777150583801144
+          },
+          "render_seconds": 3.851809039711952
+        },
+        {
+          "task": "material24",
+          "category": "material",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.0132581302896142,
+            "nclip": 0.06587815284729004,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0132581302896142,
+                "nclip": 0.06587815284729004
+              }
+            ]
+          },
+          "generation_seconds": 120.50188879668713,
+          "input_tokens": 1732,
+          "output_tokens": 1085,
+          "metrics": {
+            "pl": 0.006864095572382212,
+            "nclip": 0.05084645748138428,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.006864095572382212,
+                "nclip": 0.05084645748138428
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.5177272522567052,
+            "nclip": 0.7718257917651359
+          },
+          "render_seconds": 4.429430857300758
+        },
+        {
+          "task": "material27",
+          "category": "material",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.048528581857681274,
+            "nclip": 0.0976414680480957,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.048528581857681274,
+                "nclip": 0.0976414680480957
+              }
+            ]
+          },
+          "generation_seconds": 110.66274516284466,
+          "input_tokens": 1567,
+          "output_tokens": 879,
+          "metrics": {
+            "pl": 0.1403885930776596,
+            "nclip": 0.22631967067718506,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.1403885930776596,
+                "nclip": 0.22631967067718506
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 2.8929053460437437,
+            "nclip": 2.31786427633089
+          },
+          "render_seconds": 4.680301122367382
+        },
+        {
+          "task": "material28",
+          "category": "material",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.0694449245929718,
+            "nclip": 0.09939068555831909,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0694449245929718,
+                "nclip": 0.09939068555831909
+              }
+            ]
+          },
+          "generation_seconds": 148.9106396585703,
+          "input_tokens": 1875,
+          "output_tokens": 1194,
+          "metrics": {
+            "pl": 0.011993122287094593,
+            "nclip": 0.014822125434875488,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.011993122287094593,
+                "nclip": 0.014822125434875488
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.17269976173888762,
+            "nclip": 0.14912992451569687
+          },
+          "render_seconds": 5.149695731699467
+        },
+        {
+          "task": "material31",
+          "category": "material",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.0007647356833331287,
+            "nclip": 0.10576200485229492,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0007647356833331287,
+                "nclip": 0.10576200485229492
+              }
+            ]
+          },
+          "generation_seconds": 204.21304762363434,
+          "input_tokens": 2925,
+          "output_tokens": 2255,
+          "metrics": {
+            "pl": 0.0011987920152023435,
+            "nclip": 0.12513059377670288,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0011987920152023435,
+                "nclip": 0.12513059377670288
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.5675903263213085,
+            "nclip": 1.1831337156614772
+          },
+          "render_seconds": 4.388207823038101
+        },
+        {
+          "task": "material32",
+          "category": "material",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.0009968543890863657,
+            "nclip": 0.04545360803604126,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0009968543890863657,
+                "nclip": 0.04545360803604126
+              }
+            ]
+          },
+          "generation_seconds": 171.9755529165268,
+          "input_tokens": 2915,
+          "output_tokens": 2234,
+          "metrics": {
+            "pl": 0.0009968547383323312,
+            "nclip": 0.0454481840133667,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0009968547383323312,
+                "nclip": 0.0454481840133667
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.0000003503481751,
+            "nclip": 0.9998806690401726
+          },
+          "render_seconds": 4.362364120781422
+        },
+        {
+          "task": "material41",
+          "category": "material",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.3164440095424652,
+            "nclip": 0.10372328758239746,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.3164440095424652,
+                "nclip": 0.10372328758239746
+              }
+            ]
+          },
+          "generation_seconds": 118.788912281394,
+          "input_tokens": 1857,
+          "output_tokens": 1213,
+          "metrics": {
+            "pl": 0.2984698712825775,
+            "nclip": 0.07937848567962646,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.2984698712825775,
+                "nclip": 0.07937848567962646
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.9431996253924605,
+            "nclip": 0.7652908766179286
+          },
+          "render_seconds": 4.351400285959244
+        },
+        {
+          "task": "material43",
+          "category": "material",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.047634873539209366,
+            "nclip": 0.026235103607177734,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.047634873539209366,
+                "nclip": 0.026235103607177734
+              }
+            ]
+          },
+          "generation_seconds": 150.38523843884468,
+          "input_tokens": 2272,
+          "output_tokens": 1591,
+          "metrics": {
+            "pl": 0.04763486981391907,
+            "nclip": 0.02623695135116577,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.04763486981391907,
+                "nclip": 0.02623695135116577
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.999999921794894,
+            "nclip": 1.0000704302150167
+          },
+          "render_seconds": 5.068255670368671
+        },
+        {
+          "task": "placement2",
+          "category": "placement",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.00263252948934678,
+            "nclip": 0.054659485816955566,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0016322415322065353,
+                "nclip": 0.04256021976470947
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0060629043728113174,
+                "nclip": 0.088992178440094
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.002051054500043392,
+                "nclip": 0.03776729106903076
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.0007839175523258746,
+                "nclip": 0.04931825399398804
+              }
+            ]
+          },
+          "generation_seconds": 105.90611117333174,
+          "input_tokens": 2868,
+          "output_tokens": 601,
+          "metrics": {
+            "pl": 0.004470249637961388,
+            "nclip": 0.01022714376449585,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0021109094377607107,
+                "nclip": 0.009434998035430908
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.012267288751900196,
+                "nclip": 0.0033355355262756348
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.002326809801161289,
+                "nclip": 0.005906879901885986
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.0011759905610233545,
+                "nclip": 0.02223116159439087
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.6981001282338049,
+            "nclip": 0.18709894108724348
+          },
+          "render_seconds": 7.3480429276824
+        },
+        {
+          "task": "placement5",
+          "category": "placement",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.0014286638715930167,
+            "nclip": 0.018389031291007996,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0016629047458991408,
+                "nclip": 0.04173409938812256
+              },
+              {
+                "view": "render2.png",
+                "pl": 8.57257327879779e-06,
+                "nclip": 0.00039136409759521484
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.0009792714845389128,
+                "nclip": 0.006970047950744629
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.0030639066826552153,
+                "nclip": 0.02446061372756958
+              }
+            ]
+          },
+          "generation_seconds": 140.35643481463194,
+          "input_tokens": 2903,
+          "output_tokens": 680,
+          "metrics": {
+            "pl": 0.0018654370214790106,
+            "nclip": 0.018000170588493347,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0008979206904768944,
+                "nclip": 0.013669312000274658
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0013154293410480022,
+                "nclip": 0.009458541870117188
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.0024285258259624243,
+                "nclip": 0.025251030921936035
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.0028198722284287214,
+                "nclip": 0.023621797561645508
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.3057364503468727,
+            "nclip": 0.9788530776729634
+          },
+          "render_seconds": 7.427192531526089
+        },
+        {
+          "task": "placement6",
+          "category": "placement",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.0024466533213853836,
+            "nclip": 0.02111312747001648,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0014401922235265374,
+                "nclip": 0.02547430992126465
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0012732503237202764,
+                "nclip": 0.022417545318603516
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.003437904641032219,
+                "nclip": 0.011724472045898438
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.0036352660972625017,
+                "nclip": 0.024836182594299316
+              }
+            ]
+          },
+          "generation_seconds": 151.7162098661065,
+          "input_tokens": 2705,
+          "output_tokens": 696,
+          "metrics": {
+            "pl": 0.004278893073205836,
+            "nclip": 0.02078022062778473,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.008531146682798862,
+                "nclip": 0.04081529378890991
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0021414877846837044,
+                "nclip": 0.016436994075775146
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.005575569812208414,
+                "nclip": 0.009416401386260986
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.0008673680131323636,
+                "nclip": 0.01645219326019287
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.748897413713504,
+            "nclip": 0.9842318561535356
+          },
+          "render_seconds": 54.62364462018013
+        },
+        {
+          "task": "placement9",
+          "category": "placement",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.014291712082922459,
+            "nclip": 0.08115360140800476,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.017149703577160835,
+                "nclip": 0.07873231172561646
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.015637138858437538,
+                "nclip": 0.0563698410987854
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.015959182754158974,
+                "nclip": 0.11311054229736328
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.008420823141932487,
+                "nclip": 0.0764017105102539
+              }
+            ]
+          },
+          "generation_seconds": 106.13409166038036,
+          "input_tokens": 2709,
+          "output_tokens": 399,
+          "metrics": {
+            "pl": 0.015387514838948846,
+            "nclip": 0.07130502164363861,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.01677032560110092,
+                "nclip": 0.0828636884689331
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.009341969154775143,
+                "nclip": 0.055661559104919434
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.010362967848777771,
+                "nclip": 0.033823609352111816
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.025074796751141548,
+                "nclip": 0.11287122964859009
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.0766743784285555,
+            "nclip": 0.8786419693240585
+          },
+          "render_seconds": 52.97037324309349
+        },
+        {
+          "task": "placement11",
+          "category": "placement",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.022172369790496305,
+            "nclip": 0.10995972156524658,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.004919298458844423,
+                "nclip": 0.0333101749420166
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0054684593342244625,
+                "nclip": 0.1542450189590454
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.07699226588010788,
+                "nclip": 0.19998544454574585
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.001309455488808453,
+                "nclip": 0.05229824781417847
+              }
+            ]
+          },
+          "generation_seconds": 78.36334032565355,
+          "input_tokens": 2595,
+          "output_tokens": 404,
+          "metrics": {
+            "pl": 0.017628880238135025,
+            "nclip": 0.04501082003116608,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0024858054239302874,
+                "nclip": 0.02926313877105713
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.010424419306218624,
+                "nclip": 0.004645228385925293
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.057579439133405685,
+                "nclip": 0.14553678035736084
+              },
+              {
+                "view": "render4.png",
+                "pl": 2.585708898550365e-05,
+                "nclip": 0.0005981326103210449
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.7950826192227032,
+            "nclip": 0.4093364382609695
+          },
+          "render_seconds": 30.536496050655842
+        },
+        {
+          "task": "placement20",
+          "category": "placement",
+          "success": true,
+          "start_metrics": {
+            "pl": 0.001225169247481972,
+            "nclip": 0.017272531986236572,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0006778044626116753,
+                "nclip": 0.012416422367095947
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.0003080149763263762,
+                "nclip": 0.024882376194000244
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.004411287605762482,
+                "nclip": 0.03542613983154297
+              },
+              {
+                "view": "render4.png",
+                "pl": 4.8426445573568344e-05,
+                "nclip": 0.002820909023284912
+              },
+              {
+                "view": "render5.png",
+                "pl": 0.0006803127471357584,
+                "nclip": 0.010816812515258789
+              }
+            ]
+          },
+          "generation_seconds": 157.86606387794018,
+          "input_tokens": 4844,
+          "output_tokens": 2303,
+          "metrics": {
+            "pl": 0.000285179469437935,
+            "nclip": 0.008389818668365478,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.00047010424896143377,
+                "nclip": 0.009873688220977783
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.00027529129874892533,
+                "nclip": 0.02123284339904785
+              },
+              {
+                "view": "render3.png",
+                "pl": 4.120245478134166e-08,
+                "nclip": 3.7550926208496094e-06
+              },
+              {
+                "view": "render4.png",
+                "pl": 1.5209904802304663e-07,
+                "nclip": 1.3947486877441406e-05
+              },
+              {
+                "view": "render5.png",
+                "pl": 0.0006803084979765117,
+                "nclip": 0.010824859142303467
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.23272342698129614,
+            "nclip": 0.4857167506681873
+          },
+          "render_seconds": 9.280992396175861
+        },
+        {
+          "task": "placement22",
+          "category": "placement",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.014255753951147199,
+            "nclip": 0.028910577297210693,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.016199076548218727,
+                "nclip": 0.027412772178649902
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.015602782368659973,
+                "nclip": 0.029336273670196533
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.016755208373069763,
+                "nclip": 0.0292360782623291
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.008465948514640331,
+                "nclip": 0.029657185077667236
+              }
+            ]
+          },
+          "generation_seconds": 60.48785103112459,
+          "input_tokens": 2705,
+          "output_tokens": 646,
+          "metrics": {
+            "pl": 0.05777675565332174,
+            "nclip": 0.1068042516708374,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.015124828554689884,
+                "nclip": 0.01799631118774414
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.010852835141122341,
+                "nclip": 0.013918757438659668
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.1999436616897583,
+                "nclip": 0.37513577938079834
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.005185697227716446,
+                "nclip": 0.02016615867614746
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 4.052887714424783,
+            "nclip": 3.6943439639362885
+          },
+          "render_seconds": 64.31848476827145
+        },
+        {
+          "task": "placement28",
+          "category": "placement",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.0025603597896406427,
+            "nclip": 0.00545915961265564,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 8.919060928747058e-05,
+                "nclip": 0.0011882185935974121
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.002863050438463688,
+                "nclip": 0.006266891956329346
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.0012475502444431186,
+                "nclip": 0.0044463276863098145
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.006041647866368294,
+                "nclip": 0.009935200214385986
+              }
+            ]
+          },
+          "generation_seconds": 80.40779110044241,
+          "input_tokens": 2763,
+          "output_tokens": 987,
+          "metrics": {
+            "pl": 0.0017738874557835516,
+            "nclip": 0.0033974647521972656,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0021870434284210205,
+                "nclip": 0.004265904426574707
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.003358282148838043,
+                "nclip": 0.004670083522796631
+              },
+              {
+                "view": "render3.png",
+                "pl": 0.0013855855213478208,
+                "nclip": 0.003706037998199463
+              },
+              {
+                "view": "render4.png",
+                "pl": 0.00016463872452732176,
+                "nclip": 0.0009478330612182617
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.6928189899559984,
+            "nclip": 0.622307028750505
+          },
+          "render_seconds": 59.02593031525612
+        },
+        {
+          "task": "placement32",
+          "category": "placement",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.012272679945454001,
+            "nclip": 0.024908244609832764,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.00749810179695487,
+                "nclip": 0.01876389980316162
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.017047258093953133,
+                "nclip": 0.031052589416503906
+              }
+            ]
+          },
+          "generation_seconds": 61.927864983677864,
+          "input_tokens": 1657,
+          "output_tokens": 542,
+          "metrics": {
+            "pl": 0.00936745316721499,
+            "nclip": 0.02400335669517517,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0070478483103215694,
+                "nclip": 0.009163975715637207
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.01168705802410841,
+                "nclip": 0.038842737674713135
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 0.7632755506051431,
+            "nclip": 0.9636704097443659
+          },
+          "render_seconds": 6.045036502182484
+        },
+        {
+          "task": "placement45",
+          "category": "placement",
+          "success": false,
+          "start_metrics": {
+            "pl": 0.0033379648812115192,
+            "nclip": 0.02050197124481201,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0028709296602755785,
+                "nclip": 0.02183842658996582
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.00380500010214746,
+                "nclip": 0.019165515899658203
+              }
+            ]
+          },
+          "generation_seconds": 61.76707894355059,
+          "input_tokens": 1509,
+          "output_tokens": 450,
+          "metrics": {
+            "pl": 0.003544062841683626,
+            "nclip": 0.03010028600692749,
+            "per_view": [
+              {
+                "view": "render1.png",
+                "pl": 0.0034691235050559044,
+                "nclip": 0.02550506591796875
+              },
+              {
+                "view": "render2.png",
+                "pl": 0.003619002178311348,
+                "nclip": 0.03469550609588623
+              }
+            ]
+          },
+          "relative_error": {
+            "pl": 1.0617448966557594,
+            "nclip": 1.4681770276851065
+          },
+          "render_seconds": 6.678020365536213
+        }
+      ],
+      "expand_to_full": false
+    }
+  }
+}

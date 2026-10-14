@@ -2,7 +2,9 @@
 
 Reproducible, non-agentic evaluation of Qwen3-VL Instruct models on BlenderGym.
 
-Status: all 50 reference tasks passed preflight; both model evaluations are running on the remote GPU machine. No final model scores are claimed yet.
+Status: completed the fixed 50-task screen on ml2 with vLLM continuous batching. Qwen3-VL-8B-Instruct and Qwen3-VL-32B-Instruct each achieved 2/50 under the frozen derived visual-success rule. Neither reached the 11/50 gate, so no full benchmark run was launched.
+
+See the [full report, category breakdown and per-task results](results/2026-10-15-vllm/README.md). These are one-shot results under our calibrated rule, not an official BlenderGym binary score.
 
 See [the frozen protocol](docs/protocol.md), [fixed task selection and audits](docs/subset.json), and [running instructions](docs/run.md).
 

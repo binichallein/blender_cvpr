@@ -1,0 +1,18 @@
+{
+  "protocol_sha256": "38842a28676e90c5635729e5dd9ae7a517a4324aadf251ecc27f537bc3cf3468",
+  "independent_pixel_check": "Recomputed RGB MSE from saved images with float64 and recomputed frozen success decisions.",
+  "models": {
+    "qwen3-vl-8b": {
+      "completed_generation_files": 50,
+      "independently_checked_rendered_predictions": 46,
+      "successes": 2,
+      "all_generation_files_precede_render_resume": true
+    },
+    "qwen3-vl-32b": {
+      "completed_generation_files": 50,
+      "independently_checked_rendered_predictions": 47,
+      "successes": 2,
+      "all_generation_files_precede_render_resume": true
+    }
+  }
+}

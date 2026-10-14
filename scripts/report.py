@@ -61,7 +61,7 @@ def main():
     text+=['','每类只用两道独立任务校准阈值，因此二元成功率适合本轮筛选与模型比较，不能代替人工对复杂场景正确性的完整审查。该实验测量一次性看图改代码能力，与原项目多轮搜索设置不同。']
     (out/'README.md').write_text('\n'.join(text)+'\n')
     with (out/'tasks.csv').open('w',newline='') as f:
-        writer=csv.DictWriter(f,fieldnames=['model','split','task','category','success','invalid_data','failure','pl','nclip','relative_pl','input_tokens','output_tokens','generation_seconds'])
+        writer=csv.DictWriter(f,lineterminator='\n',fieldnames=['model','split','task','category','success','invalid_data','failure','pl','nclip','relative_pl','input_tokens','output_tokens','generation_seconds'])
         writer.writeheader()
         for model,result in results.items():
             for split,scores in result.items():
@@ -73,7 +73,11 @@ def main():
     config={}
     for model in results:
         config[model]=json.loads((runs/model/'predictions/config.json').read_text())
+        full_config=runs/model/'predictions/config-full.json'
+        if full_config.exists(): config[model]['full_inference_config']=json.loads(full_config.read_text())
     (out/'model-configs.json').write_text(json.dumps(config,indent=2))
     if (runs/'source.json').exists(): shutil.copy2(runs/'source.json',out/'source.json')
+    initial=runs/'source-initial.json'
+    if initial.exists(): shutil.copy2(initial,out/'source-initial.json')
     print(out,flush=True)
 if __name__=='__main__': main()

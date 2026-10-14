@@ -47,6 +47,8 @@ async def run(a):
     ids = manifest['subset_ids'] if a.split == 'subset' else [t['id'] for t in manifest['all_tasks']]
     out = Path(a.output).resolve()
     out.mkdir(parents=True, exist_ok=True)
+    # Full-release geometry51 needs 8331 input tokens plus the fixed 8192 output budget.
+    max_model_len = 17408 if a.split == 'all' else 16384
     config = {
         'model': Path(a.model).name,
         'model_config_sha256': hashlib.sha256((Path(a.model) / 'config.json').read_bytes()).hexdigest(),
@@ -55,7 +57,7 @@ async def run(a):
         'backend': 'vllm.AsyncLLM', 'vllm': vllm.__version__,
         'transformers': transformers.__version__, 'torch': torch.__version__,
         'dtype': 'bfloat16', 'temperature': 0, 'max_new_tokens': protocol['max_new_tokens'],
-        'seed': 20261015, 'max_model_len': 16384, 'max_num_seqs': 4,
+        'seed': 20261015, 'max_model_len': max_model_len, 'max_num_seqs': 4,
         'max_in_flight_requests': 8, 'scheduling': 'continuous, replenish on each completion',
         'enforce_eager': True, 'gpu_memory_utilization': 0.9,
         'max_num_batched_tokens': 8192, 'max_images': 10, 'max_image_pixels': 1048576,
@@ -63,7 +65,11 @@ async def run(a):
         'input_views': 'all matched current/goal views with valid base-scene cameras',
         'repairs': 0, 'attempts': 1,
     }
-    config_path = out / 'config.json'
+    config_path = out / ('config-full.json' if a.split == 'all' else 'config.json')
+    if a.split == 'all' and (out / 'config.json').exists():
+        subset_config = json.loads((out / 'config.json').read_text())
+        shared = lambda value: {k: v for k, v in value.items() if k != 'max_model_len'}
+        assert shared(subset_config) == shared(config), 'Full run must preserve screening settings'
     if config_path.exists():
         assert json.loads(config_path.read_text()) == config, 'Refusing mismatched resume'
     else:
@@ -75,7 +81,7 @@ async def run(a):
     print('LOADING', Path(a.model).name, len(pending), flush=True)
     processor = AutoProcessor.from_pretrained(a.model, local_files_only=True)
     args = AsyncEngineArgs(
-        model=a.model, dtype='bfloat16', max_model_len=16384, max_num_seqs=4,
+        model=a.model, dtype='bfloat16', max_model_len=max_model_len, max_num_seqs=4,
         gpu_memory_utilization=0.9, enforce_eager=True, max_num_batched_tokens=8192,
         limit_mm_per_prompt={'image': 10}, mm_processor_kwargs={'max_pixels': 1048576},
         seed=20261015, enable_log_requests=False,
