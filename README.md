@@ -1,14 +1,16 @@
 # BlenderGym model evaluation
 
-Reproducible, non-agentic evaluation of Qwen3-VL Instruct models on BlenderGym.
+Reproducible, non-agentic evaluation of Qwen vision-language models on BlenderGym.
 
-Status: completed the fixed 50-task screen on ml2 with vLLM continuous batching. Qwen3-VL-8B-Instruct and Qwen3-VL-32B-Instruct each achieved 2/50 under the frozen derived visual-success rule. Neither reached the 11/50 gate, so no full benchmark run was launched.
+The initial experiment completed the fixed 50-task screen on ml2 with vLLM continuous batching. Qwen3-VL-8B-Instruct and Qwen3-VL-32B-Instruct each achieved 2/50 under the frozen derived visual-success rule. Neither reached the 11/50 gate, so that screening experiment did not expand to a full run.
 
 See the [full report, category breakdown and per-task results](results/2026-10-15-vllm/README.md). These are one-shot results under our calibrated rule, not an official BlenderGym binary score.
 
 See [the frozen protocol](docs/protocol.md), [fixed task selection and audits](docs/subset.json), and [running instructions](docs/run.md).
 
-## Protocol
+A separate full-set experiment is now running on ml2: Qwen3-VL-8B and 32B (official Instruct and Thinking checkpoints), plus Qwen3.6-27B with native thinking enabled and disabled. All six variants receive 32,768 output tokens and all 280 tasks, without a screening gate. See the [full comparison plan](docs/full-thinking-plan.md) and [frozen configuration](docs/protocol-full-thinking.json). No results from this new experiment are claimed yet.
+
+## Initial screening protocol
 
 - One-shot image-conditioned editing of the complete starter Python program.
 - Identical scene-stratified subset: 10 tasks from each of five categories.

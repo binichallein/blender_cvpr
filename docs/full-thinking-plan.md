@@ -15,3 +15,14 @@ Run all six variants on all 280 released tasks. The previous 11/50 gate is expli
 - All runtime files, weights and images stay on ml2; publish code, configurations and compact results to GitHub.
 
 Official references: [Qwen3.6-27B](https://huggingface.co/Qwen/Qwen3.6-27B), [Qwen3-VL-8B-Instruct](https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct), [Qwen3-VL-8B-Thinking](https://huggingface.co/Qwen/Qwen3-VL-8B-Thinking), [Qwen3-VL-32B-Thinking](https://huggingface.co/Qwen/Qwen3-VL-32B-Thinking).
+
+
+## Running and resuming
+
+Run reference scenes for all tasks with `render_batch.py --mode references --split all`, then start `run_full.py` with the manifest, frozen protocol, output root, Blender and Infinigen paths, CLIP weights, reference root, model weights root, inference Python, and reference-process PID. The coordinator allocates GPUs 0–1 to rendering once reference rendering finishes, and GPUs 2–3 to inference. It requires four visible GPUs; 32B variants use tensor parallelism across the two inference GPUs.
+
+Use a short local IPC path such as `/dev/shm/bg-full` for vLLM; a deep project path can exceed the Unix-domain socket path limit. Runtime status and process IDs are recorded in `status.json` and each variant's `source.json`. A singleton file lock prevents concurrent coordinators. A resumed coordinator adopts still-running inference only when PID, command, variant and output path match.
+
+Completed outputs are saved before parsing and reused on resume. Infrastructure failures stop that variant, while malformed or truncated model answers are retained as model failures. ModelScope downloads become ready only after all indexed weight shards and required tokenizer/processor files exist.
+
+After all six variants are scored, `report_full.py` exports the report, per-task CSV, generation statistics, paired outcomes, configuration and model file provenance. Large artifacts remain outside Git.
