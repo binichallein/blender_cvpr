@@ -51,6 +51,20 @@ class ExistingInference:
         return None if matching_process(self.pid, self.variant, self.output) else 0
 
 
+
+def release_render_gpu(gpu, workers, releases):
+    """Request release, but never claim a GPU while its render worker is alive."""
+    if gpu not in workers:
+        return True
+    releases[gpu].set()
+    if workers[gpu].is_alive():
+        return False
+    workers[gpu].join()
+    del workers[gpu]
+    del releases[gpu]
+    return True
+
+
 def model_path(root, model):
     name = model.split('/')[-1]
     for candidate in [Path(root) / name, Path(root) / name.replace('.', '___')]:
@@ -134,15 +148,19 @@ def main():
     render_errors = []
     state_lock = threading.Lock()
     stop = threading.Event()
-    workers = {}
+    workers, releases = {}, {}
     unseen = {(name, task['id']) for name in variants for task in tasks}
 
-    def render_worker(gpu):
-        while not stop.is_set():
+    def render_worker(gpu, release):
+        while not stop.is_set() and not release.is_set():
             try:
                 name, task = jobs.get(timeout=1)
             except queue.Empty:
                 continue
+            if stop.is_set() or release.is_set():
+                jobs.put((name, task))
+                jobs.task_done()
+                break
             try:
                 destination = root / name / 'renders' / task['id'] / 'prediction'
                 result = render(task, root / name / 'predictions' / task['id'] / 'prediction.py',
@@ -160,7 +178,9 @@ def main():
     def start_render_workers(gpus):
         for gpu in gpus:
             if gpu not in workers:
-                worker = threading.Thread(target=render_worker, args=(gpu,), daemon=True)
+                release = threading.Event()
+                releases[gpu] = release
+                worker = threading.Thread(target=render_worker, args=(gpu, release), daemon=True)
                 workers[gpu] = worker
                 worker.start()
                 print('RENDER_WORKER_STARTED', gpu, flush=True)
@@ -226,6 +246,7 @@ def main():
                     pending.remove(name)
             used = {gpu for _, gpus in running.values() for gpu in gpus}
             free = [gpu for gpu in ['2', '3'] if gpu not in used]
+            reserved = set()
             for name in list(pending):
                 variant = variants[name]
                 count = variant['tensor_parallel_size']
@@ -235,6 +256,10 @@ def main():
                 if model is None:
                     continue
                 chosen, free = free[:count], free[count:]
+                reserved.update(chosen)
+                released = [release_render_gpu(gpu, workers, releases) for gpu in chosen]
+                if not all(released):
+                    continue
                 launch(name, model, chosen)
                 pending.remove(name)
             if not process_alive(a.reference_pid):
@@ -242,9 +267,11 @@ def main():
                 references_ready = all(
                     (Path(a.references) / task['id'] / kind / 'render.json').exists()
                     for task in tasks for kind in ['start', 'goal'])
-            if not pending and not running:
-                # Inference has released both GPUs; use all four for remaining renders.
-                start_render_workers(['2', '3'])
+            # Download waits should not leave inference GPUs idle. Render one task
+            # at a time there; a ready model reserves them and waits for workers to exit.
+            used = {gpu for _, gpus in running.values() for gpu in gpus}
+            if not jobs.empty():
+                start_render_workers([gpu for gpu in ['2', '3'] if gpu not in used and gpu not in reserved])
             with state_lock:
                 render_counts = {name: len(done) for name, done in render_done.items()}
                 errors = list(render_errors)
@@ -286,6 +313,8 @@ def main():
                                       for name, (child, gpus) in running.items()},
                 'generated': {name: len(tasks) - sum(v == name for v, _ in unseen) for name in variants},
                 'render_handled': render_counts, 'render_queue': jobs.qsize(),
+                'render_gpu_ids': sorted(workers),
+                'render_gpu_releasing': sorted(gpu for gpu, event in releases.items() if event.is_set()),
                 'inference_failed': inference_failed, 'render_infrastructure_errors': errors,
                 'scoring_running': list(score_jobs), 'scored': sorted(scored),
                 'scoring_failed': scoring_failed,

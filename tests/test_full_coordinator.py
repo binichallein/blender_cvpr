@@ -1,10 +1,11 @@
 import json
 import sys
 import tempfile
+import threading
 import unittest
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
-from run_full import matching_process, model_path
+from run_full import matching_process, model_path, release_render_gpu
 
 
 class CoordinatorTests(unittest.TestCase):
@@ -35,3 +36,23 @@ class CoordinatorTests(unittest.TestCase):
             self.assertFalse(matching_process(123, 'example', '/run/other', directory))
             (process / 'stat').write_text('123 (python) Z')
             self.assertFalse(matching_process(123, 'example', '/run/example', directory))
+
+
+class RenderGpuReleaseTests(unittest.TestCase):
+    def test_live_render_must_finish_before_gpu_is_available(self):
+        finish = threading.Event()
+        worker = threading.Thread(target=finish.wait)
+        release = threading.Event()
+        workers, releases = {'3': worker}, {'3': release}
+        worker.start()
+        try:
+            self.assertFalse(release_render_gpu('3', workers, releases))
+            self.assertTrue(release.is_set())
+            self.assertIn('3', workers)
+        finally:
+            finish.set()
+            worker.join()
+        self.assertTrue(release_render_gpu('3', workers, releases))
+        self.assertNotIn('3', workers)
+        self.assertNotIn('3', releases)
+        self.assertTrue(release_render_gpu('3', workers, releases))
