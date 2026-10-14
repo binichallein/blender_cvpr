@@ -34,6 +34,9 @@ class CoordinatorTests(unittest.TestCase):
             self.assertTrue(matching_process(123, 'example', '/run/example', directory))
             self.assertFalse(matching_process(123, 'other', '/run/example', directory))
             self.assertFalse(matching_process(123, 'example', '/run/other', directory))
+            command = (process / 'cmdline').read_bytes().replace(b'/infer_full.py', b'/infer_replicas.py')
+            (process / 'cmdline').write_bytes(command)
+            self.assertTrue(matching_process(123, 'example', '/run/example', directory))
             (process / 'stat').write_text('123 (python) Z')
             self.assertFalse(matching_process(123, 'example', '/run/example', directory))
 

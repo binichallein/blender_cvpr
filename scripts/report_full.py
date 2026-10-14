@@ -60,6 +60,9 @@ def main():
         configurations[name] = load(predictions / 'config.json')
         assert configurations[name]['protocol_sha256'] == protocol_sha
         sources[name] = load(runs / name / 'source.json')
+        sources[name]['earlier_inference_sources'] = [
+            load(p) for p in sorted((runs / name).glob('source-history-*.json'))]
+        sources[name]['invocations'] = [load(p) for p in sorted(predictions.glob('invocation-*.json'))]
         generations[name] = {task: load(predictions / task / 'generation.json') for task in ids}
         records = list(generations[name].values())
         execution_errors = []
@@ -80,6 +83,20 @@ def main():
                                      'returncode': failure.get('returncode'), 'errors': messages[-8:]})
         timings = [load(p) for p in sorted(predictions.glob('timing-*.json'))]
         complete_timing = sum(t['completed_in_this_invocation'] for t in timings) == len(ids)
+        replica_runs = [load(p) for p in sorted(predictions.glob('replica-runs/*/run.json'))]
+        generation_seconds = sum(t['generation_wall_seconds'] for t in timings) if complete_timing else None
+        if replica_runs:
+            # Parallel process times must never be added and called elapsed wall time.
+            generation_seconds = None
+            if complete_timing and all('generation_started_unix' in t for t in timings):
+                intervals = sorted((t['generation_started_unix'], t['generation_finished_unix']) for t in timings)
+                merged = []
+                for start, end in intervals:
+                    if merged and start <= merged[-1][1]:
+                        merged[-1][1] = max(merged[-1][1], end)
+                    else:
+                        merged.append([start, end])
+                generation_seconds = sum(end-start for start, end in merged)
         statistics[name] = {
             'generated_tasks': len(records),
             'execution_failures': execution_errors,
@@ -92,9 +109,9 @@ def main():
             'reasoning_not_terminated_tasks': sorted(r['task'] for r in records
                 if variants[name]['thinking'] and not r.get('reasoning_terminated')),
             'timing_records': timings,
+            'replica_runs': replica_runs,
             'complete_timing_coverage': complete_timing,
-            'generation_wall_seconds': sum(t['generation_wall_seconds'] for t in timings)
-                                       if complete_timing else None,
+            'generation_wall_seconds': generation_seconds,
         }
     for filename, value in [('model-configs.json', configurations),
                             ('generation-statistics.json', statistics), ('sources.json', sources)]:
@@ -193,7 +210,9 @@ def main():
     text += [
         '',
         '生成墙钟时间包含图像预处理和排队，不包含模型加载、通用图片检查、Blender 渲染及评分。'
-        '32B 使用双卡张量并行，其他模型单卡；这些时间不能直接作为相同硬件吞吐量比较。',
+        '32B 每个实例使用双卡张量并行，其他模型每实例单卡。Qwen3.6 thinking 的未完成题可分给两个相同的单卡副本；'
+        '已经完成的回答保留，中断时尚未完成的请求按原参数恢复。各组时间不能直接作为相同硬件吞吐量比较，'
+        '中断前未完成请求的额外计算不包含在最终回答 token 统计中；完整计时覆盖不足时标为 N/A。',
         '思考和答案 token 按原生 </think> 分界统计，分隔符本身不属于两者，因此两者之和可能略小于总输出。'
         '未结束思考即耗尽预算的回答记为截断失败，只执行最终答案中的完整程序。',
         '',

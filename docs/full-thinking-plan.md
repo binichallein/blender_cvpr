@@ -38,3 +38,10 @@ A supplementary, explicitly post-hoc sensitivity analysis flags tasks if any sup
 The camera-restoration diagnostic can be reproduced with Blender loading the relevant base scene and running scripts/audit_camera_restore.py; it prints matrices, parent relationships and constraints before and after restoration. The audit_reference_images.py script compares all supplied and reference images, and audit_full.py independently recomputes final pixel losses and binary decisions in float64.
 
 The completed reference-only audit covers all 280 tasks and flags 16 under the supplementary rule. It was committed before any full model scores were produced. See [per-view reference comparisons](reference-image-audit.json) and [camera restoration measurements](camera-restoration-audit.json). These flags do not change the frozen main evaluation denominator or inputs.
+
+
+## Identical inference replicas for unfinished tasks
+
+The coordinator accepts a replica count override, for example --replicas qwen3.6-27b-think=2. This distributes unfinished tasks between identical single-GPU vLLM instances; it does not change tensor parallelism inside each instance, the weights, native thinking template, sampling, token budget, inputs or scoring rules.
+
+A completed answer is always retained. If an existing single-instance process is stopped to redistribute work, only requests without a saved completed answer are recovered. Partitions are disjoint and recorded before generation, and each instance maintains its own continuously replenished request queue. Source history, per-invocation task lists, smoke checks and timing records are retained. Parallel process times are not summed as wall time; interrupted runs without complete timing coverage are reported as N/A. Unfinished tokens discarded during a controlled restart are not part of the final-answer token total.

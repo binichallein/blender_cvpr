@@ -24,7 +24,7 @@ from thinking_output import split_output
 
 def atomic_json(path, value):
     path = Path(path)
-    temp = path.with_suffix(path.suffix + '.tmp')
+    temp = path.with_suffix(path.suffix + '.tmp.' + str(os.getpid()))
     temp.write_text(json.dumps(value, indent=2))
     temp.replace(path)
 
@@ -140,8 +140,20 @@ async def run(a):
         assert json.loads(config_path.read_text()) == config, 'Refusing mismatched resume'
     else:
         atomic_json(config_path, config)
+    requested_ids = {task['id'] for task in manifest['all_tasks']}
+    if a.task_ids_file:
+        selected = json.loads(Path(a.task_ids_file).read_text())
+        assert len(selected) == len(set(selected)) and set(selected) <= requested_ids
+        requested_ids = set(selected)
+    atomic_json(out / ('invocation-' + str(os.getpid()) + '.json'), {
+        'started_unix': time.time(), 'gpu_ids': os.environ.get('CUDA_VISIBLE_DEVICES'),
+        'task_ids': sorted(requested_ids), 'protocol_sha256': protocol_sha,
+        'task_ids_file': a.task_ids_file,
+    })
     pending = []
     for task in manifest['all_tasks']:
+        if task['id'] not in requested_ids:
+            continue
         destination = out / task['id']
         if (destination / 'generation.json').exists():
             continue
@@ -195,7 +207,9 @@ async def run(a):
             finally:
                 image.close()
         rows = await asyncio.gather(*(one(i) for i in range(8)))
-        atomic_json(out / 'smoke.json', {'variant': variant['id'], 'passed': True, 'results': rows})
+        smoke_result = {'variant': variant['id'], 'passed': True, 'results': rows}
+        atomic_json(out / ('smoke-' + str(os.getpid()) + '.json'), smoke_result)
+        atomic_json(out / 'smoke.json', smoke_result)
         print('SMOKE_PASSED', variant['id'], flush=True)
 
     async def generate(task):
@@ -226,10 +240,13 @@ async def run(a):
         if a.smoke_only:
             return
         started = time.monotonic()
+        generation_started_unix = time.time()
         await consume(pending, generate, workers=32)
         atomic_json(out / ('timing-' + str(os.getpid()) + '.json'), {
             'completed_in_this_invocation': len(pending),
             'generation_wall_seconds': time.monotonic() - started,
+            'generation_started_unix': generation_started_unix,
+            'generation_finished_unix': time.time(),
         })
         print('INFERENCE_COMPLETE', variant['id'], flush=True)
     finally:
@@ -241,6 +258,7 @@ def main():
     for key in ['model', 'variant', 'manifest', 'protocol', 'output']:
         parser.add_argument('--' + key, required=True)
     parser.add_argument('--smoke-only', action='store_true')
+    parser.add_argument('--task-ids-file')
     asyncio.run(run(parser.parse_args()))
 
 

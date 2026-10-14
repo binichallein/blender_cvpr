@@ -35,7 +35,7 @@ def matching_process(pid, variant, output, proc_root='/proc'):
         if process.joinpath('stat').read_text().split()[2] == 'Z':
             return False
         args = process.joinpath('cmdline').read_bytes().decode().split('\0')
-        return (any(arg.endswith('/infer_full.py') for arg in args)
+        return (any(arg.endswith(('/infer_full.py', '/infer_replicas.py')) for arg in args)
                 and '--variant' in args and args[args.index('--variant') + 1] == variant
                 and '--output' in args and args[args.index('--output') + 1] == str(output))
     except (FileNotFoundError, IndexError, UnicodeError):
@@ -93,6 +93,7 @@ def main():
         parser.add_argument('--' + key, required=True)
     parser.add_argument('--reference-pid', type=int, required=True)
     parser.add_argument('--ipc-directory', default='/dev/shm/bg-full')
+    parser.add_argument('--replicas', action='append', default=[], metavar='VARIANT=COUNT')
     a = parser.parse_args()
     root = Path(a.output).resolve()
     root.mkdir(parents=True, exist_ok=True)
@@ -109,6 +110,13 @@ def main():
     tasks = manifest['all_tasks']
     task_by_id = {task['id']: task for task in tasks}
     variants = {v['id']: v for v in protocol['variants']}
+    replicas = {name: 1 for name in variants}
+    for specification in a.replicas:
+        name, value = specification.split('=', 1)
+        count = int(value)
+        assert name in variants and count >= 1
+        assert count == 1 or variants[name]['tensor_parallel_size'] == 1
+        replicas[name] = count
     source = {
         'git_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=scripts.parent, text=True).strip(),
         'git_status': subprocess.check_output(['git', 'status', '--porcelain'], cwd=scripts.parent, text=True),
@@ -211,15 +219,23 @@ def main():
                    TOKENIZERS_PARALLELISM='false', OMP_NUM_THREADS='1',
                    VLLM_WORKER_MULTIPROC_METHOD='spawn', VLLM_NO_USAGE_STATS='1',
                    TMPDIR=a.ipc_directory)
-        command = [a.inference_python, '-u', str(scripts / 'infer_full.py'),
+        driver = 'infer_replicas.py' if replicas[name] > 1 else 'infer_full.py'
+        command = [a.inference_python, '-u', str(scripts / driver),
                    '--model', str(model), '--variant', name, '--manifest', a.manifest,
                    '--protocol', a.protocol, '--output', str(root / name / 'predictions')]
+        if replicas[name] > 1:
+            command.extend(['--replicas', str(replicas[name])])
         child = subprocess.Popen(command, stdout=log, stderr=subprocess.STDOUT,
                                  env=env, start_new_session=True)
         log.close()
         running[name] = (child, gpus)
-        atomic_json(root / name / 'source.json', {**source, 'gpu_ids': gpus, 'model_path': str(model),
-                                                'inference_pid': child.pid})
+        previous_source = root / name / 'source.json'
+        if previous_source.exists():
+            previous = json.loads(previous_source.read_text())
+            atomic_json(root / name / ('source-history-' + str(previous.get('inference_pid', 'unknown')) + '.json'),
+                        previous)
+        atomic_json(previous_source, {**source, 'gpu_ids': gpus, 'model_path': str(model),
+                                      'inference_pid': child.pid, 'replicas': replicas[name]})
         print('INFERENCE_STARTED', name, child.pid, ','.join(gpus), flush=True)
 
     last_status = 0
@@ -256,7 +272,7 @@ def main():
             reserved = set()
             for name in list(pending):
                 variant = variants[name]
-                count = variant['tensor_parallel_size']
+                count = variant['tensor_parallel_size'] * replicas[name]
                 if len(free) < count:
                     continue
                 model = model_path(a.weights_root, variant['model'])
