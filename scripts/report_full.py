@@ -62,10 +62,27 @@ def main():
         sources[name] = load(runs / name / 'source.json')
         generations[name] = {task: load(predictions / task / 'generation.json') for task in ids}
         records = list(generations[name].values())
+        execution_errors = []
+        for row in results[name]['rows']:
+            if row.get('failure') not in ('execution', 'missing_view'):
+                continue
+            directory = runs / name / 'renders' / row['task'] / 'prediction'
+            messages = []
+            log = directory / 'blender.log'
+            if log.exists():
+                messages = [line for line in log.read_text(errors='replace').splitlines()
+                            if line.startswith(('KeyError:', 'TypeError:', 'AttributeError:',
+                                'RuntimeError:', 'ValueError:', 'NameError:', 'IndexError:',
+                                'ZeroDivisionError:', 'ModuleNotFoundError:', 'MemoryError:'))]
+            failure_file = directory / 'failure.json'
+            failure = load(failure_file) if failure_file.exists() else {}
+            execution_errors.append({'task': row['task'], 'failure': row['failure'],
+                                     'returncode': failure.get('returncode'), 'errors': messages[-8:]})
         timings = [load(p) for p in sorted(predictions.glob('timing-*.json'))]
         complete_timing = sum(t['completed_in_this_invocation'] for t in timings) == len(ids)
         statistics[name] = {
             'generated_tasks': len(records),
+            'execution_failures': execution_errors,
             'total_output_tokens': sum(r['output_tokens'] for r in records),
             'reasoning_tokens': sum(r.get('reasoning_tokens', 0) for r in records),
             'answer_tokens': sum(r.get('answer_tokens', 0) for r in records),
@@ -82,6 +99,8 @@ def main():
     for filename, value in [('model-configs.json', configurations),
                             ('generation-statistics.json', statistics), ('sources.json', sources)]:
         (out / filename).write_text(json.dumps(value, indent=2) + '\n')
+    coordinator_sources = [load(p) for p in sorted(runs.glob('source-*.json'))]
+    (out / 'coordinator-sources.json').write_text(json.dumps(coordinator_sources, indent=2) + '\n')
     meta_out = out / 'model-metadata'
     meta_out.mkdir(exist_ok=True)
     for path in sorted(Path(args.model_metadata).glob('*-files.json')):
@@ -164,13 +183,13 @@ def main():
     for name, result in results.items():
         text.append(f"| {name} | {rate(result['screening_subset'])} | "
                     f"{rate(result['remaining_tasks'])} | {rate(result['excluding_calibration'])} |")
-    text += ['', '| 变体 | 总输出 token | 思考 token | 截断题数 | 格式/生成失败 | 生成墙钟秒 |',
-             '|---|---:|---:|---:|---:|---:|']
+    text += ['', '| 变体 | 总输出 token | 思考 token | 截断题数 | 格式/生成失败 | 执行失败 | 生成墙钟秒 |',
+             '|---|---:|---:|---:|---:|---:|---:|']
     for name, stats in statistics.items():
         seconds = stats['generation_wall_seconds']
         duration = f'{seconds:.1f}' if seconds is not None else 'N/A（断点续跑计时不全）'
         text.append(f"| {name} | {stats['total_output_tokens']} | {stats['reasoning_tokens']} | "
-                    f"{len(stats['truncated_tasks'])} | {len(stats['generation_or_parse_failures'])} | {duration} |")
+                    f"{len(stats['truncated_tasks'])} | {len(stats['generation_or_parse_failures'])} | {len(stats['execution_failures'])} | {duration} |")
     text += [
         '',
         '生成墙钟时间包含图像预处理和排队，不包含模型加载、通用图片检查、Blender 渲染及评分。'
