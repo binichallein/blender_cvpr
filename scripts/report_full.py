@@ -230,7 +230,8 @@ def main():
         '',
         '文件：[逐题 CSV](tasks.csv)、[完整分数](results.json)、[配对结果](paired-comparison.json)、'
         '[生成统计](generation-statistics.json)、[模型配置](model-configs.json)、[冻结协议](protocol.json)、'
-        '[来源与代码版本](sources.json)、[图片一致性审查](reference-image-audit.json)、[补充分数](data-sensitivity.json)。权重、原始回答、思考文本、Python 程序与渲染图片保存在 ml2。',
+        '[来源与代码版本](sources.json)、[协调程序版本](coordinator-sources.json)、[图片一致性审查](reference-image-audit.json)、[补充分数](data-sensitivity.json)、'
+        '[独立像素及输入输出复核](final-audit.json)、[续跑文件完整性核验](resume-audit.json)、[续跑记录](replica-transition.json)。权重、原始回答、思考文本、Python 程序与渲染图片保存在 ml2。',
     ]
     (out / 'README.md').write_text('\n'.join(text) + '\n')
     print(out, flush=True)
