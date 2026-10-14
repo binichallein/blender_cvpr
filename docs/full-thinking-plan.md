@@ -26,3 +26,10 @@ Use a short local IPC path such as `/dev/shm/bg-full` for vLLM; a deep project p
 Completed outputs are saved before parsing and reused on resume. Infrastructure failures stop that variant, while malformed or truncated model answers are retained as model failures. ModelScope downloads become ready only after all indexed weight shards and required tokenizer/processor files exist.
 
 After all six variants are scored, `report_full.py` exports the report, per-task CSV, generation statistics, paired outcomes, configuration and model file provenance. Large artifacts remain outside Git.
+
+
+## Reference image audit added during the run
+
+Before seeing any full-model scores, a reference-only check found that some supplied images differ from renders of the released scene and reference program. Lighting24 views 3–4 visibly differ; camera restoration changes the world matrices by only about 1e-6 and does not explain the discrepancy. All model inputs and frozen main scoring rules remain unchanged.
+
+A supplementary, explicitly post-hoc sensitivity analysis flags tasks if any supplied start/goal view has RGB MSE greater than 0.005 against its corresponding reference render, after Lanczos resizing to 512 by 512. This audit reads no model answers. Flags can reflect noise, settings or scene/camera differences and are not automatically declared invalid data. Report the original main scores plus scores excluding flagged tasks.

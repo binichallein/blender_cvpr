@@ -25,7 +25,7 @@ def rate(summary):
 
 def main():
     parser = argparse.ArgumentParser()
-    for name in ['runs', 'manifest', 'protocol', 'output', 'model-metadata']:
+    for name in ['runs', 'manifest', 'protocol', 'output', 'model-metadata', 'reference-audit']:
         parser.add_argument('--' + name, required=True)
     args = parser.parse_args()
     runs, out = Path(args.runs), Path(args.output)
@@ -46,6 +46,13 @@ def main():
     assert all(value == invalid_sets[0] for value in invalid_sets)
     shutil.copy2(runs / 'complete.json', out / 'results.json')
     shutil.copy2(args.protocol, out / 'protocol.json')
+    reference_audit = load(args.reference_audit)
+    assert reference_audit['complete'] and {r['task'] for r in reference_audit['rows']} == ids
+    flagged = set(reference_audit['flagged_tasks'])
+    sensitivity = {name: summarize([row for row in result['rows'] if row['task'] not in flagged])
+                   for name, result in results.items()}
+    shutil.copy2(args.reference_audit, out / 'reference-image-audit.json')
+    (out / 'data-sensitivity.json').write_text(json.dumps(sensitivity, indent=2) + '\n')
     configurations, statistics, sources = {}, {}, {}
     generations = {}
     for name in variants:
@@ -139,6 +146,19 @@ def main():
     for category in ['blendshape', 'geometry', 'lighting', 'material', 'placement']:
         text.append('| ' + category + ' | ' + ' | '.join(
             rate(results[name]['by_category'][category]) for name in variants) + ' |')
+    text += [
+        '',
+        '补充的数据一致性分析：本轮进行中发现部分发布图片与场景文件的重渲染不一致。'
+        '例如 lighting24 的后两个视角存在明显差异；相机恢复操作只产生约 1e-6 的矩阵数值差异，不能解释这种视角变化。'
+        '以下分析是在运行期间提出的事后检查，不改变主分数、输入或成功阈值。',
+        f"将发布图片用 Lanczos 缩放到 512×512 后，任一当前/目标视角与参考渲染的 RGB MSE 超过 "
+        f"{reference_audit['flag_mse']} 则标记。共标记 {len(flagged)} 题；高误差也可能来自噪声或渲染设置差异，不能直接认定每道标记题无效。",
+        '',
+        '| 变体 | 排除图片差异标记题后的成功数 / 可评分题数 |',
+        '|---|---:|',
+    ]
+    for name in variants:
+        text.append(f"| {name} | {rate(sensitivity[name])} |")
     text += ['', '| 变体 | 原筛选 50 题 | 其余题目 | 排除阈值校准题 |',
              '|---|---:|---:|---:|']
     for name, result in results.items():
@@ -172,7 +192,7 @@ def main():
         '',
         '文件：[逐题 CSV](tasks.csv)、[完整分数](results.json)、[配对结果](paired-comparison.json)、'
         '[生成统计](generation-statistics.json)、[模型配置](model-configs.json)、[冻结协议](protocol.json)、'
-        '[来源与代码版本](sources.json)。权重、原始回答、思考文本、Python 程序与渲染图片保存在 ml2。',
+        '[来源与代码版本](sources.json)、[图片一致性审查](reference-image-audit.json)、[补充分数](data-sensitivity.json)。权重、原始回答、思考文本、Python 程序与渲染图片保存在 ml2。',
     ]
     (out / 'README.md').write_text('\n'.join(text) + '\n')
     print(out, flush=True)
