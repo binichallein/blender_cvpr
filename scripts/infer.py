@@ -31,7 +31,7 @@ def build_messages(task):
                         {'type':'text','text':f'Target view {view}:'},
                         {'type':'image','url':str(d/'renders/goal'/view)}])
     content.append({'type':'text','text':'Return the complete modified Python script now.'})
-    return [{'role':'system','content':SYSTEM},{'role':'user','content':content}]
+    return [{'role':'system','content':[{'type':'text','text':SYSTEM}]},{'role':'user','content':content}]
 
 def extract_code(raw):
     blocks=re.findall(r'```(?:python|py)?[ \t]*\n(.*?)```',raw,re.S|re.I)

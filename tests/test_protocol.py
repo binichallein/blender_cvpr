@@ -44,6 +44,7 @@ class ProtocolTests(unittest.TestCase):
             p=Path(d);(p/'start.py').write_text('import bpy\nx=123')
             (p/'goal.py').write_text('SECRET_REFERENCE_CODE')
             task={'category':'geometry','directory':d,'views':['render1.png','render2.png']}
+            self.assertIsInstance(build_messages(task)[0]['content'],list)
             message=json.dumps(build_messages(task))
             self.assertNotIn('SECRET_REFERENCE_CODE',message)
             self.assertIn('x=123',message)

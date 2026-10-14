@@ -2,7 +2,7 @@
 
 Reproducible, non-agentic evaluation of Qwen3-VL Instruct models on BlenderGym.
 
-Status: calibration is frozen; final reference preflight is in progress. No model scores are claimed yet.
+Status: all 50 reference tasks passed preflight; both model evaluations are running on the remote GPU machine. No final model scores are claimed yet.
 
 See [the frozen protocol](docs/protocol.md), [fixed task selection and audits](docs/subset.json), and [running instructions](docs/run.md).
 
