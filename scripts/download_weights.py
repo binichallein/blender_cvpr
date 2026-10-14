@@ -1,6 +1,8 @@
 """Resume a ModelScope download after transient failures; verified shards stay cached."""
 import argparse
 import os
+import socket
+import ipaddress
 import time
 from pathlib import Path
 
@@ -14,6 +16,8 @@ def main():
     parser.add_argument('--range-parallel', type=int, default=8)
     parser.add_argument('--timeout', type=int, default=120)
     parser.add_argument('--attempts', type=int, default=30)
+    parser.add_argument('--resolve', action='append', default=[], metavar='HOST=IP',
+                        help='Optional process-local DNS override; TLS still verifies the original host')
     args = parser.parse_args()
     # Adopt a download already in progress without concurrently writing its files.
     while args.wait_pid:
@@ -26,6 +30,17 @@ def main():
         if not active or args.model not in command:
             break
         time.sleep(10)
+    addresses = {}
+    for override in args.resolve:
+        host, address = override.split('=', 1)
+        ipaddress.ip_address(address)
+        addresses[host] = address
+    if addresses:
+        original_resolver = socket.getaddrinfo
+        def resolver(host, *positional, **keywords):
+            return original_resolver(addresses.get(host, host), *positional, **keywords)
+        socket.getaddrinfo = resolver
+        print('PROCESS_LOCAL_DNS', addresses, flush=True)
     os.environ['MODELSCOPE_DOWNLOAD_PARALLELS'] = str(args.range_parallel)
     import modelscope.hub.file_download as download
     from modelscope import snapshot_download
