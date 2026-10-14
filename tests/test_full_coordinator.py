@@ -5,7 +5,7 @@ import threading
 import unittest
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
-from run_full import matching_process, model_path, release_render_gpu
+from run_full import matching_process, model_path, release_render_gpu, replica_owned_gpus
 
 
 class CoordinatorTests(unittest.TestCase):
@@ -39,6 +39,45 @@ class CoordinatorTests(unittest.TestCase):
             self.assertTrue(matching_process(123, 'example', '/run/example', directory))
             (process / 'stat').write_text('123 (python) Z')
             self.assertFalse(matching_process(123, 'example', '/run/example', directory))
+
+    def test_replica_gpu_is_released_only_after_its_child_exits(self):
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory)
+            record = output / 'replica-runs/100/run.json'
+            allocated = ['3', '0']
+            self.assertEqual(replica_owned_gpus(100, 'example', output, allocated), allocated)
+            record.parent.mkdir(parents=True)
+            metadata = {'variant': 'example', 'gpu_ids': allocated,
+                        'children': [{'pid': 101, 'gpu': '3'}, {'pid': 102, 'gpu': '0'}]}
+            record.write_text(json.dumps(metadata))
+            with patch('run_full.matching_process', return_value=True):
+                self.assertEqual(replica_owned_gpus(100, 'example', output, allocated), allocated)
+            with patch('run_full.matching_process', side_effect=lambda pid, *args: pid == 102):
+                self.assertEqual(replica_owned_gpus(100, 'example', output, allocated), ['0'])
+            with patch('run_full.matching_process', return_value=False):
+                self.assertEqual(replica_owned_gpus(100, 'example', output, allocated), [])
+
+    def test_partial_replica_metadata_never_releases_a_gpu(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory)
+            record = output / 'replica-runs/100/run.json'
+            record.parent.mkdir(parents=True)
+            for text in ['{', json.dumps({'variant': 'example', 'gpu_ids': ['3', '0'],
+                                        'children': [{'pid': 101, 'gpu': '3'}]})]:
+                record.write_text(text)
+                self.assertEqual(replica_owned_gpus(100, 'example', output, ['3', '0']), ['3', '0'])
+
+    def test_released_replica_gpu_is_never_reacquired_by_stale_metadata(self):
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory)
+            record = output / 'replica-runs/100/run.json'
+            record.parent.mkdir(parents=True)
+            record.write_text(json.dumps({'variant': 'example', 'gpu_ids': ['3', '0'],
+                'children': [{'pid': 101, 'gpu': '3'}, {'pid': 102, 'gpu': '0'}]}))
+            with patch('run_full.matching_process', return_value=True):
+                self.assertEqual(replica_owned_gpus(100, 'example', output, ['0']), ['0'])
 
 
 class RenderGpuReleaseTests(unittest.TestCase):

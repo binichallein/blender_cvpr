@@ -42,6 +42,26 @@ def matching_process(pid, variant, output, proc_root='/proc'):
         return False
 
 
+def replica_owned_gpus(pid, variant, output, allocated):
+    """Release finished replica GPUs while retaining every live child's allocation."""
+    path = Path(output) / 'replica-runs' / str(pid) / 'run.json'
+    try:
+        metadata = json.loads(path.read_text())
+        children = metadata['children']
+        declared = metadata['gpu_ids']
+        # Missing, partial or inconsistent startup metadata must retain ownership.
+        if (metadata['variant'] != variant or len(children) != len(declared)
+                or len(set(declared)) != len(declared)
+                or {child['gpu'] for child in children} != set(declared)
+                or not set(allocated) <= set(declared)):
+            return allocated
+        live = {child['gpu'] for child in children
+                if matching_process(child['pid'], variant, output)}
+        return [gpu for gpu in allocated if gpu in live]
+    except (OSError, ValueError, KeyError, TypeError):
+        return allocated
+
+
 class ExistingInference:
     def __init__(self, pid, variant, output):
         self.pid, self.variant, self.output = pid, variant, output
@@ -246,6 +266,10 @@ def main():
             for name, (child, gpus) in list(running.items()):
                 status = child.poll()
                 if status is None:
+                    active_gpus = replica_owned_gpus(child.pid, name, root / name / 'predictions', gpus)
+                    if active_gpus != gpus:
+                        print('REPLICA_GPUS_RELEASED', name, sorted(set(gpus)-set(active_gpus)), flush=True)
+                        running[name] = (child, active_gpus)
                     continue
                 del running[name]
                 discover()
