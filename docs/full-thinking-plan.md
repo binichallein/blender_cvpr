@@ -19,7 +19,7 @@ Official references: [Qwen3.6-27B](https://huggingface.co/Qwen/Qwen3.6-27B), [Qw
 
 ## Running and resuming
 
-Run reference scenes for all tasks with `render_batch.py --mode references --split all`, then start `run_full.py` with the manifest, frozen protocol, output root, Blender and Infinigen paths, CLIP weights, reference root, model weights root, inference Python, and reference-process PID. The coordinator allocates GPUs 0–1 to rendering once reference rendering finishes, and GPUs 2–3 to inference. It requires four visible GPUs; 32B variants use tensor parallelism across the two inference GPUs.
+Run reference scenes for all tasks with `render_batch.py --mode references --split all`, then start `run_full.py` with the manifest, frozen protocol, output root, Blender and Infinigen paths, CLIP weights, reference root, model weights root, inference Python, and reference-process PID. The coordinator allocates GPUs 0–1 to rendering once reference rendering finishes, and GPUs 2–3 to inference. While waiting for weights, idle inference GPUs also render predictions; a model starts only after their current render workers exit. It requires four visible GPUs; 32B variants use tensor parallelism across the two inference GPUs.
 
 Use a short local IPC path such as `/dev/shm/bg-full` for vLLM; a deep project path can exceed the Unix-domain socket path limit. Runtime status and process IDs are recorded in `status.json` and each variant's `source.json`. A singleton file lock prevents concurrent coordinators. A resumed coordinator adopts still-running inference only when PID, command, variant and output path match.
 
@@ -33,3 +33,6 @@ After all six variants are scored, `report_full.py` exports the report, per-task
 Before seeing any full-model scores, a reference-only check found that some supplied images differ from renders of the released scene and reference program. Lighting24 views 3–4 visibly differ; camera restoration changes the world matrices by only about 1e-6 and does not explain the discrepancy. All model inputs and frozen main scoring rules remain unchanged.
 
 A supplementary, explicitly post-hoc sensitivity analysis flags tasks if any supplied start/goal view has RGB MSE greater than 0.005 against its corresponding reference render, after Lanczos resizing to 512 by 512. This audit reads no model answers. Flags can reflect noise, settings or scene/camera differences and are not automatically declared invalid data. Report the original main scores plus scores excluding flagged tasks.
+
+
+The camera-restoration diagnostic can be reproduced with Blender loading the relevant base scene and running scripts/audit_camera_restore.py; it prints matrices, parent relationships and constraints before and after restoration. The audit_reference_images.py script compares all supplied and reference images, and audit_full.py independently recomputes final pixel losses and binary decisions in float64.
