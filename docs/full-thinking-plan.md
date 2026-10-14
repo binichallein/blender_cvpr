@@ -36,3 +36,5 @@ A supplementary, explicitly post-hoc sensitivity analysis flags tasks if any sup
 
 
 The camera-restoration diagnostic can be reproduced with Blender loading the relevant base scene and running scripts/audit_camera_restore.py; it prints matrices, parent relationships and constraints before and after restoration. The audit_reference_images.py script compares all supplied and reference images, and audit_full.py independently recomputes final pixel losses and binary decisions in float64.
+
+The completed reference-only audit covers all 280 tasks and flags 16 under the supplementary rule. It was committed before any full model scores were produced. See [per-view reference comparisons](reference-image-audit.json) and [camera restoration measurements](camera-restoration-audit.json). These flags do not change the frozen main evaluation denominator or inputs.
