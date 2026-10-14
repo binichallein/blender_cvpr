@@ -30,6 +30,34 @@ def main():
         else:
             s=result['full']['summary'];remaining=result['full']['remaining_tasks'];clean=result['full']['excluding_calibration']
             text.append(f"\n{name} 全量：{s['successes']}/{s['scorable_tasks']}（{s['success_rate']:.1%}），发布任务总数 {s['tasks']}，数据问题 {len(s['invalid_data'])} 题；扩展部分 {remaining['successes']}/{remaining['scorable_tasks']}。排除用于校准的任务后为 {clean['successes']}/{clean['scorable_tasks']}。全量结果受 50 题筛选门槛条件化。")
+    statistics={}
+    text+=['','| 模型 | 50 题生成耗时（不含加载、渲染和评分） | 输出 token | 达到输出上限 | 程序执行失败 |',
+           '|---|---:|---:|---:|---:|']
+    for model,result in results.items():
+        rows=result['subset']['rows']
+        predictions=runs/model/'predictions'
+        generations=[json.loads((predictions/row['task']/'generation.json').read_text()) for row in rows]
+        timing=json.loads((predictions/'subset-timing.json').read_text())
+        errors=[]
+        for row in rows:
+            if row.get('failure')!='execution': continue
+            directory=runs/model/'renders'/row['task']/'prediction'
+            messages=[]
+            for log in directory.glob('*.log'):
+                messages.extend(line for line in log.read_text(errors='replace').splitlines()
+                                if line.startswith(('KeyError:','TypeError:','AttributeError:','RuntimeError:','ValueError:','NameError:','IndexError:','ZeroDivisionError:','ModuleNotFoundError:')))
+            errors.append({'task':row['task'],'errors':messages})
+        stats={'subset_generation_timing':timing,
+               'output_tokens':sum(g['output_tokens'] for g in generations),
+               'truncated_tasks':[g['task'] for g in generations if g['truncated']],
+               'generation_or_parse_failed_tasks':[g['task'] for g in generations if not g['ok']],
+               'execution_failures':errors}
+        statistics[model]=stats
+        seconds=timing['generation_wall_seconds']
+        display_time=f'{seconds:.1f} 秒' if timing['completed_in_this_invocation']==50 else 'N/A（断点续跑）'
+        text.append(f"| {model} | {display_time} | {stats['output_tokens']} | {len(stats['truncated_tasks'])} | {len(errors)} |")
+    text+=['','生成耗时是连续批处理阶段的墙钟时间，包含排队与图像处理；请求之间并发，不能把逐题耗时相加当作总用时。详情与程序错误摘录见 [generation-statistics.json](generation-statistics.json)。']
+    (out/'generation-statistics.json').write_text(json.dumps(statistics,indent=2))
     text+=['','每类只用两道独立任务校准阈值，因此二元成功率适合本轮筛选与模型比较，不能代替人工对复杂场景正确性的完整审查。该实验测量一次性看图改代码能力，与原项目多轮搜索设置不同。']
     (out/'README.md').write_text('\n'.join(text)+'\n')
     with (out/'tasks.csv').open('w',newline='') as f:

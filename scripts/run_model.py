@@ -8,6 +8,20 @@ import time
 from pathlib import Path
 from render_one import render
 
+def inference_finished(status, handled, tasks, predictions):
+    if status is None:
+        return False
+    if status:
+        raise RuntimeError(f'Inference exited {status}; see inference log, resume after fixing infrastructure')
+    if len(handled)==len(tasks):
+        return True
+    missing=[t['id'] for t in tasks if not (predictions/t['id']/'generation.json').exists()]
+    if missing:
+        raise RuntimeError(f'Incomplete inference: missing {missing}')
+    # Some outputs arrived after their position in the render scan was passed.
+    # Keep scanning until every completed response has been rendered.
+    return False
+
 def main():
     p=argparse.ArgumentParser()
     for key in ['model','manifest','protocol','output','blender','infinigen','clip','references']:
@@ -41,14 +55,12 @@ def main():
                 row=json.loads(generation.read_text())
                 if row['ok']:
                     r=render(task,predictions/task['id']/'prediction.py',renders/task['id']/'prediction',
-                             a.blender,a.infinigen,a.render_gpu)
+                             a.blender,a.infinigen,a.render_gpu,reuse_failures=True)
                     print(json.dumps({'task':task['id'],'render_ok':r['ok'],'seconds':r.get('seconds')}),flush=True)
                 handled.add(task['id'])
             status=proc.poll()
-            if status is not None:
-                if status: raise RuntimeError(f'Inference exited {status}; see inference log, resume after fixing infrastructure')
-                if len(handled)==len(tasks): break
-                raise RuntimeError(f'Incomplete inference: {len(handled)}/{len(tasks)}')
+            if inference_finished(status,handled,tasks,predictions):
+                break
             time.sleep(2)
     reference_deadline=time.monotonic()+3600
     while not all((Path(a.references)/t['id']/k/'render.json').exists() for t in tasks for k in ['start','goal']):

@@ -8,7 +8,7 @@ import subprocess
 import time
 from pathlib import Path
 
-def render(task, script, output, blender, infinigen, gpu, samples=512, seed=20261015, timeout=600, views=None):
+def render(task, script, output, blender, infinigen, gpu, samples=512, seed=20261015, timeout=600, views=None, reuse_failures=False):
     output = Path(output).resolve()
     script = Path(script).resolve()
     blender = Path(blender).resolve()
@@ -23,6 +23,11 @@ def render(task, script, output, blender, infinigen, gpu, samples=512, seed=2026
     if meta.exists():
         previous = json.loads(meta.read_text())
         if previous.get('ok') and all(previous.get(k)==v for k,v in expected.items()) and all((output/v).exists() for v in views):
+            return previous
+    failure = output/'failure.json'
+    if reuse_failures and failure.exists():
+        previous = json.loads(failure.read_text())
+        if not previous.get('ok') and all(previous.get(k)==v for k,v in expected.items()):
             return previous
     meta.unlink(missing_ok=True)
     for view in views:

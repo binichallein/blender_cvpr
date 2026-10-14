@@ -1,0 +1,24 @@
+{
+  "Qwen3-VL-8B-Instruct": {
+    "tasks": 280,
+    "max_input_tokens": 8331,
+    "input_plus_8192_exceeds_16384": [
+      {
+        "task": "geometry51",
+        "input_tokens": 8331,
+        "images": 4
+      }
+    ]
+  },
+  "Qwen3-VL-32B-Instruct": {
+    "tasks": 280,
+    "max_input_tokens": 8331,
+    "input_plus_8192_exceeds_16384": [
+      {
+        "task": "geometry51",
+        "input_tokens": 8331,
+        "images": 4
+      }
+    ]
+  }
+}
