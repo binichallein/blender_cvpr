@@ -244,8 +244,15 @@ def main():
                 if inference_complete(name):
                     finished.add(name)
                     pending.remove(name)
+            reference_active = process_alive(a.reference_pid)
+            if not reference_active and not references_ready:
+                references_ready = all(
+                    (Path(a.references) / task['id'] / kind / 'render.json').exists()
+                    for task in tasks for kind in ['start', 'goal'])
+            inference_pool = ['2', '3', '0', '1'] if references_ready else ['2', '3']
+            render_pool = ['2', '3'] if reference_active else ['0', '1', '2', '3']
             used = {gpu for _, gpus in running.values() for gpu in gpus}
-            free = [gpu for gpu in ['2', '3'] if gpu not in used]
+            free = [gpu for gpu in inference_pool if gpu not in used]
             reserved = set()
             for name in list(pending):
                 variant = variants[name]
@@ -262,16 +269,11 @@ def main():
                     continue
                 launch(name, model, chosen)
                 pending.remove(name)
-            if not process_alive(a.reference_pid):
-                start_render_workers(['0', '1'])
-                references_ready = all(
-                    (Path(a.references) / task['id'] / kind / 'render.json').exists()
-                    for task in tasks for kind in ['start', 'goal'])
             # Download waits should not leave inference GPUs idle. Render one task
             # at a time there; a ready model reserves them and waits for workers to exit.
             used = {gpu for _, gpus in running.values() for gpu in gpus}
             if not jobs.empty():
-                start_render_workers([gpu for gpu in ['2', '3'] if gpu not in used and gpu not in reserved])
+                start_render_workers([gpu for gpu in render_pool if gpu not in used and gpu not in reserved])
             with state_lock:
                 render_counts = {name: len(done) for name, done in render_done.items()}
                 errors = list(render_errors)
