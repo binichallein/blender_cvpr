@@ -63,7 +63,7 @@ def main():
             'dtype':'bfloat16','do_sample':False,'max_new_tokens':a.max_new_tokens,
             'transformers':transformers.__version__,'torch':torch.__version__,
             'system_prompt':SYSTEM,'category_instructions':CATEGORY,
-            'input_views':'all matched released current/goal views','repairs':0,'attempts':1}
+            'input_views':'all matched current/goal views with valid base-scene cameras','repairs':0,'attempts':1}
     config_path=out/'config.json'
     if config_path.exists(): assert json.loads(config_path.read_text())==config,'Refusing mismatched resume'
     else: config_path.write_text(json.dumps(config,indent=2))

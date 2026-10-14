@@ -15,3 +15,5 @@ For each task, let E be view-averaged RGB MSE to its goal rerender, E_start the 
 These are operational visual thresholds, not an official binary metric or human correctness labels. Only two calibration tasks per category support them. Standard N-CLIP is reported separately and does not determine success. See [calibration-audit.md](calibration-audit.md) for model-independent corrections to controls and the random-seed policy.
 
 The 50-task subset excludes identical start/goal programs. Full-run reporting separates all released tasks, scorable tasks and calibration-excluded scores. Program errors and generation failures count against model success; data problems are listed separately.
+
+Image pairs are restricted to cameras actually present in the released base scene. The camera audit removes orphan render5.png from lighting1–5; their remaining views are retained. See the manifest audit for the exact inputs.

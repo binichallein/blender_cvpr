@@ -6,6 +6,8 @@ All commands below run on the remote machine. Set BENCH_ARCHIVE, RUN_DIR, BLENDE
 
 ```bash
 python scripts/prepare_data.py --archive "$BENCH_ARCHIVE" --out "$RUN_DIR/data"
+"$BLENDER" --background --factory-startup --python scripts/audit_cameras.py -- --manifest "$RUN_DIR/data/manifest.json" --output "$RUN_DIR/data/cameras.json"
+python scripts/apply_camera_audit.py --manifest "$RUN_DIR/data/manifest.json" --cameras "$RUN_DIR/data/cameras.json"
 python -m unittest discover -s tests -v
 python scripts/render_batch.py --manifest "$RUN_DIR/data/manifest.json" --output "$RUN_DIR/calibration" --blender "$BLENDER" --infinigen "$INFINIGEN" --mode calibration --gpus 2,3
 python scripts/calibrate.py --manifest "$RUN_DIR/data/manifest.json" --renders "$RUN_DIR/calibration" --clip "$CLIP_DIR" --output "$RUN_DIR/protocol.json"

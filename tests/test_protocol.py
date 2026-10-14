@@ -7,6 +7,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
 from infer import extract_code, build_messages
 from metrics import relative_error, passes, should_expand
 from score import summarize
+from apply_camera_audit import apply
 
 class ProtocolTests(unittest.TestCase):
     def test_code_extraction_and_invalid_response(self):
@@ -22,6 +23,12 @@ class ProtocolTests(unittest.TestCase):
         self.assertEqual(relative_error(base,base,floor),{'pl':1.0,'nclip':1.0})
         self.assertEqual(relative_error(floor,base,floor),{'pl':0.0,'nclip':0.0})
         self.assertFalse(passes({'pl':1,'nclip':0.1},{'pl':0.2}))
+    def test_orphan_view_is_removed_from_input_and_scoring_manifest(self):
+        m={'all_tasks':[{'id':'lighting1','base_group':'base','views':['render1.png','render5.png']}]}
+        result=apply(m,{'base':['Camera1']})
+        self.assertEqual(result['all_tasks'][0]['views'],['render1.png'])
+        self.assertEqual(result['unavailable_camera_views'],{'lighting1':['render5.png']})
+
     def test_data_errors_are_separate_from_model_failures(self):
         base={'pl':0.1,'nclip':0.2}
         rows=[{'task':'a','success':True,'metrics':base,'start_metrics':base},

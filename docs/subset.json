@@ -147,5 +147,22 @@
       "replacement": "geometry11",
       "reason": "start and goal have identical Python AST"
     }
+  },
+  "unavailable_camera_views": {
+    "lighting1": [
+      "render5.png"
+    ],
+    "lighting2": [
+      "render5.png"
+    ],
+    "lighting3": [
+      "render5.png"
+    ],
+    "lighting4": [
+      "render5.png"
+    ],
+    "lighting5": [
+      "render5.png"
+    ]
   }
 }
