@@ -12,6 +12,8 @@ def main():
     p=argparse.ArgumentParser()
     for key in ['model','manifest','protocol','output','blender','infinigen','clip','references']:
         p.add_argument('--'+key,required=True)
+    p.add_argument('--backend',choices=['transformers','vllm'],default='vllm')
+    p.add_argument('--inference-python',default=sys.executable)
     p.add_argument('--inference-gpu',required=True)
     p.add_argument('--render-gpu',required=True)
     p.add_argument('--split',choices=['subset','all'],default='subset')
@@ -23,8 +25,10 @@ def main():
     tasks=[t for t in m['all_tasks'] if t['id'] in ids]
     predictions=root/'predictions';renders=root/'renders'
     env=dict(os.environ,CUDA_VISIBLE_DEVICES=a.inference_gpu,TOKENIZERS_PARALLELISM='false',
-             HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1',OMP_NUM_THREADS='8')
-    command=[sys.executable,'-u',str(scripts/'infer.py'),'--model',a.model,
+             HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1',OMP_NUM_THREADS='1',
+             VLLM_WORKER_MULTIPROC_METHOD='spawn',VLLM_NO_USAGE_STATS='1')
+    inference_script='infer_vllm.py' if a.backend=='vllm' else 'infer.py'
+    command=[a.inference_python,'-u',str(scripts/inference_script),'--model',a.model,
              '--manifest',a.manifest,'--protocol',a.protocol,'--output',str(predictions),'--split',a.split]
     handled=set()
     with (root/(a.split+'-inference.log')).open('a') as log:

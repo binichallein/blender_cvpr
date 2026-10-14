@@ -18,7 +18,7 @@ def main():
     for name,result in results.items():
         s=result['subset']['summary'];mean=s['valid_only_mean']
         text.append(f"| {name} | {s['successes']}/50 | {s['success_rate']:.1%} | {s['rendered_tasks']}/50 | {fmt(mean['pl'])} | {fmt(mean['nclip'])} |")
-    text+=['','连续误差只在成功渲染的样本上平均，须结合可渲染数量阅读；程序或输出格式失败仍计入二元成功率的分母。PL 和 N-CLIP 越低越好。','','| 类别 | 8B 成功数 | 32B 成功数 |','|---|---:|---:|']
+    text+=['','两个模型均使用 vLLM AsyncLLM 连续批处理（BF16、贪心解码、最多 8192 个输出 token）。完成一题即保存并补充下一请求；早期 Transformers 试跑单独保留，不计入结果。','','连续误差只在成功渲染的样本上平均，须结合可渲染数量阅读；程序或输出格式失败仍计入二元成功率的分母。PL 和 N-CLIP 越低越好。','','| 类别 | 8B 成功数 | 32B 成功数 |','|---|---:|---:|']
     for cat in ['blendshape','geometry','lighting','material','placement']:
         counts=[results[n]['subset']['by_category'][cat]['successes'] for n in ['qwen3-vl-8b','qwen3-vl-32b']]
         text.append(f'| {cat} | {counts[0]}/10 | {counts[1]}/10 |')

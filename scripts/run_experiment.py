@@ -10,8 +10,11 @@ def main():
     p=argparse.ArgumentParser()
     for key in ['model8','model32','manifest','protocol','output','blender','infinigen','clip','references']:
         p.add_argument('--'+key,required=True)
+    p.add_argument('--backend',choices=['transformers','vllm'],default='vllm')
+    p.add_argument('--inference-python',default=sys.executable)
     a=p.parse_args()
-    for key,value in vars(a).items(): setattr(a,key,str(Path(value).resolve()))
+    for key,value in vars(a).items():
+        if key!='backend': setattr(a,key,str(Path(value).resolve()))
     out=Path(a.output);out.mkdir(parents=True,exist_ok=True)
     scripts=Path(__file__).resolve().parent
     (out/'source.json').write_text(json.dumps({'git_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=scripts.parent,text=True).strip(),
@@ -25,7 +28,8 @@ def main():
             command=[sys.executable,'-u',str(scripts/'run_model.py')]
             options={'model':model,'manifest':a.manifest,'protocol':a.protocol,'output':str(out/name),
                      'blender':a.blender,'infinigen':a.infinigen,'clip':a.clip,'references':a.references,
-                     'inference-gpu':inference_gpu,'render-gpu':render_gpu,'split':split}
+                     'inference-gpu':inference_gpu,'render-gpu':render_gpu,'split':split,
+                     'backend':a.backend,'inference-python':a.inference_python}
             for k,v in options.items(): command.extend(['--'+k,v])
             with (out/(name+'-'+split+'.log')).open('a') as log:
                 child=subprocess.Popen(command,stdout=log,stderr=subprocess.STDOUT)

@@ -1,0 +1,17 @@
+{
+  "reason": "User requested vLLM continuous batching; restart both models with unchanged inputs and frozen thresholds.",
+  "pilot_directory": "models",
+  "formal_directory": "models-vllm",
+  "pilot_accuracy_inspected": false,
+  "frozen_protocol_sha256": "38842a28676e90c5635729e5dd9ae7a517a4324aadf251ecc27f537bc3cf3468",
+  "pilot_counts": {
+    "qwen3-vl-8b": {
+      "generated": 15,
+      "rendered": 13
+    },
+    "qwen3-vl-32b": {
+      "generated": 12,
+      "rendered": 10
+    }
+  }
+}
