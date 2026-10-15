@@ -42,7 +42,7 @@ def template_text(path):
 
 
 def format_prompt(messages, tokenizer, template, variant):
-    kwargs = {'enable_thinking': variant['thinking']} if variant['family'] == 'qwen3.6' else {}
+    kwargs = {'enable_thinking': variant['thinking']} if variant['family'] in ('qwen3.5', 'qwen3.6') else {}
     prompt = tokenizer.apply_chat_template(messages, chat_template=template,
         tokenize=False, add_generation_prompt=True, **kwargs)
     is_open = prompt.rstrip().endswith('<think>')

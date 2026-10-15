@@ -1,4 +1,4 @@
-"""Resume all six full-set variants; overlap inference, rendering and scoring."""
+"""Resume protocol-defined full-set variants; overlap inference, rendering and scoring."""
 import argparse
 import fcntl
 import hashlib
@@ -106,6 +106,14 @@ def model_path(root, model):
     return None
 
 
+def inference_order(variants):
+    # Preserve the original six-model schedule; append additional protocol variants.
+    preferred = ['qwen3-vl-32b-nothink', 'qwen3-vl-8b-nothink', 'qwen3-vl-8b-think',
+                 'qwen3.6-27b-nothink', 'qwen3.6-27b-think', 'qwen3-vl-32b-think']
+    return [name for name in preferred if name in variants] + [
+        name for name in variants if name not in preferred]
+
+
 def main():
     parser = argparse.ArgumentParser()
     for key in ['manifest', 'protocol', 'output', 'blender', 'infinigen', 'clip',
@@ -144,8 +152,7 @@ def main():
     }
     source_path = root / ('source-' + str(os.getpid()) + '.json')
     atomic_json(source_path, source)
-    pending = ['qwen3-vl-32b-nothink', 'qwen3-vl-8b-nothink', 'qwen3-vl-8b-think',
-               'qwen3.6-27b-nothink', 'qwen3.6-27b-think', 'qwen3-vl-32b-think']
+    pending = inference_order(variants)
     for name in variants:
         (root / name / 'predictions').mkdir(parents=True, exist_ok=True)
     running, finished, inference_failed = {}, set(), {}

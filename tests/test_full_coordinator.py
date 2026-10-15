@@ -5,7 +5,7 @@ import threading
 import unittest
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
-from run_full import matching_process, model_path, release_render_gpu, replica_owned_gpus
+from run_full import matching_process, model_path, release_render_gpu, replica_owned_gpus, inference_order
 
 
 class CoordinatorTests(unittest.TestCase):
@@ -98,3 +98,15 @@ class RenderGpuReleaseTests(unittest.TestCase):
         self.assertNotIn('3', workers)
         self.assertNotIn('3', releases)
         self.assertTrue(release_render_gpu('3', workers, releases))
+
+
+class ProtocolVariantsTests(unittest.TestCase):
+    def test_new_pair_is_scheduled_once_without_unrequested_models(self):
+        variants = {'qwen3.5-122b-nothink': {}, 'qwen3.5-122b-think': {}}
+        self.assertEqual(inference_order(variants), list(variants))
+
+    def test_mixed_protocol_preserves_original_priority_and_all_new_variants(self):
+        variants = {'qwen3.5-122b-think': {}, 'qwen3-vl-8b-think': {},
+                    'qwen3-vl-32b-nothink': {}, 'qwen3.5-122b-nothink': {}}
+        self.assertEqual(inference_order(variants), ['qwen3-vl-32b-nothink',
+            'qwen3-vl-8b-think', 'qwen3.5-122b-think', 'qwen3.5-122b-nothink'])
