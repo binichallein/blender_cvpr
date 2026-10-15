@@ -26,12 +26,13 @@ class RecoveryIntegration(unittest.TestCase):
                 (taskdir/'start.py').write_text('import bpy\n')
                 for kind in ['start','goal']:
                     folder=taskdir/'renders'/kind;folder.mkdir(parents=True)
-                    Image.new('RGB',(512,512),(255,0,0)).save(folder/'render1.png')
+                    Image.new('RGB',(512,512),(255,0,0) if kind=='start' else (0,0,255)).save(folder/'render1.png')
                 task={'id':'fixture1','category':'lighting','directory':str(taskdir),
                       'views':['render1.png'],'base_blend':str(taskdir/'base.blend')}
-                (root/'manifest.json').write_text(json.dumps({'all_tasks':[task]}))
+                (root/'manifest.json').write_text(json.dumps({'all_tasks':[task],'invalid_task_ids':[]}))
                 variant={'id':'fixture-mode','model':'Qwen/Qwen3.6-27B','thinking':thinking}
                 protocol={'frozen':True,'max_new_tokens':65536,'context_capacity':98304,
+                          'category_rules':{'lighting':{'noise_floor':{'pl':0},'rule':{'pl':0.1}}},
                           'variants':[variant],'sampling':{'temperature':0.6,'seed':20261015}}
                 (root/'protocol.json').write_text(json.dumps(protocol))
                 config={'root':str(root),'protocol':str(root/'protocol.json'),
@@ -66,7 +67,11 @@ class RecoveryIntegration(unittest.TestCase):
                     ok='first' in Path(script).read_text()
                     result={'ok':ok,'returncode':0 if ok else 3,'timed_out':False,
                             'log_tail':'test execution failure' if not ok else '',
-                            'script_sha256':digest(script),'seconds':0.01}
+                            'script_sha256':digest(script),'seconds':0.01,
+                            'views':['render1.png'],'samples':512,'seed':20261015,
+                            'mounts':[{'Destination':x,'RW':x=='/out'} for x in [
+                                '/opt/blender','/opt/infinigen','/task/base','/task/input',
+                                '/runtime','/driver','/opt/blender/3.6/scripts/addons/cycles/lib','/out']]}
                     if ok:
                         shutil.copyfile(taskdir/'renders/start/render1.png',output/'render1.png')
                         atomic_json(output/'render.json',result)
@@ -90,6 +95,27 @@ class RecoveryIntegration(unittest.TestCase):
                 total=sum(len(json.loads(p.read_text())['token_ids']) for p in d.glob('turn-*/completion.json'))
                 self.assertEqual(g['output_tokens'],total)
                 self.assertTrue((root/'renders/fixture-mode/fixture1/prediction/render1.png').exists())
+                # Exercise the report's independent pixel/selection audit on this recovered trace.
+                from report_agentic import run as report
+                refs=root/'references/fixture1'
+                for kind in ['start','goal']:
+                    (refs/kind).mkdir(parents=True)
+                    shutil.copyfile(taskdir/'renders'/kind/'render1.png',refs/kind/'render1.png')
+                row={'task':'fixture1','category':'lighting','success':False,
+                     'start_metrics':{'pl':2/3},'metrics':{'pl':2/3,'nclip':0}}
+                summary={'tasks':1,'scorable_tasks':1,'successes':0,'success_rate':0}
+                score={'rows':[row],'summary':summary,'by_category':{'lighting':summary}}
+                (root/'scores').mkdir();atomic_json(root/'scores/fixture-mode.json',score)
+                baseline=root/'baseline';baseline.mkdir()
+                atomic_json(baseline/'results.json',{'qwen3.6-27b-'+('think' if thinking else 'nothink'):score})
+                for name in ['sandbox-parity.json','sandbox-isolation.json']:
+                    atomic_json(root/name,{'passed':True,'synthetic_test':True})
+                config.update(references=str(root/'references'),baseline_results=str(baseline),
+                              repo=str(Path(__file__).resolve().parents[1]),report_output=str(root/'report'))
+                atomic_json(root/'config.json',config)
+                report(root/'config.json')
+                self.assertTrue(json.loads((root/'report/final-audit.json').read_text())['passed'])
+                self.assertEqual(json.loads((root/'report/results.json').read_text())['fixture-mode']['summary']['successes'],0)
 
 if __name__=='__main__':
     unittest.main()
