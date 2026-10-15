@@ -1,0 +1,238 @@
+{
+  "model": "Qwen/Qwen3.6-27B",
+  "source": "ModelScope official Qwen publisher",
+  "files": [
+    {
+      "Name": ".gitattributes",
+      "Path": ".gitattributes",
+      "Size": 3208,
+      "Sha256": "6b121bd7f47d03270af22c72ddfa2833df502d9ce7f8c835e31d11afee52cd47",
+      "Revision": "c53c4820996523bb6413f1002e24c5dfb0bad548",
+      "Type": "blob"
+    },
+    {
+      "Name": "LICENSE",
+      "Path": "LICENSE",
+      "Size": 11343,
+      "Sha256": "50cbab8a892c5f2993b8c7351a99182507472def3b1374558308605d99b86b32",
+      "Revision": "c53c4820996523bb6413f1002e24c5dfb0bad548",
+      "Type": "blob"
+    },
+    {
+      "Name": "README.md",
+      "Path": "README.md",
+      "Size": 62593,
+      "Sha256": "bb936d6da51014f1edc9aa4cf9abf28d98695b7616ad56adfeeebfa752051d3d",
+      "Revision": "cea40373b9214dd387123e68841890af30dcd469",
+      "Type": "blob"
+    },
+    {
+      "Name": "chat_template.jinja",
+      "Path": "chat_template.jinja",
+      "Size": 7764,
+      "Sha256": "e84f32a23fdda27689f868aa4a1a5621f41133e51a48d7f3efcbea2839574259",
+      "Revision": "c53c4820996523bb6413f1002e24c5dfb0bad548",
+      "Type": "blob"
+    },
+    {
+      "Name": "config.json",
+      "Path": "config.json",
+      "Size": 4308,
+      "Sha256": "69db4eb7196bc8190813231b3018ca05d8c2e3abc7b1af19d55c157af44a9d9c",
+      "Revision": "c53c4820996523bb6413f1002e24c5dfb0bad548",
+      "Type": "blob"
+    },
+    {
+      "Name": "configuration.json",
+      "Path": "configuration.json",
+      "Size": 51,
+      "Sha256": "2d4464e2ead06bc9bc718c781309ad1e7baded626d66e8dcdc8b469ba185faf0",
+      "Revision": "3c5190f950e933f4a67b1e4751d8ed2ad71011b6",
+      "Type": "blob"
+    },
+    {
+      "Name": "generation_config.json",
+      "Path": "generation_config.json",
+      "Size": 202,
+      "Sha256": "e70c136c1b78ddc1fb0905bac8e733a4dc448d4f852a5dd75143fffc70be550e",
+      "Revision": "c53c4820996523bb6413f1002e24c5dfb0bad548",
+      "Type": "blob"
+    },
+    {
+      "Name": "merges.txt",
+      "Path": "merges.txt",
+      "Size": 3353259,
+      "Sha256": "a9d356d7bdf1ef4949e3e748e95b8e10ad9d4e2e838eddc38a0a7b6b94d1db8d",
+      "Revision": "c53c4820996523bb6413f1002e24c5dfb0bad548",
+      "Type": "blob"
+    },
+    {
+      "Name": "model-00001-of-00015.safetensors",
+      "Path": "model-00001-of-00015.safetensors",
+      "Size": 3968861352,
+      "Sha256": "5f21d4e349aef6c74bedef7b3835dc8c11a16dd5ce72f4437e2284f1e83736e9",
+      "Revision": "c53c4820996523bb6413f1002e24c5dfb0bad548",
+      "Type": "blob"
+    },
+    {
+      "Name": "model-00002-of-00015.safetensors",
+      "Path": "model-00002-of-00015.safetensors",
+      "Size": 3921677136,
+      "Sha256": "03de44dc7e933025498d72f8d7ea32d5cde16eb7a85b35ff1fa49a737f4b2242",
+      "Revision": "c53c4820996523bb6413f1002e24c5dfb0bad548",
+      "Type": "blob"
+    },
+    {
+      "Name": "model-00003-of-00015.safetensors",
+      "Path": "model-00003-of-00015.safetensors",
+      "Size": 3921677128,
+      "Sha256": "5c3a68304dabeaa5a0eb70a5e383d2b8134997ef6d5c1e8afdcd236091c847f2",
+      "Revision": "c53c4820996523bb6413f1002e24c5dfb0bad548",
+      "Type": "blob"
+    },
+    {
+      "Name": "model-00004-of-00015.safetensors",
+      "Path": "model-00004-of-00015.safetensors",
+      "Size": 3921677128,
+      "Sha256": "ba8b0849cb4c4c97e674709bfe56a9c008d7563a68ac57120ceb2855a73a9944",
+      "Revision": "c53c4820996523bb6413f1002e24c5dfb0bad548",
+      "Type": "blob"
+    },
+    {
+      "Name": "model-00005-of-00015.safetensors",
+      "Path": "model-00005-of-00015.safetensors",
+      "Size": 3921677112,
+      "Sha256": "a5abc1d5e9583409193e2cd58a671a4ed98467a6eaf883cd4377e3cc02021c22",
+      "Revision": "c53c4820996523bb6413f1002e24c5dfb0bad548",
+      "Type": "blob"
+    },
+    {
+      "Name": "model-00006-of-00015.safetensors",
+      "Path": "model-00006-of-00015.safetensors",
+      "Size": 3900710888,
+      "Sha256": "160d914e2e4704a401a3eab9e9eec3380e5723a35981c9169bedfb82ea32e6d6",
+      "Revision": "c53c4820996523bb6413f1002e24c5dfb0bad548",
+      "Type": "blob"
+    },
+    {
+      "Name": "model-00007-of-00015.safetensors",
+      "Path": "model-00007-of-00015.safetensors",
+      "Size": 3994391976,
+      "Sha256": "0bcd0ce28c7d2cc6f5ab2c21902cd032fec0cc5f29e0897e3bb0967add388e47",
+      "Revision": "c53c4820996523bb6413f1002e24c5dfb0bad548",
+      "Type": "blob"
+    },
+    {
+      "Name": "model-00008-of-00015.safetensors",
+      "Path": "model-00008-of-00015.safetensors",
+      "Size": 3879219776,
+      "Sha256": "584a0ed8018d3b19ce8e533d08a460454650027901be6323b50b591da143dca6",
+      "Revision": "c53c4820996523bb6413f1002e24c5dfb0bad548",
+      "Type": "blob"
+    },
+    {
+      "Name": "model-00009-of-00015.safetensors",
+      "Path": "model-00009-of-00015.safetensors",
+      "Size": 3921677136,
+      "Sha256": "e7e3e1a17a2673340eb6bba95c3c6f07b12e7746ee738dde56551cbde27656f5",
+      "Revision": "c53c4820996523bb6413f1002e24c5dfb0bad548",
+      "Type": "blob"
+    },
+    {
+      "Name": "model-00010-of-00015.safetensors",
+      "Path": "model-00010-of-00015.safetensors",
+      "Size": 3921677128,
+      "Sha256": "e8934789f4742c11da88f937da84bdbb8764c8a7f7ebe9e7b056bcbd41b14285",
+      "Revision": "c53c4820996523bb6413f1002e24c5dfb0bad548",
+      "Type": "blob"
+    },
+    {
+      "Name": "model-00011-of-00015.safetensors",
+      "Path": "model-00011-of-00015.safetensors",
+      "Size": 3921677136,
+      "Sha256": "44e8fe06d2d609bf20b16b1d2f42348ca2dc99179721f76035ff50db678f9a8a",
+      "Revision": "c53c4820996523bb6413f1002e24c5dfb0bad548",
+      "Type": "blob"
+    },
+    {
+      "Name": "model-00012-of-00015.safetensors",
+      "Path": "model-00012-of-00015.safetensors",
+      "Size": 3921677136,
+      "Sha256": "33c5d7d18e1b3f661334dff736fc7d00561f1f1bb9d2970c669b40d2e582974e",
+      "Revision": "c53c4820996523bb6413f1002e24c5dfb0bad548",
+      "Type": "blob"
+    },
+    {
+      "Name": "model-00013-of-00015.safetensors",
+      "Path": "model-00013-of-00015.safetensors",
+      "Size": 3995081848,
+      "Sha256": "68db2ebb03231238c2a114f3642df967a970a1d96b029adc427838cb5cf7f27a",
+      "Revision": "c53c4820996523bb6413f1002e24c5dfb0bad548",
+      "Type": "blob"
+    },
+    {
+      "Name": "model-00014-of-00015.safetensors",
+      "Path": "model-00014-of-00015.safetensors",
+      "Size": 3942652952,
+      "Sha256": "26c114fb6d5d4131ab227552d489d7a97c8c958a9ed94f6d3d1584f6cfe4b9fb",
+      "Revision": "c53c4820996523bb6413f1002e24c5dfb0bad548",
+      "Type": "blob"
+    },
+    {
+      "Name": "model-00015-of-00015.safetensors",
+      "Path": "model-00015-of-00015.safetensors",
+      "Size": 508670568,
+      "Sha256": "b84b5b1315e865c9a19a444045d422a73e3e2e31ce3766797cffd3507c68c9c9",
+      "Revision": "c53c4820996523bb6413f1002e24c5dfb0bad548",
+      "Type": "blob"
+    },
+    {
+      "Name": "model.safetensors.index.json",
+      "Path": "model.safetensors.index.json",
+      "Size": 112216,
+      "Sha256": "a8ad2c26fb707ff8c245806315b03e3b4b74595528492423af5dae0ce39b4d9b",
+      "Revision": "c53c4820996523bb6413f1002e24c5dfb0bad548",
+      "Type": "blob"
+    },
+    {
+      "Name": "preprocessor_config.json",
+      "Path": "preprocessor_config.json",
+      "Size": 390,
+      "Sha256": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516",
+      "Revision": "c53c4820996523bb6413f1002e24c5dfb0bad548",
+      "Type": "blob"
+    },
+    {
+      "Name": "tokenizer.json",
+      "Path": "tokenizer.json",
+      "Size": 12807982,
+      "Sha256": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+      "Revision": "c53c4820996523bb6413f1002e24c5dfb0bad548",
+      "Type": "blob"
+    },
+    {
+      "Name": "tokenizer_config.json",
+      "Path": "tokenizer_config.json",
+      "Size": 16718,
+      "Sha256": "5186f0defcd7f232382c7f0aebcd2252d073bb921ab240e407b7ae8745d2b29b",
+      "Revision": "c53c4820996523bb6413f1002e24c5dfb0bad548",
+      "Type": "blob"
+    },
+    {
+      "Name": "video_preprocessor_config.json",
+      "Path": "video_preprocessor_config.json",
+      "Size": 385,
+      "Sha256": "7768af27c1fafa9cc9011c1dc20067e03f8915e03b63504550e11d5066986d13",
+      "Revision": "c53c4820996523bb6413f1002e24c5dfb0bad548",
+      "Type": "blob"
+    },
+    {
+      "Name": "vocab.json",
+      "Path": "vocab.json",
+      "Size": 6722759,
+      "Sha256": "ce99b4cb2983d118806ce0a8b777a35b093e2000a503ebde25853284c9dfa003",
+      "Revision": "c53c4820996523bb6413f1002e24c5dfb0bad548",
+      "Type": "blob"
+    }
+  ]
+}

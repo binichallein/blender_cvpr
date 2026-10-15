@@ -1,0 +1,1500 @@
+{
+  "qwen3-vl-8b-nothink": {
+    "generated_tasks": 280,
+    "execution_failures": [
+      {
+        "task": "blendshape70",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "KeyError: 'bpy_prop_collection[key]: key \"belt size\" not found'"
+        ]
+      },
+      {
+        "task": "material3",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "KeyError: 'bpy_prop_collection[key]: key \"Roughness\" not found'"
+        ]
+      }
+    ],
+    "total_output_tokens": 340056,
+    "reasoning_tokens": 0,
+    "answer_tokens": 340056,
+    "unclassified_token_tasks": [],
+    "truncated_tasks": [
+      "geometry10",
+      "geometry8",
+      "lighting17",
+      "placement6"
+    ],
+    "generation_or_parse_failures": [
+      "geometry10",
+      "geometry8",
+      "lighting17",
+      "placement6"
+    ],
+    "reasoning_not_terminated_tasks": [],
+    "timing_records": [
+      {
+        "completed_in_this_invocation": 280,
+        "generation_wall_seconds": 1407.9686795845628
+      }
+    ],
+    "replica_runs": [],
+    "complete_timing_coverage": true,
+    "generation_wall_seconds": 1407.9686795845628
+  },
+  "qwen3-vl-8b-think": {
+    "generated_tasks": 280,
+    "execution_failures": [
+      {
+        "task": "geometry1",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: type object 'Nodes' has no attribute 'Edge'"
+        ]
+      },
+      {
+        "task": "geometry2",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: type object 'Nodes' has no attribute 'SetAttribute'. Did you mean: 'Attribute'?"
+        ]
+      },
+      {
+        "task": "geometry6",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "TypeError: NodeWrangler.new_node() got an unexpected keyword argument 'operation'"
+        ]
+      },
+      {
+        "task": "geometry8",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: type object 'Nodes' has no attribute 'MeshTetrahedron'"
+        ]
+      },
+      {
+        "task": "geometry9",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: type object 'Nodes' has no attribute 'MeshCone'. Did you mean: 'MeshCube'?"
+        ]
+      },
+      {
+        "task": "geometry14",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "KeyError: 'bpy_prop_collection[key]: key \"Gradient\" not found'"
+        ]
+      },
+      {
+        "task": "geometry20",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "NameError: name 'math' is not defined"
+        ]
+      },
+      {
+        "task": "geometry31",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: type object 'Nodes' has no attribute 'Cube'"
+        ]
+      },
+      {
+        "task": "geometry33",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: type object 'Nodes' has no attribute 'Cube'"
+        ]
+      },
+      {
+        "task": "geometry35",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: type object 'Nodes' has no attribute 'Cube'"
+        ]
+      },
+      {
+        "task": "geometry36",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "KeyError: 'bpy_prop_collection[key]: key \"Face Index\" not found'"
+        ]
+      },
+      {
+        "task": "geometry41",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "NameError: name 'math' is not defined"
+        ]
+      },
+      {
+        "task": "geometry42",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "ValueError: bpy_struct: item.attr = val: sequence expected at dimension 1, not 'float'"
+        ]
+      },
+      {
+        "task": "geometry43",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "TypeError: bad operand type for unary -: 'NodeSocketFloat'"
+        ]
+      },
+      {
+        "task": "geometry49",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "ModuleNotFoundError: No module named 'infinigen/core/nodes/granular_nodes'"
+        ]
+      },
+      {
+        "task": "geometry51",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "ValueError: Attempted to use output socket <bpy_struct, NodeSocketVector(\"Value\") at 0x7f73f9d02008> of node <bpy_struct, FunctionNodeRandomValue(\"Random Value\") at 0x7f7405b99188> which is not enabled. Please check your attrs are correct, or be more specific about the socket to use"
+        ]
+      },
+      {
+        "task": "geometry53",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: 'ShaderNodeVectorRotate' object has no attribute 'angle'",
+          "AttributeError: 'ShaderNodeVectorRotate' object has no attribute 'angle'"
+        ]
+      },
+      {
+        "task": "geometry55",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: type object 'Nodes' has no attribute 'IdentityRotation'"
+        ]
+      },
+      {
+        "task": "material5",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "TypeError: bpy_struct: item.attr = val: enum \"SINE\" not found in ('BANDS', 'RINGS')"
+        ]
+      },
+      {
+        "task": "material6",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "ValueError: bpy_struct: item.attr = val: sequence expected at dimension 1, not 'float'"
+        ]
+      },
+      {
+        "task": "material7",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "ValueError: bpy_struct: item.attr = val: sequences of dimension 0 should contain 4 items, not 3"
+        ]
+      },
+      {
+        "task": "material8",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "RuntimeError: Error: Cannot add node of type FunctionNodeInputVector to node tree 'Shader Nodetree'"
+        ]
+      },
+      {
+        "task": "material9",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "TypeError: bpy_struct: item.attr = val: enum \"DISTANCE\" not found in ('F1', 'F2', 'SMOOTH_F1', 'DISTANCE_TO_EDGE', 'N_SPHERE_RADIUS')"
+        ]
+      },
+      {
+        "task": "material20",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "TypeError: bpy_struct: item.attr = val: enum \"SINE\" not found in ('BANDS', 'RINGS')"
+        ]
+      },
+      {
+        "task": "material21",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: 'ShaderNodeDisplacement' object has no attribute 'is_active_output'",
+          "AttributeError: 'ShaderNodeDisplacement' object has no attribute 'is_active_output'"
+        ]
+      },
+      {
+        "task": "material31",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "TypeError: bpy_struct: item.attr = val: enum \"SINE\" not found in ('BANDS', 'RINGS')"
+        ]
+      },
+      {
+        "task": "material43",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "IndexError: bpy_prop_collection[index]: index 2 out of range, size 2"
+        ]
+      }
+    ],
+    "total_output_tokens": 2624757,
+    "reasoning_tokens": 2447077,
+    "answer_tokens": 177412,
+    "unclassified_token_tasks": [],
+    "truncated_tasks": [
+      "geometry11",
+      "geometry12",
+      "geometry38",
+      "geometry4",
+      "geometry46",
+      "geometry47",
+      "material11",
+      "material29",
+      "material32",
+      "material33",
+      "material34",
+      "material45"
+    ],
+    "generation_or_parse_failures": [
+      "geometry11",
+      "geometry12",
+      "geometry38",
+      "geometry4",
+      "geometry46",
+      "geometry47",
+      "material11",
+      "material29",
+      "material32",
+      "material33",
+      "material34",
+      "material45"
+    ],
+    "reasoning_not_terminated_tasks": [
+      "geometry11",
+      "geometry12",
+      "geometry38",
+      "geometry4",
+      "geometry46",
+      "geometry47",
+      "material11",
+      "material29",
+      "material32",
+      "material33",
+      "material34",
+      "material45"
+    ],
+    "timing_records": [
+      {
+        "completed_in_this_invocation": 280,
+        "generation_wall_seconds": 5481.551389537752
+      }
+    ],
+    "replica_runs": [],
+    "complete_timing_coverage": true,
+    "generation_wall_seconds": 5481.551389537752
+  },
+  "qwen3-vl-32b-nothink": {
+    "generated_tasks": 280,
+    "execution_failures": [
+      {
+        "task": "geometry1",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: type object 'Nodes' has no attribute 'EdgeSplit'"
+        ]
+      },
+      {
+        "task": "geometry2",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: type object 'Nodes' has no attribute 'EdgeOnly'"
+        ]
+      },
+      {
+        "task": "geometry3",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: type object 'Nodes' has no attribute 'EdgeSplit'"
+        ]
+      },
+      {
+        "task": "geometry4",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: type object 'Nodes' has no attribute 'MeshEdgeSplit'"
+        ]
+      },
+      {
+        "task": "geometry9",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: type object 'Nodes' has no attribute 'MeshTriangle'"
+        ]
+      },
+      {
+        "task": "geometry10",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "ValueError: bpy_struct: item.attr = val: sequence expected at dimension 1, not 'float'"
+        ]
+      },
+      {
+        "task": "geometry22",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "TypeError: unsupported operand type(s) for +: 'NodeSocketFloat' and 'ShaderNodeMath'"
+        ]
+      },
+      {
+        "task": "geometry23",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "TypeError: NodeWrangler.math() got an unexpected keyword argument 'operation'"
+        ]
+      },
+      {
+        "task": "geometry36",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: type object 'Nodes' has no attribute 'Position'. Did you mean: 'SetPosition'?"
+        ]
+      },
+      {
+        "task": "geometry45",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "TypeError: bad operand type for unary -: 'NodeSocketFloat'"
+        ]
+      },
+      {
+        "task": "lighting1",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "NameError: name 'light_on_ceiling' is not defined. Did you mean: 'light_on_ceilling'?"
+        ]
+      },
+      {
+        "task": "material3",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "IndexError: bpy_prop_collection[index]: index 2 out of range, size 2"
+        ]
+      },
+      {
+        "task": "material9",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: 'NodeWrangler' object has no attribute 'remove_node'. Did you mean: '_make_node'?"
+        ]
+      },
+      {
+        "task": "material10",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "TypeError: bpy_struct: item.attr = val: enum \"DISTANCE\" not found in ('F1', 'F2', 'SMOOTH_F1', 'DISTANCE_TO_EDGE', 'N_SPHERE_RADIUS')"
+        ]
+      },
+      {
+        "task": "material17",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "ValueError: bpy_struct: item.attr = val: sequences of dimension 0 should contain 4 items, not 3"
+        ]
+      },
+      {
+        "task": "material22",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "TypeError: unsupported operand type(s) for *: 'NodeSocketFloat' and 'float'"
+        ]
+      },
+      {
+        "task": "material41",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "ValueError: bpy_struct: item.attr = val: sequence expected at dimension 1, not 'float'"
+        ]
+      }
+    ],
+    "total_output_tokens": 213854,
+    "reasoning_tokens": 0,
+    "answer_tokens": 213854,
+    "unclassified_token_tasks": [],
+    "truncated_tasks": [],
+    "generation_or_parse_failures": [],
+    "reasoning_not_terminated_tasks": [],
+    "timing_records": [
+      {
+        "completed_in_this_invocation": 280,
+        "generation_wall_seconds": 998.4141257628798
+      }
+    ],
+    "replica_runs": [],
+    "complete_timing_coverage": true,
+    "generation_wall_seconds": 998.4141257628798
+  },
+  "qwen3-vl-32b-think": {
+    "generated_tasks": 280,
+    "execution_failures": [
+      {
+        "task": "geometry1",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "TypeError: bpy_struct: item.attr = val: NodeSocketBool.default_value expected True/False or 0/1, not float"
+        ]
+      },
+      {
+        "task": "geometry2",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: type object 'Nodes' has no attribute 'MeshEdge'. Did you mean: 'MeshCube'?"
+        ]
+      },
+      {
+        "task": "geometry5",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "KeyError: 'bpy_prop_collection[key]: key \"Mode\" not found'"
+        ]
+      },
+      {
+        "task": "geometry6",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "ValueError: bpy_struct: item.attr = val: sequences of dimension 0 should contain 4 items, not 3"
+        ]
+      },
+      {
+        "task": "geometry7",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "KeyError: 'bpy_prop_collection[key]: key \"Value\" not found'"
+        ]
+      },
+      {
+        "task": "geometry8",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: type object 'Nodes' has no attribute 'MeshCone'. Did you mean: 'MeshCube'?"
+        ]
+      },
+      {
+        "task": "geometry9",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: type object 'Nodes' has no attribute 'MeshCone'. Did you mean: 'MeshCube'?"
+        ]
+      },
+      {
+        "task": "geometry10",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "RuntimeError: Error: Node type VORONOI_FRACTURE undefined"
+        ]
+      },
+      {
+        "task": "geometry12",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "TypeError: unsupported operand type(s) for -: 'NodeSocketFloat' and 'float'"
+        ]
+      },
+      {
+        "task": "geometry21",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: type object 'Nodes' has no attribute 'Position'. Did you mean: 'SetPosition'?"
+        ]
+      },
+      {
+        "task": "geometry29",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: type object 'Nodes' has no attribute 'Face'"
+        ]
+      },
+      {
+        "task": "geometry35",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: type object 'Nodes' has no attribute 'Bevel'"
+        ]
+      },
+      {
+        "task": "geometry36",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "KeyError: 'bpy_prop_collection[key]: key \"Feuille Buisson Light\" not found'"
+        ]
+      },
+      {
+        "task": "geometry37",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "IndexError: bpy_prop_collection[index]: index 0 out of range, size 0"
+        ]
+      },
+      {
+        "task": "geometry38",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "IndexError: bpy_prop_collection[index]: index 0 out of range, size 0"
+        ]
+      },
+      {
+        "task": "geometry39",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "ValueError: Attempted to use output socket <bpy_struct, NodeSocketFloat(\"Output\") at 0x7f7d655ebe08> of node <bpy_struct, GeometryNodeSwitch(\"Switch\") at 0x7f7d72b35a08> which is not enabled. Please check your attrs are correct, or be more specific about the socket to use"
+        ]
+      },
+      {
+        "task": "geometry43",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "ValueError: bpy_struct: item.attr = val: sequence expected at dimension 1, not 'int'"
+        ]
+      },
+      {
+        "task": "geometry45",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "ValueError: bpy_struct: item.attr = val: sequence expected at dimension 1, not 'float'"
+        ]
+      },
+      {
+        "task": "geometry46",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "KeyError: 'bpy_prop_collection[key]: key \"Input Geometry\" not found'"
+        ]
+      },
+      {
+        "task": "geometry49",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "TypeError: ObjectModifiers.new(): error with keyword argument \"type\" -  enum \"GEOMETRY_NODES\" not found in ('DATA_TRANSFER', 'MESH_CACHE', 'MESH_SEQUENCE_CACHE', 'NORMAL_EDIT', 'WEIGHTED_NORMAL', 'UV_PROJECT', 'UV_WARP', 'VERTEX_WEIGHT_EDIT', 'VERTEX_WEIGHT_MIX', 'VERTEX_WEIGHT_PROXIMITY', 'ARRAY', 'BEVEL', 'BOOLEAN', 'BUILD', 'DECIMATE', 'EDGE_SPLIT', 'NODES', 'MASK', 'MIRROR', 'MESH_TO_VOLUME', 'MULTIRES', 'REMESH', 'SCREW', 'SKIN', 'SOLIDIFY', 'SUBSURF', 'TRIANGULATE', 'VOLUME_TO_MESH', 'WELD', 'WIREFRAME', 'ARMATURE', 'CAST', 'CURVE', 'DISPLACE', 'HOOK', 'LAPLACIANDEFORM', 'LATTICE', 'MESH_DEFORM', 'SHRINKWRAP', 'SIMPLE_DEFORM', 'SMOOTH', 'CORRECTIVE_SMOOTH', 'LAPLACIANSMOOTH', 'SURFACE_DEFORM', 'WARP', 'WAVE', 'VOLUME_DISPLACE', 'CLOTH', 'COLLISION', 'DYNAMIC_PAINT', 'EXPLODE', 'FLUID', 'OCEAN', 'PARTICLE_INSTANCE', 'PARTICLE_SYSTEM', 'SOFT_BODY', 'SURFACE')"
+        ]
+      },
+      {
+        "task": "geometry50",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "ValueError: bpy_struct: item.attr = val: sequence expected at dimension 1, not 'float'"
+        ]
+      },
+      {
+        "task": "material3",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "KeyError: 'bpy_prop_collection[key]: key \"Value\" not found'"
+        ]
+      },
+      {
+        "task": "material4",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: type object 'Nodes' has no attribute 'RGBToBW'"
+        ]
+      },
+      {
+        "task": "material5",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "KeyError: 'bpy_prop_collection[key]: key \"F1\" not found'"
+        ]
+      },
+      {
+        "task": "material7",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: 'bpy_prop_collection' object has no attribute 'clear'"
+        ]
+      },
+      {
+        "task": "material8",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "TypeError: bpy_struct: item.attr = val: enum \"F1_F2\" not found in ('F1', 'F2', 'SMOOTH_F1', 'DISTANCE_TO_EDGE', 'N_SPHERE_RADIUS')"
+        ]
+      },
+      {
+        "task": "material10",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "KeyError: 'bpy_prop_collection[key]: key \"F1\" not found'"
+        ]
+      },
+      {
+        "task": "material12",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "KeyError: 'bpy_prop_collection[key]: key \"Value_01\" not found'"
+        ]
+      },
+      {
+        "task": "material16",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "KeyError: 'bpy_prop_collection[key]: key \"Translation\" not found'"
+        ]
+      },
+      {
+        "task": "material17",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: type object 'Nodes' has no attribute 'ShaderNodeRGB'"
+        ]
+      },
+      {
+        "task": "material19",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "TypeError: bpy_struct: item.attr = val: enum \"FRACTAL\" not found in ('MULTIFRACTAL', 'RIDGED_MULTIFRACTAL', 'HYBRID_MULTIFRACTAL', 'FBM', 'HETERO_TERRAIN')"
+        ]
+      },
+      {
+        "task": "material24",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "KeyError: 'bpy_prop_collection[key]: key \"Value_0\" not found'"
+        ]
+      },
+      {
+        "task": "material28",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "KeyError: 'bpy_prop_collection[key]: key \"Color\" not found'"
+        ]
+      },
+      {
+        "task": "material33",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "IndexError: bpy_prop_collection[index]: index 0 out of range, size 0"
+        ]
+      },
+      {
+        "task": "material39",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "TypeError: bpy_struct: item.attr = val: enum \"SINE\" not found in ('SIN', 'SAW', 'TRI')"
+        ]
+      },
+      {
+        "task": "material42",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "KeyError: 'bpy_prop_collection[key]: key \"Color\" not found'"
+        ]
+      },
+      {
+        "task": "material45",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "IndexError: bpy_prop_collection[index]: index 2 out of range, size 2"
+        ]
+      }
+    ],
+    "total_output_tokens": 2534299,
+    "reasoning_tokens": 2345782,
+    "answer_tokens": 188242,
+    "unclassified_token_tasks": [],
+    "truncated_tasks": [
+      "geometry14",
+      "geometry3",
+      "geometry30",
+      "geometry4",
+      "material20"
+    ],
+    "generation_or_parse_failures": [
+      "geometry14",
+      "geometry3",
+      "geometry30",
+      "geometry4",
+      "material20"
+    ],
+    "reasoning_not_terminated_tasks": [
+      "geometry14",
+      "geometry3",
+      "geometry30",
+      "geometry4",
+      "material20"
+    ],
+    "timing_records": [
+      {
+        "completed_in_this_invocation": 280,
+        "generation_wall_seconds": 10203.868368253112
+      }
+    ],
+    "replica_runs": [],
+    "complete_timing_coverage": true,
+    "generation_wall_seconds": 10203.868368253112
+  },
+  "qwen3.6-27b-nothink": {
+    "generated_tasks": 280,
+    "execution_failures": [
+      {
+        "task": "geometry4",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: type object 'Nodes' has no attribute 'EdgesToCurves'. Did you mean: 'EdgePathToCurve'?"
+        ]
+      },
+      {
+        "task": "geometry5",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: type object 'Nodes' has no attribute 'EdgesToCurves'. Did you mean: 'EdgePathToCurve'?"
+        ]
+      },
+      {
+        "task": "geometry10",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "KeyError: 'bpy_prop_collection[key]: key \"Geometry\" not found'"
+        ]
+      },
+      {
+        "task": "geometry32",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "NameError: name 'nw' is not defined"
+        ]
+      },
+      {
+        "task": "geometry36",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "KeyError: 'bpy_prop_collection[key]: key \"Feuille Buisson Dark\" not found'"
+        ]
+      },
+      {
+        "task": "geometry45",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "KeyError: 'bpy_prop_collection[key]: key \"Offset\" not found'"
+        ]
+      },
+      {
+        "task": "geometry46",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "NameError: name 'object_info' is not defined"
+        ]
+      },
+      {
+        "task": "material10",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "TypeError: bpy_struct: item.attr = val: enum \"F2_F1\" not found in ('F1', 'F2', 'SMOOTH_F1', 'DISTANCE_TO_EDGE', 'N_SPHERE_RADIUS')"
+        ]
+      },
+      {
+        "task": "material41",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: 'ShaderNodeMixShader' object has no attribute 'input_kwargs'"
+        ]
+      },
+      {
+        "task": "material42",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: 'ShaderNodeOutputMaterial' object has no attribute 'input_kwargs'"
+        ]
+      }
+    ],
+    "total_output_tokens": 226556,
+    "reasoning_tokens": 0,
+    "answer_tokens": 226556,
+    "unclassified_token_tasks": [],
+    "truncated_tasks": [],
+    "generation_or_parse_failures": [],
+    "reasoning_not_terminated_tasks": [],
+    "timing_records": [
+      {
+        "completed_in_this_invocation": 280,
+        "generation_wall_seconds": 1700.1754863336682
+      }
+    ],
+    "replica_runs": [],
+    "complete_timing_coverage": true,
+    "generation_wall_seconds": 1700.1754863336682
+  },
+  "qwen3.6-27b-think": {
+    "generated_tasks": 280,
+    "execution_failures": [
+      {
+        "task": "geometry1",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: type object 'Nodes' has no attribute 'Wireframe'"
+        ]
+      },
+      {
+        "task": "geometry3",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: type object 'Nodes' has no attribute 'Wireframe'"
+        ]
+      },
+      {
+        "task": "geometry4",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "KeyError: 'bpy_prop_collection[key]: key \"Mesh\" not found'"
+        ]
+      },
+      {
+        "task": "geometry9",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: type object 'Nodes' has no attribute 'MeshCone'. Did you mean: 'MeshCube'?"
+        ]
+      },
+      {
+        "task": "geometry12",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "KeyError: 'bpy_prop_collection[key]: key \"Operation\" not found'"
+        ]
+      },
+      {
+        "task": "geometry26",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "KeyError: 'bpy_prop_collection[key]: key \"Geometry\" not found'"
+        ]
+      },
+      {
+        "task": "geometry27",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: type object 'Nodes' has no attribute 'TextureCoordinate'. Did you mean: 'TextureCoord'?"
+        ]
+      },
+      {
+        "task": "geometry29",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "KeyError: 'bpy_prop_collection[key]: key \"Direction\" not found'"
+        ]
+      },
+      {
+        "task": "geometry30",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: 'GeometryNodeDeleteGeometry' object has no attribute 'Selection Type'"
+        ]
+      },
+      {
+        "task": "geometry39",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "KeyError: 'bpy_prop_collection[key]: key \"Vector\" not found'"
+        ]
+      },
+      {
+        "task": "geometry42",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "ValueError: bpy_struct: item.attr = val: sequence expected at dimension 1, not 'float'"
+        ]
+      },
+      {
+        "task": "geometry43",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "ValueError: bpy_struct: item.attr = val: sequence expected at dimension 1, not 'float'"
+        ]
+      },
+      {
+        "task": "geometry45",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "KeyError: 'bpy_prop_collection[key]: key \"0\" not found'"
+        ]
+      },
+      {
+        "task": "geometry46",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "KeyError: 'bpy_prop_collection[key]: key \"Geometry\" not found'"
+        ]
+      },
+      {
+        "task": "geometry49",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "RuntimeError: Error: Node type GeometryNodeGroupInput undefined"
+        ]
+      },
+      {
+        "task": "geometry52",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "KeyError: 'bpy_prop_collection[key]: key \"Tangent\" not found'"
+        ]
+      },
+      {
+        "task": "material3",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "AttributeError: 'ShaderNodeTexMusgrave' object has no attribute 'texture'"
+        ]
+      },
+      {
+        "task": "material5",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "TypeError: bpy_struct: item.attr = val: enum \"F1_F2\" not found in ('F1', 'F2', 'SMOOTH_F1', 'DISTANCE_TO_EDGE', 'N_SPHERE_RADIUS')"
+        ]
+      },
+      {
+        "task": "material10",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "TypeError: bpy_struct: item.attr = val: enum \"MIX\" not found in ('ADD', 'SUBTRACT', 'MULTIPLY', 'DIVIDE', 'MULTIPLY_ADD', 'POWER', 'LOGARITHM', 'SQRT', 'INVERSE_SQRT', 'ABSOLUTE', 'EXPONENT', 'MINIMUM', 'MAXIMUM', 'LESS_THAN', 'GREATER_THAN', 'SIGN', 'COMPARE', 'SMOOTH_MIN', 'SMOOTH_MAX', 'ROUND', 'FLOOR', 'CEIL', 'TRUNC', 'FRACT', 'MODULO', 'WRAP', 'SNAP', 'PINGPONG', 'SINE', 'COSINE', 'TANGENT', 'ARCSINE', 'ARCCOSINE', 'ARCTANGENT', 'ARCTAN2', 'SINH', 'COSH', 'TANH', 'RADIANS', 'DEGREES')"
+        ]
+      },
+      {
+        "task": "material22",
+        "failure": "execution",
+        "returncode": 3,
+        "errors": [
+          "KeyError: 'bpy_prop_collection[key]: key \"Type\" not found'"
+        ]
+      }
+    ],
+    "total_output_tokens": 3124923,
+    "reasoning_tokens": 2954171,
+    "answer_tokens": 170495,
+    "unclassified_token_tasks": [],
+    "truncated_tasks": [
+      "geometry2",
+      "geometry28",
+      "geometry31",
+      "geometry35",
+      "geometry36",
+      "geometry50",
+      "geometry51",
+      "geometry53",
+      "geometry55",
+      "lighting39",
+      "material18",
+      "material23",
+      "material43",
+      "placement1",
+      "placement16",
+      "placement17",
+      "placement18",
+      "placement25",
+      "placement28",
+      "placement36",
+      "placement4",
+      "placement44",
+      "placement5"
+    ],
+    "generation_or_parse_failures": [
+      "geometry2",
+      "geometry28",
+      "geometry31",
+      "geometry35",
+      "geometry36",
+      "geometry50",
+      "geometry51",
+      "geometry53",
+      "geometry55",
+      "lighting39",
+      "material18",
+      "material23",
+      "material43",
+      "placement1",
+      "placement16",
+      "placement17",
+      "placement18",
+      "placement25",
+      "placement28",
+      "placement36",
+      "placement4",
+      "placement44",
+      "placement5"
+    ],
+    "reasoning_not_terminated_tasks": [
+      "geometry2",
+      "geometry28",
+      "geometry31",
+      "geometry35",
+      "geometry36",
+      "geometry50",
+      "geometry51",
+      "geometry53",
+      "geometry55",
+      "lighting39",
+      "material18",
+      "material23",
+      "material43",
+      "placement1",
+      "placement16",
+      "placement17",
+      "placement18",
+      "placement25",
+      "placement28",
+      "placement36",
+      "placement4",
+      "placement44",
+      "placement5"
+    ],
+    "timing_records": [
+      {
+        "completed_in_this_invocation": 118,
+        "generation_wall_seconds": 8467.865458630025,
+        "generation_started_unix": 1792010711.386781,
+        "generation_finished_unix": 1792019179.2522402
+      },
+      {
+        "completed_in_this_invocation": 118,
+        "generation_wall_seconds": 9486.935761265457,
+        "generation_started_unix": 1792010712.7524517,
+        "generation_finished_unix": 1792020199.6882133
+      }
+    ],
+    "replica_runs": [
+      {
+        "variant": "qwen3.6-27b-think",
+        "replicas": 2,
+        "gpu_ids": [
+          "3",
+          "0"
+        ],
+        "protocol_sha256": "e9f25ac4c5e6ab9f82add567c192bd0ee666a1be998b9f1981c8a4453356bf7b",
+        "started_unix": 1792010588.8144283,
+        "previously_completed_tasks": [
+          "blendshape1",
+          "blendshape10",
+          "blendshape11",
+          "blendshape12",
+          "blendshape13",
+          "blendshape14",
+          "blendshape15",
+          "blendshape16",
+          "blendshape17",
+          "blendshape18",
+          "blendshape19",
+          "blendshape20",
+          "blendshape21",
+          "blendshape22",
+          "blendshape23",
+          "blendshape25",
+          "blendshape26",
+          "blendshape27",
+          "blendshape28",
+          "blendshape29",
+          "blendshape3",
+          "blendshape30",
+          "blendshape31",
+          "blendshape32",
+          "blendshape34",
+          "blendshape35",
+          "blendshape36",
+          "blendshape37",
+          "blendshape38",
+          "blendshape39",
+          "blendshape4",
+          "blendshape40",
+          "blendshape41",
+          "blendshape42",
+          "blendshape44",
+          "blendshape45",
+          "blendshape46",
+          "blendshape5",
+          "blendshape54",
+          "blendshape55",
+          "blendshape6",
+          "blendshape7",
+          "blendshape8",
+          "blendshape9"
+        ],
+        "task_groups": [
+          [
+            "blendshape2",
+            "blendshape33",
+            "blendshape47",
+            "blendshape49",
+            "blendshape51",
+            "blendshape53",
+            "blendshape57",
+            "blendshape59",
+            "blendshape61",
+            "blendshape63",
+            "blendshape65",
+            "blendshape67",
+            "blendshape69",
+            "blendshape71",
+            "blendshape73",
+            "blendshape75",
+            "blendshape77",
+            "blendshape79",
+            "blendshape81",
+            "blendshape83",
+            "blendshape85",
+            "geometry2",
+            "geometry4",
+            "geometry6",
+            "geometry8",
+            "geometry10",
+            "geometry12",
+            "geometry14",
+            "geometry16",
+            "geometry18",
+            "geometry20",
+            "geometry22",
+            "geometry24",
+            "geometry26",
+            "geometry28",
+            "geometry30",
+            "geometry32",
+            "geometry34",
+            "geometry36",
+            "geometry38",
+            "geometry40",
+            "geometry42",
+            "geometry44",
+            "geometry46",
+            "geometry48",
+            "geometry50",
+            "geometry52",
+            "geometry54",
+            "lighting1",
+            "lighting3",
+            "lighting5",
+            "lighting7",
+            "lighting9",
+            "lighting11",
+            "lighting13",
+            "lighting15",
+            "lighting17",
+            "lighting19",
+            "lighting21",
+            "lighting23",
+            "lighting25",
+            "lighting32",
+            "lighting34",
+            "lighting36",
+            "lighting38",
+            "lighting40",
+            "lighting42",
+            "lighting44",
+            "lighting46",
+            "lighting48",
+            "lighting50",
+            "material2",
+            "material4",
+            "material6",
+            "material8",
+            "material10",
+            "material12",
+            "material14",
+            "material16",
+            "material18",
+            "material20",
+            "material22",
+            "material24",
+            "material26",
+            "material28",
+            "material30",
+            "material32",
+            "material34",
+            "material36",
+            "material38",
+            "material40",
+            "material42",
+            "material44",
+            "placement1",
+            "placement3",
+            "placement5",
+            "placement7",
+            "placement9",
+            "placement11",
+            "placement13",
+            "placement15",
+            "placement17",
+            "placement19",
+            "placement21",
+            "placement23",
+            "placement25",
+            "placement27",
+            "placement29",
+            "placement31",
+            "placement33",
+            "placement35",
+            "placement37",
+            "placement39",
+            "placement41",
+            "placement43",
+            "placement45",
+            "placement47",
+            "placement49"
+          ],
+          [
+            "blendshape24",
+            "blendshape43",
+            "blendshape48",
+            "blendshape50",
+            "blendshape52",
+            "blendshape56",
+            "blendshape58",
+            "blendshape60",
+            "blendshape62",
+            "blendshape64",
+            "blendshape66",
+            "blendshape68",
+            "blendshape70",
+            "blendshape72",
+            "blendshape74",
+            "blendshape76",
+            "blendshape78",
+            "blendshape80",
+            "blendshape82",
+            "blendshape84",
+            "geometry1",
+            "geometry3",
+            "geometry5",
+            "geometry7",
+            "geometry9",
+            "geometry11",
+            "geometry13",
+            "geometry15",
+            "geometry17",
+            "geometry19",
+            "geometry21",
+            "geometry23",
+            "geometry25",
+            "geometry27",
+            "geometry29",
+            "geometry31",
+            "geometry33",
+            "geometry35",
+            "geometry37",
+            "geometry39",
+            "geometry41",
+            "geometry43",
+            "geometry45",
+            "geometry47",
+            "geometry49",
+            "geometry51",
+            "geometry53",
+            "geometry55",
+            "lighting2",
+            "lighting4",
+            "lighting6",
+            "lighting8",
+            "lighting10",
+            "lighting12",
+            "lighting14",
+            "lighting16",
+            "lighting18",
+            "lighting20",
+            "lighting22",
+            "lighting24",
+            "lighting31",
+            "lighting33",
+            "lighting35",
+            "lighting37",
+            "lighting39",
+            "lighting41",
+            "lighting43",
+            "lighting45",
+            "lighting47",
+            "lighting49",
+            "material1",
+            "material3",
+            "material5",
+            "material7",
+            "material9",
+            "material11",
+            "material13",
+            "material15",
+            "material17",
+            "material19",
+            "material21",
+            "material23",
+            "material25",
+            "material27",
+            "material29",
+            "material31",
+            "material33",
+            "material35",
+            "material37",
+            "material39",
+            "material41",
+            "material43",
+            "material45",
+            "placement2",
+            "placement4",
+            "placement6",
+            "placement8",
+            "placement10",
+            "placement12",
+            "placement14",
+            "placement16",
+            "placement18",
+            "placement20",
+            "placement22",
+            "placement24",
+            "placement26",
+            "placement28",
+            "placement30",
+            "placement32",
+            "placement34",
+            "placement36",
+            "placement38",
+            "placement40",
+            "placement42",
+            "placement44",
+            "placement46",
+            "placement48",
+            "placement50"
+          ]
+        ],
+        "children": [
+          {
+            "pid": 1866008,
+            "gpu": "3",
+            "log": "/limx_embap/tos/user/Yaleon/projects/blender-research/eval-full-20261015/matrix/qwen3.6-27b-think/predictions/replica-runs/1866007/0.log",
+            "assigned_tasks": 118
+          },
+          {
+            "pid": 1866009,
+            "gpu": "0",
+            "log": "/limx_embap/tos/user/Yaleon/projects/blender-research/eval-full-20261015/matrix/qwen3.6-27b-think/predictions/replica-runs/1866007/1.log",
+            "assigned_tasks": 118
+          }
+        ],
+        "finished_unix": 1792020203.7633731,
+        "complete": true,
+        "returncodes": {
+          "1866008": 0,
+          "1866009": 0
+        }
+      }
+    ],
+    "complete_timing_coverage": false,
+    "generation_wall_seconds": null
+  }
+}

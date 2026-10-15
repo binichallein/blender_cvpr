@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "variant": "qwen3.6-27b-think",
+  "completed_tasks_preserved": 44,
+  "files_verified": 308,
+  "method": "SHA256 of all completed answer artifacts before and after replica continuation"
+}

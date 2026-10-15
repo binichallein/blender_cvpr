@@ -2,15 +2,29 @@
 
 Reproducible, non-agentic evaluation of Qwen vision-language models on BlenderGym.
 
-The initial experiment completed the fixed 50-task screen on ml2 with vLLM continuous batching. Qwen3-VL-8B-Instruct and Qwen3-VL-32B-Instruct each achieved 2/50 under the frozen derived visual-success rule. Neither reached the 11/50 gate, so that screening experiment did not expand to a full run.
+The full experiment is complete: six variants each generated fresh answers for all 280 released tasks on ml2, using vLLM continuous batching and a 32,768-token output budget including reasoning and final code.
 
-See the [full report, category breakdown and per-task results](results/2026-10-15-vllm/README.md). These are one-shot results under our calibrated rule, not an official BlenderGym binary score.
+| Model family | Non-thinking | Thinking |
+|---|---:|---:|
+| Qwen3-VL-8B | 12/277 (4.33%) | 12/277 (4.33%) |
+| Qwen3-VL-32B | 14/277 (5.05%) | 18/277 (6.50%) |
+| Qwen3.6-27B | 19/277 (6.86%) | 17/277 (6.14%) |
 
-See [the frozen protocol](docs/protocol.md), [fixed task selection and audits](docs/subset.json), and [running instructions](docs/run.md).
+These are one-shot success rates under the visual thresholds frozen before model evaluation, not an official BlenderGym binary score. Three tasks with identical start and goal programs are excluded consistently, leaving 277 scorable tasks. Truncation and execution failures remain in the denominator.
 
-A separate full-set experiment is now running on ml2: Qwen3-VL-8B and 32B (official Instruct and Thinking checkpoints), plus Qwen3.6-27B with native thinking enabled and disabled. All six variants receive 32,768 output tokens and all 280 tasks, without a screening gate. See the [full comparison plan](docs/full-thinking-plan.md) and [frozen configuration](docs/protocol-full-thinking.json). No results from this new experiment are claimed yet.
+See the [full report, category results, continuous PL/N-CLIP metrics, per-task CSV and audits](results/2026-10-15-full-thinking/README.md). The report also gives scores excluding calibration tasks and a separately labeled sensitivity analysis for reference-image inconsistencies.
+
+Qwen3-VL uses separate official Instruct and Thinking checkpoints. Qwen3.6-27B uses the same multimodal weights with native thinking disabled or enabled.
+
+Independent checks passed for all 1,680 input/output records and 1,505 scorable rendered predictions. Float64 pixel-loss recomputation reproduced every reported success decision. The 44 completed answers retained during replica continuation were unchanged across 308 checked files.
+
+See the [full comparison protocol and running notes](docs/full-thinking-plan.md) and [frozen configuration](docs/protocol-full-thinking.json). Raw responses, reasoning, scripts, rendered images, datasets and weights remain on ml2.
+
+The earlier greedy 8,192-token, 50-task screening experiment remains separate: Qwen3-VL-8B-Instruct and Qwen3-VL-32B-Instruct each achieved 2/50 and did not pass its 11/50 expansion gate. See the [original screening report](results/2026-10-15-vllm/README.md), [screening protocol](docs/protocol.md), [task selection](docs/subset.json), and [screening instructions](docs/run.md).
 
 ## Initial screening protocol
+
+Historical protocol for the first 50-task experiment; the subsequent full-evaluation request superseded its expansion gate.
 
 - One-shot image-conditioned editing of the complete starter Python program.
 - Identical scene-stratified subset: 10 tasks from each of five categories.

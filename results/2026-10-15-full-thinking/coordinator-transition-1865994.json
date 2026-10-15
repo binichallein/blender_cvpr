@@ -1,0 +1,11 @@
+{
+  "reason": "release_finished_replica_gpu_to_rendering",
+  "old_coordinator_pid": 1865994,
+  "inference_pids_preserved": {
+    "qwen3-vl-32b-think": 1863236,
+    "qwen3.6-27b-think": 1866007
+  },
+  "started_unix": 1792015160.1976085,
+  "new_coordinator_pid": 1871606,
+  "restarted_unix": 1792015161.205275
+}

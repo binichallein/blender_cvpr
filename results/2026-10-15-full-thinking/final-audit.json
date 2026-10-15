@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "protocol_sha256": "e9f25ac4c5e6ab9f82add567c192bd0ee666a1be998b9f1981c8a4453356bf7b",
+  "method": "independent float64 RGB MSE and binary decisions; input/output and execution provenance",
+  "variants": {
+    "qwen3-vl-8b-nothink": {
+      "tasks_checked": 280,
+      "predictions_recomputed": 271,
+      "successes_recomputed": 12,
+      "max_pixel_loss_difference": 3.7565363320002376e-08,
+      "max_reference_loss_difference": 3.428401418315019e-08
+    },
+    "qwen3-vl-8b-think": {
+      "tasks_checked": 280,
+      "predictions_recomputed": 238,
+      "successes_recomputed": 12,
+      "max_pixel_loss_difference": 2.788284861332535e-08,
+      "max_reference_loss_difference": 3.428401418315019e-08
+    },
+    "qwen3-vl-32b-nothink": {
+      "tasks_checked": 280,
+      "predictions_recomputed": 260,
+      "successes_recomputed": 14,
+      "max_pixel_loss_difference": 2.386047082136855e-08,
+      "max_reference_loss_difference": 3.428401418315019e-08
+    },
+    "qwen3-vl-32b-think": {
+      "tasks_checked": 280,
+      "predictions_recomputed": 235,
+      "successes_recomputed": 18,
+      "max_pixel_loss_difference": 2.7016800185908352e-08,
+      "max_reference_loss_difference": 3.428401418315019e-08
+    },
+    "qwen3.6-27b-nothink": {
+      "tasks_checked": 280,
+      "predictions_recomputed": 267,
+      "successes_recomputed": 19,
+      "max_pixel_loss_difference": 2.9150437175218258e-08,
+      "max_reference_loss_difference": 3.428401418315019e-08
+    },
+    "qwen3.6-27b-think": {
+      "tasks_checked": 280,
+      "predictions_recomputed": 234,
+      "successes_recomputed": 17,
+      "max_pixel_loss_difference": 1.3173494739504577e-08,
+      "max_reference_loss_difference": 3.428401418315019e-08
+    }
+  }
+}

@@ -1,0 +1,198 @@
+{
+  "qwen3-vl-8b-nothink": {
+    "tasks": 264,
+    "scorable_tasks": 261,
+    "invalid_data": [
+      {
+        "task": "blendshape73",
+        "reason": "identical_start_goal_program"
+      },
+      {
+        "task": "geometry13",
+        "reason": "identical_start_goal_program"
+      },
+      {
+        "task": "geometry44",
+        "reason": "identical_start_goal_program"
+      }
+    ],
+    "successes": 12,
+    "success_rate": 0.04597701149425287,
+    "rendered_tasks": 255,
+    "failures": {
+      "execution": 2,
+      "generation_or_parse": 4
+    },
+    "valid_only_mean": {
+      "pl": 0.027052262394092016,
+      "nclip": 0.05648681182097766
+    },
+    "start_mean": {
+      "pl": 0.03573594071116156,
+      "nclip": 0.06353033503581737
+    }
+  },
+  "qwen3-vl-8b-think": {
+    "tasks": 264,
+    "scorable_tasks": 261,
+    "invalid_data": [
+      {
+        "task": "blendshape73",
+        "reason": "identical_start_goal_program"
+      },
+      {
+        "task": "geometry13",
+        "reason": "identical_start_goal_program"
+      },
+      {
+        "task": "geometry44",
+        "reason": "identical_start_goal_program"
+      }
+    ],
+    "successes": 11,
+    "success_rate": 0.0421455938697318,
+    "rendered_tasks": 222,
+    "failures": {
+      "execution": 27,
+      "generation_or_parse": 12
+    },
+    "valid_only_mean": {
+      "pl": 0.021613530530967793,
+      "nclip": 0.05263108475072248
+    },
+    "start_mean": {
+      "pl": 0.03573594071116156,
+      "nclip": 0.06353033503581737
+    }
+  },
+  "qwen3-vl-32b-nothink": {
+    "tasks": 264,
+    "scorable_tasks": 261,
+    "invalid_data": [
+      {
+        "task": "blendshape73",
+        "reason": "identical_start_goal_program"
+      },
+      {
+        "task": "geometry13",
+        "reason": "identical_start_goal_program"
+      },
+      {
+        "task": "geometry44",
+        "reason": "identical_start_goal_program"
+      }
+    ],
+    "successes": 14,
+    "success_rate": 0.05363984674329502,
+    "rendered_tasks": 245,
+    "failures": {
+      "execution": 16
+    },
+    "valid_only_mean": {
+      "pl": 0.02130650295098906,
+      "nclip": 0.046174515072180296
+    },
+    "start_mean": {
+      "pl": 0.03573594071116156,
+      "nclip": 0.06353033503581737
+    }
+  },
+  "qwen3-vl-32b-think": {
+    "tasks": 264,
+    "scorable_tasks": 261,
+    "invalid_data": [
+      {
+        "task": "blendshape73",
+        "reason": "identical_start_goal_program"
+      },
+      {
+        "task": "geometry13",
+        "reason": "identical_start_goal_program"
+      },
+      {
+        "task": "geometry44",
+        "reason": "identical_start_goal_program"
+      }
+    ],
+    "successes": 18,
+    "success_rate": 0.06896551724137931,
+    "rendered_tasks": 219,
+    "failures": {
+      "execution": 37,
+      "generation_or_parse": 5
+    },
+    "valid_only_mean": {
+      "pl": 0.01463204503593926,
+      "nclip": 0.0393537832404199
+    },
+    "start_mean": {
+      "pl": 0.03573594071116156,
+      "nclip": 0.06353033503581737
+    }
+  },
+  "qwen3.6-27b-nothink": {
+    "tasks": 264,
+    "scorable_tasks": 261,
+    "invalid_data": [
+      {
+        "task": "blendshape73",
+        "reason": "identical_start_goal_program"
+      },
+      {
+        "task": "geometry13",
+        "reason": "identical_start_goal_program"
+      },
+      {
+        "task": "geometry44",
+        "reason": "identical_start_goal_program"
+      }
+    ],
+    "successes": 17,
+    "success_rate": 0.06513409961685823,
+    "rendered_tasks": 251,
+    "failures": {
+      "execution": 10
+    },
+    "valid_only_mean": {
+      "pl": 0.027995345233888927,
+      "nclip": 0.0477166883538602
+    },
+    "start_mean": {
+      "pl": 0.03573594071116156,
+      "nclip": 0.06353033503581737
+    }
+  },
+  "qwen3.6-27b-think": {
+    "tasks": 264,
+    "scorable_tasks": 261,
+    "invalid_data": [
+      {
+        "task": "blendshape73",
+        "reason": "identical_start_goal_program"
+      },
+      {
+        "task": "geometry13",
+        "reason": "identical_start_goal_program"
+      },
+      {
+        "task": "geometry44",
+        "reason": "identical_start_goal_program"
+      }
+    ],
+    "successes": 16,
+    "success_rate": 0.06130268199233716,
+    "rendered_tasks": 218,
+    "failures": {
+      "execution": 20,
+      "generation_or_parse": 23
+    },
+    "valid_only_mean": {
+      "pl": 0.020855890256741023,
+      "nclip": 0.04135878661174657
+    },
+    "start_mean": {
+      "pl": 0.03573594071116156,
+      "nclip": 0.06353033503581737
+    }
+  }
+}
